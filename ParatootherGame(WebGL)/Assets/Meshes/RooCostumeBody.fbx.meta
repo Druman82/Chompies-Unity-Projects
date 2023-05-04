@@ -1,0 +1,198 @@
+fileFormatVersion: 2
+guid: 7d04196ab46e75d4cba2ad76e487ad7e
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: 6700350750686341862
+    second: RooBody|BeerCanAction
+  - first:
+      74: -8973727534258224817
+    second: RooBody|Cube.018Action
+  - first:
+      74: 3263918873890800946
+    second: RooBody|Cube.031Action
+  - first:
+      74: -1789312956442515313
+    second: RooBody|CyberLightCubeWhite.001Action
+  - first:
+      74: -178421390030741086
+    second: RooBody|CyberLightCubeWhite.001Action.001
+  - first:
+      74: -4559818639340726937
+    second: RooBody|CyberLightCubeWhite.001Action.002
+  - first:
+      74: 1475209890235210521
+    second: RooBody|CyberLightCubeWhite.001Action.003
+  - first:
+      74: -1054016606180611316
+    second: RooBody|CyberLightCubeWhite.001Action.004
+  - first:
+      74: -1589804097771409015
+    second: RooBody|Cylinder.030Action
+  - first:
+      74: -7400827135573707786
+    second: RooBody|Cylinder.030Action.002
+  - first:
+      74: 3076437951202760848
+    second: RooBody|Cylinder.032Action
+  - first:
+      74: -7541186526773551250
+    second: RooBody|Cylinder.032Action.001
+  - first:
+      74: 6768990224703434678
+    second: RooBody|RooBodyAction
+  - first:
+      74: 2222058532912697280
+    second: RooBody|Sphere.005Action
+  - first:
+      74: -2988599517129755933
+    second: RooBody|Sphere.005Action.002
+  - first:
+      74: -8080426815029921058
+    second: RooBody|Sphere.005Action.004
+  - first:
+      74: 2660750946574640889
+    second: RooBody|Sphere.005Action.006
+  - first:
+      74: -7888013948929495736
+    second: RooBody|Sphere.005Action.008
+  - first:
+      74: -8500677715656500568
+    second: RooBody|Sphere.005Action.010
+  - first:
+      74: -7295418002840411903
+    second: RooBody|Sphere.007Action
+  - first:
+      74: -451700029103710165
+    second: RooBody|Sphere.008Action
+  - first:
+      74: -695070454535062686
+    second: RooBody|Sphere.011Action
+  - first:
+      74: 3268678234550753274
+    second: RooBody|Sphere.012Action
+  - first:
+      74: 6951557017288418036
+    second: RooBody|Sphere.018Action
+  - first:
+      74: 3041625036105357395
+    second: RooBody|Sphere.018Action.001
+  - first:
+      74: 2927450612867290586
+    second: RooBody|Sphere.018Action.002
+  - first:
+      74: -5842081135408750963
+    second: RooBody|Sphere.018Action.003
+  - first:
+      74: -7290745602096358012
+    second: RooBody|Sphere.018Action.004
+  - first:
+      74: 5815261353393290716
+    second: RooBody|Sphere.018Action.005
+  - first:
+      74: 8735691858963851645
+    second: RooBody|Torus.003Action
+  - first:
+      74: 8801750192659401170
+    second: RooBody|Torus.028Action
+  - first:
+      74: 4805887800265668428
+    second: RooBody|Wings
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

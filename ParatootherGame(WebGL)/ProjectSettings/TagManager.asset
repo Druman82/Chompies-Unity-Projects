@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - killbox
+  - background
+  - house
+  - FloatingPlatform
+  - HotAirBalloon
+  - Bubblegum
+  - bubble
+  - bee
+  - FlickeringLight
+  - DayLight
+  - Helmet
+  - Samuria
+  - Turtle
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Bed
+  - Water
+  - UI
+  - Ground
+  - Killbox
+  - Coin
+  - Parachute
+  - background
+  - 3DGlasses
+  - Wearable
+  - House
+  - $FRG
+  - Open
+  - Close
+  - Rocket
+  - Jetpack
+  - Hoverboard
+  - CrownCoin
+  - PostProcessing
+  - Pipe
+  - NinjaStar
+  - PipeScore
+  - TurtleShell
+  - Ladder
+  - Battery
+  - Spaceship
+  - Portal
+  - Pillow
+  - OpenHouse
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

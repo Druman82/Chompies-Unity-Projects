@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 82de928083379404fa2b81d204629201
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: -2953850310338589484
+    second: Torus.029|BeerCanAction
+  - first:
+      74: -8944956659124913518
+    second: Torus.029|Cube.018Action
+  - first:
+      74: -1912117507020400419
+    second: Torus.029|Cube.031Action
+  - first:
+      74: -2238123951852287553
+    second: Torus.029|Cube.034Action
+  - first:
+      74: 4891094696417157522
+    second: Torus.029|Cube.034Action.001
+  - first:
+      74: -5762925913832557398
+    second: Torus.029|Cube.034Action.002
+  - first:
+      74: -8185402107525151905
+    second: Torus.029|CyberLightCubeWhite.001Action
+  - first:
+      74: 588039342507282489
+    second: Torus.029|Cylinder.030Action
+  - first:
+      74: 5525006167709735978
+    second: Torus.029|Cylinder.030Action.002
+  - first:
+      74: -8535226992120534676
+    second: Torus.029|Cylinder.032Action
+  - first:
+      74: 2652092569980782731
+    second: Torus.029|Cylinder.032Action.001
+  - first:
+      74: -4091277283223099983
+    second: Torus.029|RooBodyAction
+  - first:
+      74: -993581518226484648
+    second: Torus.029|RooBodyAction.001
+  - first:
+      74: -4314574662237149063
+    second: Torus.029|Sphere.005Action
+  - first:
+      74: -2271484514570991254
+    second: Torus.029|Sphere.005Action.002
+  - first:
+      74: -2242017183364177509
+    second: Torus.029|Sphere.005Action.004
+  - first:
+      74: -7358941587543119803
+    second: Torus.029|Sphere.005Action.006
+  - first:
+      74: -8079201460223955709
+    second: Torus.029|Sphere.005Action.008
+  - first:
+      74: 6269364363058044468
+    second: Torus.029|Sphere.005Action.010
+  - first:
+      74: 7751840098993739337
+    second: Torus.029|Sphere.007Action
+  - first:
+      74: -598006604609072897
+    second: Torus.029|Sphere.008Action
+  - first:
+      74: -5107170538105694573
+    second: Torus.029|Sphere.011Action
+  - first:
+      74: 6471364838678657859
+    second: Torus.029|Sphere.012Action
+  - first:
+      74: -8995294215839570607
+    second: Torus.029|Torus.003Action
+  - first:
+      74: -4564075788509137093
+    second: Torus.029|Torus.028Action
+  - first:
+      74: -6813965886555969740
+    second: Torus.029|Torus.029Action
+  - first:
+      74: 400146036927773949
+    second: Torus.029|Wings
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

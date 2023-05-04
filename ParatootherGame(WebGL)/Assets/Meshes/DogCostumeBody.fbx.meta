@@ -1,0 +1,184 @@
+fileFormatVersion: 2
+guid: 929983725b7c38748a11d8915e25576f
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: 1043876429277438195
+    second: CoolDogsBody|BeerCanAction
+  - first:
+      74: -707279563611247345
+    second: CoolDogsBody|Cube.018Action
+  - first:
+      74: 7901456758048556422
+    second: CoolDogsBody|Cube.031Action
+  - first:
+      74: -8874912979585015601
+    second: CoolDogsBody|Cube.034Action
+  - first:
+      74: -3951615207805338615
+    second: CoolDogsBody|Cube.034Action.001
+  - first:
+      74: 2307404112661991362
+    second: CoolDogsBody|Cube.034Action.002
+  - first:
+      74: -7868531124036325418
+    second: CoolDogsBody|CyberLightCubeWhite.001Action
+  - first:
+      74: -8656946975789426816
+    second: CoolDogsBody|Cylinder.030Action
+  - first:
+      74: -8536089187609387063
+    second: CoolDogsBody|Cylinder.030Action.002
+  - first:
+      74: -8629933578959193341
+    second: CoolDogsBody|Cylinder.032Action
+  - first:
+      74: -5520007930306309338
+    second: CoolDogsBody|Cylinder.032Action.001
+  - first:
+      74: 9222122409896757071
+    second: CoolDogsBody|RooBodyAction
+  - first:
+      74: 7795331847452041319
+    second: CoolDogsBody|RooBodyAction.001
+  - first:
+      74: -155449292739121418
+    second: CoolDogsBody|Sphere.005Action
+  - first:
+      74: 7777723981760713288
+    second: CoolDogsBody|Sphere.005Action.002
+  - first:
+      74: 8630208319369964502
+    second: CoolDogsBody|Sphere.005Action.004
+  - first:
+      74: 4572154471899617629
+    second: CoolDogsBody|Sphere.005Action.006
+  - first:
+      74: -8430127801388218722
+    second: CoolDogsBody|Sphere.005Action.008
+  - first:
+      74: 4069429328513957296
+    second: CoolDogsBody|Sphere.005Action.010
+  - first:
+      74: -1149273617309016685
+    second: CoolDogsBody|Sphere.007Action
+  - first:
+      74: -7811266931560571019
+    second: CoolDogsBody|Sphere.008Action
+  - first:
+      74: 623404539942551469
+    second: CoolDogsBody|Sphere.011Action
+  - first:
+      74: -8148708579466966090
+    second: CoolDogsBody|Sphere.012Action
+  - first:
+      74: -2435315003545192926
+    second: CoolDogsBody|Torus.003Action
+  - first:
+      74: -8606523195464967634
+    second: CoolDogsBody|Torus.028Action
+  - first:
+      74: 1130195238172319321
+    second: CoolDogsBody|Wings
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

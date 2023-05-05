@@ -1139,12 +1139,15 @@ public class Player : MonoBehaviour
             }
             theScoreManager.AddScore(scoreToGive * 5);
             Settings.hoverboard = true;
-            gravity = 0;
-            velocity.y = 1;
-            hoverboard.gameObject.SetActive(true);
-            hoverboardCount++;
-            StartCoroutine("Hover1");
-            StartCoroutine("PulseParachute");
+            if (Settings.portal == false)
+            {
+                gravity = 0;
+                velocity.y = 1;
+                hoverboard.gameObject.SetActive(true);
+                hoverboardCount++;
+                StartCoroutine("Hover1");
+                StartCoroutine("PulseParachute");
+            }
         }
 
         //CrownCoin pickup
@@ -1354,6 +1357,7 @@ public class Player : MonoBehaviour
         if(other.gameObject.layer == 29)
         {
             CameraFollow.portal = true;
+            Settings.hoverboard = false;
             Settings.spaceshipStart = false;
             Settings.hotAirBalloonStart = false;
             portal = true;
@@ -1494,15 +1498,15 @@ public class Player : MonoBehaviour
                 if (Settings.thePlague == true)
                 {
                     playfabManager.SendThePlagueLeaderboard(Settings.points);
-                }                
-
+                }   
+                else if (Settings.apeGang == false && Settings.brawlerBears == false && Settings.cryptoDads == false && Settings.gamingApeClub == false && Settings.spaceRiders == false && Settings.tacoTribe == false && Settings.thePlague == false)
+                {
+                    playfabManager.SendLeaderboard(Settings.points);
+                }
                 playfabManager.SaveTotalPoints();
                 playfabManager.SaveCoins();
                 playfabManager.SaveParachute();
-                playfabManager.SendLeaderboard(Settings.points);
-
             }
-            
         }
     }
     private IEnumerator Pulse()

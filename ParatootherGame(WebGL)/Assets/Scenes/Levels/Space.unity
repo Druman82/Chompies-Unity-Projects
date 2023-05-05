@@ -5163,11 +5163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7630530748897361717, guid: 193b30eff08d44841a6ea5602f728148, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.65
+      value: 7.89
       objectReference: {fileID: 0}
     - target: {fileID: 7630530748897361717, guid: 193b30eff08d44841a6ea5602f728148, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.06
+      value: 1.34
       objectReference: {fileID: 0}
     - target: {fileID: 7630530748897361717, guid: 193b30eff08d44841a6ea5602f728148, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19550,7 +19550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &716629195
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42162,6 +42162,7 @@ MonoBehaviour:
   usernameInput: {fileID: 0}
   passwordInput: {fileID: 0}
   mainMenu: 
+  houseMenu: 
   recipientEmail: {fileID: 0}
   crypto: {fileID: 0}
   rememberMe: {fileID: 0}

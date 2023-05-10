@@ -73,7 +73,7 @@ public class Settings : MonoBehaviour
     public static int alternateSpaceTog;
     public static bool samuriaTog;
     public static bool turtleTog;
-    public static int target;
+    public static int target = 1;
     public static bool samuria;
     public static bool samuriaActivated;
     public static bool roo;
@@ -340,7 +340,7 @@ public class Settings : MonoBehaviour
                 StartCoroutine("AlternateSpace");
             }
         }
-
+        /*
         //Among/Bear/GAC/Dad
         if (among == false && bear == false && gac == false && dad == false)
         {
@@ -361,7 +361,7 @@ public class Settings : MonoBehaviour
         else if (among == false && bear == false && gac == false && dad == true)
         {
             target = 5;
-        }
+        }*/
 
 
 

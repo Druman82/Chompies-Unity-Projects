@@ -17,6 +17,9 @@ TagManager:
   - Helmet
   - Samuria
   - Turtle
+  - CharacterSelector
+  - PickUp
+  - Selectable
   layers:
   - Default
   - TransparentFX

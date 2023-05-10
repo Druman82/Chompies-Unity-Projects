@@ -50,31 +50,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Recks.unity
     guid: f8717b974fdac6a4686dc95f442d9732
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Leaderboards/TeamLeaderboard.unity
     guid: 16739c2b0cd980a4e863d7bc217af724
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Leaderboards/ApeGangLeaderboard.unity
     guid: 31ab3d5b393fbed4ebb0982059bbf4cc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Leaderboards/BrawlerBearsLeaderboard.unity
     guid: 27cce976cc9f3ca4fb15a4738ef20dd3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Leaderboards/CryptoDadsLeaderboard.unity
     guid: 8e012bc9cf157094eac9ebe8e06409cc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Leaderboards/GamingApeClubLeaderboard.unity
     guid: f6557c6e5c42edb4ca3e5aac4689f37c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Leaderboards/HikeshiLeaderBoard.unity
     guid: b349f976925d5774b86a9986d7752d74
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Leaderboards/SpaceRidersLeaderboard.unity
     guid: 9d118a8b71140d545bd2c1fd137cc1e1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Leaderboards/TacoTribeLeaderboard.unity
     guid: c85f25e4be21ad442ad7f7ae09e670cf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Leaderboards/ThePlagueLeaderboard.unity
     guid: db88582d59bdb50469003045f03b9ec3
   m_configObjects: {}

@@ -11,11 +11,12 @@ public class CameraFoll : MonoBehaviour
 
     float xRotation;
     float yRotation;
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
 
     // Update is called once per frame

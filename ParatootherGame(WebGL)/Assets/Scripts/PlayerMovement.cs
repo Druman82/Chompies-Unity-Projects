@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
 
+    [SerializeField] private FixedJoystick _joystick;
+
+    [SerializeField] private float _moveSpeed;
     public Transform orientation;
 
     float horizontalInput;
@@ -29,6 +32,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        rb.velocity = new Vector3(_joystick.Horizontal * _moveSpeed, rb.velocity.y, _joystick.Vertical * _moveSpeed);
+        if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
+        {
+            transform.rotation = Quaternion.LookRotation(rb.velocity);
+        }
         MovePlayer();
     }
 
@@ -42,6 +50,6 @@ public class PlayerMovement : MonoBehaviour
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        rb.AddForce(moveDirection.normalized * moveSpeed * 100f, ForceMode.Force);
     }
 }

@@ -17,10 +17,11 @@ public class CastingToObject : MonoBehaviour
     [SerializeField] public Transform samurai;
     public AudioSource selectSound;
 
-
     void Start()
     {
         mainMenu = FindObjectOfType<MainMenu>();
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     void Update()
@@ -31,6 +32,12 @@ public class CastingToObject : MonoBehaviour
             internalObject = theObject.transform.gameObject.name;
             internalObject.ToString();
         }
+        /*
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        {
+            mouseX = Input.GetTouch(0).deltaPosition.x;
+            mouseY = Input.GetTouch(0).deltaPosition.y;
+        }*/
 
         if (Input.GetMouseButtonDown(0))
         {

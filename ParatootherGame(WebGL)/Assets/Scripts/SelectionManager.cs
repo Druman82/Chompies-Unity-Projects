@@ -31,7 +31,6 @@ public class SelectionManager : MonoBehaviour
                 {
                     selectionRenderer.material = highlightMaterial;
                 }
-
                 _selection = selection;
             }
         }

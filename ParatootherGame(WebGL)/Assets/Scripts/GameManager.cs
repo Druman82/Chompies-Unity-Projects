@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public Player bearPlayer;
     public Player gacPlayer;
     public Player dadPlayer;
+    public Player plaguePlayer;
     private Vector3 playerStartPoint;
     private PlatformDestroyer[] platformList;
     private CloudDestroyer[] cloudList;
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
         bearPlayer.gameObject.SetActive(false);
         gacPlayer.gameObject.SetActive(false);
         dadPlayer.gameObject.SetActive(false);
+        plaguePlayer.gameObject.SetActive(false);
         theDeathScreen.gameObject.SetActive(true);
     }
 
@@ -121,6 +123,7 @@ public class GameManager : MonoBehaviour
         bearPlayer.transform.position = playerStartPoint;
         gacPlayer.transform.position = playerStartPoint;
         dadPlayer.transform.position = playerStartPoint;
+        plaguePlayer.transform.position = playerStartPoint;
         platformGenerator.position = platformStartPoint;
         cloudGenerator.position = cloudStartPoint;
         if (Settings.none == true || Settings.roo == true || Settings.turtle == true || Settings.samuria == true)
@@ -143,28 +146,36 @@ public class GameManager : MonoBehaviour
         {
             dadPlayer.gameObject.SetActive(true);
         }
+        if (Settings.recksFrog == true)
+        {
+            plaguePlayer.gameObject.SetActive(true);
+        }
         thePlayer.parachute.gameObject.SetActive(false);
         amongPlayer.parachute.gameObject.SetActive(false);
         bearPlayer.parachute.gameObject.SetActive(false);
         gacPlayer.parachute.gameObject.SetActive(false);
         dadPlayer.parachute.gameObject.SetActive(false);
+        plaguePlayer.parachute.gameObject.SetActive(false);
         thePlayer.jumpHeight = 2f;
         amongPlayer.jumpHeight = 2f;
         bearPlayer.jumpHeight = 2f;
         gacPlayer.jumpHeight = 2f;
         dadPlayer.jumpHeight = 2f;
-        if (Settings.none == true || Settings.roo == true || Settings.turtle == true || Settings.gac == true || Settings.samuria == true || Settings.among == true || Settings.bear == true || Settings.dad == true)
+        plaguePlayer.jumpHeight = 2f;
+        if (Settings.none == true || Settings.roo == true || Settings.turtle == true || Settings.gac == true || Settings.samuria == true || Settings.among == true || Settings.bear == true || Settings.dad == true || Settings.recksFrog == true)
         {
             thePlayer.footR.gameObject.SetActive(false);
             amongPlayer.footR.gameObject.SetActive(false);
             bearPlayer.footR.gameObject.SetActive(false);
             gacPlayer.footR.gameObject.SetActive(false);
             dadPlayer.footR.gameObject.SetActive(false);
+            plaguePlayer.footR.gameObject.SetActive(false);
             thePlayer.footL.gameObject.SetActive(false);
             amongPlayer.footL.gameObject.SetActive(false);
             bearPlayer.footL.gameObject.SetActive(false);
             gacPlayer.footL.gameObject.SetActive(false);
             dadPlayer.footL.gameObject.SetActive(false);
+            plaguePlayer.footL.gameObject.SetActive(false);
             thePlayer.frogCostume.gameObject.SetActive(false);
             if (Settings.samuria == true)
             {
@@ -184,6 +195,7 @@ public class GameManager : MonoBehaviour
             bearPlayer.bee.gameObject.SetActive(false);
             gacPlayer.bee.gameObject.SetActive(false);
             dadPlayer.bee.gameObject.SetActive(false);
+            plaguePlayer.bee.gameObject.SetActive(false);
         }
         rocketText.gameObject.SetActive(false);
         ninjaStarText.gameObject.SetActive(false);
@@ -245,6 +257,7 @@ public class GameManager : MonoBehaviour
         bearPlayer.velocity.y = 0;
         gacPlayer.velocity.y = 0;
         dadPlayer.velocity.y = 0;
+        plaguePlayer.velocity.y = 0;
         CameraFollow.jetpack = false;
         CameraFollow.up = 0;
         CameraFollow.portal = false;

@@ -66,7 +66,7 @@ public class PlayerControl : MonoBehaviour
 
         if (isGrounded)
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetButtonDown("Jump"))
             {
                 Jump();
             }
@@ -79,7 +79,7 @@ public class PlayerControl : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    private void Jump()
+    public void Jump()
     {
         velocity.y = Mathf.Sqrt(jumpHeight * -gravity);
     }

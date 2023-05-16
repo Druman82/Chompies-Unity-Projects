@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
     [SerializeField] public Transform bearPlayer;
     [SerializeField] public Transform gacPlayer;
     [SerializeField] public Transform dadPlayer;
+    [SerializeField] public Transform plaguePlayer;
 
     public float gravity;
     private CharacterController characterController;
@@ -224,6 +225,7 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(false);
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
+            plaguePlayer.gameObject.SetActive(false);
         }
 
 
@@ -237,6 +239,7 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(false);
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
+            plaguePlayer.gameObject.SetActive(false);
         }
 
         if (Settings.among == true)
@@ -246,6 +249,7 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(false);
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
+            plaguePlayer.gameObject.SetActive(false);
         }
         else if (Settings.among == false && Settings.none == true)
         {
@@ -254,6 +258,7 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(false);
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
+            plaguePlayer.gameObject.SetActive(false);
         }
         else if (Settings.bear == true && Settings.among == false && Settings.none == false)
         {
@@ -262,6 +267,7 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(true);
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
+            plaguePlayer.gameObject.SetActive(false);
         }
         else if (Settings.bear == false && Settings.among == false && Settings.none == false && Settings.gac == true)
         {
@@ -270,6 +276,7 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(false);
             gacPlayer.gameObject.SetActive(true);
             dadPlayer.gameObject.SetActive(false);
+            plaguePlayer.gameObject.SetActive(false);
         }
         else if (Settings.bear == false && Settings.among == false && Settings.none == false && Settings.gac == false && Settings.dad == true)
         {
@@ -278,6 +285,16 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(false);
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(true);
+            plaguePlayer.gameObject.SetActive(false);
+        }
+        else if (Settings.bear == false && Settings.among == false && Settings.none == false && Settings.gac == false && Settings.dad == false && Settings.recksFrog == true)
+        {
+            player.gameObject.SetActive(false);
+            amongPlayer.gameObject.SetActive(false);
+            bearPlayer.gameObject.SetActive(false);
+            gacPlayer.gameObject.SetActive(false);
+            dadPlayer.gameObject.SetActive(false);
+            plaguePlayer.gameObject.SetActive(true);
         }
 
         characterController = GetComponent<CharacterController>();

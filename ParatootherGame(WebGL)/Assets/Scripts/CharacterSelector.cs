@@ -21,6 +21,10 @@ public class CharacterSelector : MonoBehaviour
     public GameObject rooTextDeselected;
     public GameObject roo;
     public GameObject rooDeselected;
+    public GameObject plagueText;
+    public GameObject plagueTextDeselected;
+    public GameObject plague;
+    public GameObject plagueDeselected;
     public GameObject turtleText;
     public GameObject turtleTextDeselected;
     public GameObject turtle;
@@ -59,6 +63,10 @@ public class CharacterSelector : MonoBehaviour
             content.transform.position = new Vector3(800, 3.1f, transform.position.z);
         }
         else if (Settings.roo == true)
+        {
+            content.transform.position = new Vector3(800,3.1f, transform.position.z);
+        }
+        else if (Settings.recksFrog == true)
         {
             content.transform.position = new Vector3(800,3.1f, transform.position.z);
         }
@@ -137,6 +145,10 @@ public class CharacterSelector : MonoBehaviour
             rooDeselected.SetActive(true);
             rooText.SetActive(false);
             rooTextDeselected.SetActive(true);
+            plague.SetActive(false);
+            plagueDeselected.SetActive(true);
+            plagueText.SetActive(false);
+            plagueTextDeselected.SetActive(true);
             bear.SetActive(false);
             bearDeselected.SetActive(true);
             bearText.SetActive(false);
@@ -179,6 +191,56 @@ public class CharacterSelector : MonoBehaviour
             rooDeselected.SetActive(false);
             rooText.SetActive(true);
             rooTextDeselected.SetActive(false);
+            plague.SetActive(false);
+            plagueDeselected.SetActive(true);
+            plagueText.SetActive(false);
+            plagueTextDeselected.SetActive(true);
+            bear.SetActive(false);
+            bearDeselected.SetActive(true);
+            bearText.SetActive(false);
+            bearTextDeselected.SetActive(true);
+            gac.SetActive(false);
+            gacDeselected.SetActive(true);
+            gacText.SetActive(false);
+            gacTextDeselected.SetActive(true);
+            dad.SetActive(false);
+            dadDeselected.SetActive(true);
+            dadText.SetActive(false);
+            dadTextDeselected.SetActive(true);
+            if (Settings.turtleActivated == true)
+            {
+                turtleDeselected.SetActive(true);
+                turtle.SetActive(false);
+                turtleTextDeselected.SetActive(true);
+                turtleText.SetActive(false);
+            }
+            among.SetActive(false);
+            amongDeselected.SetActive(true);
+            amongText.SetActive(false);
+            amongTextDeselected.SetActive(true);
+            if (Settings.samuriaActivated == true)
+            {
+                samuriaDeselected.SetActive(true);
+                samuria.SetActive(false);
+                samuriaTextDeselected.SetActive(true);
+                samuriaText.SetActive(false);
+            }
+            none.SetActive(false);
+            noneDeselected.SetActive(true);
+            noneText.SetActive(false);
+            noneTextDeselected.SetActive(true);
+        }
+        
+        else if (Settings.recksFrog == true)
+        {
+            roo.SetActive(false);
+            rooDeselected.SetActive(true);
+            rooText.SetActive(false);
+            rooTextDeselected.SetActive(true);
+            plague.SetActive(true);
+            plagueDeselected.SetActive(false);
+            plagueText.SetActive(true);
+            plagueTextDeselected.SetActive(false);
             bear.SetActive(false);
             bearDeselected.SetActive(true);
             bearText.SetActive(false);
@@ -217,6 +279,10 @@ public class CharacterSelector : MonoBehaviour
 
         else if (Settings.turtle == true)
         {
+            plague.SetActive(false);
+            plagueDeselected.SetActive(true);
+            plagueText.SetActive(false);
+            plagueTextDeselected.SetActive(true);
             turtle.SetActive(true);
             turtleDeselected.SetActive(false);
             turtleText.SetActive(true);
@@ -252,6 +318,10 @@ public class CharacterSelector : MonoBehaviour
 
         else if (Settings.bear == true)
         {
+            plague.SetActive(false);
+            plagueDeselected.SetActive(true);
+            plagueText.SetActive(false);
+            plagueTextDeselected.SetActive(true);
             bear.SetActive(true);
             bearDeselected.SetActive(false);
             bearText.SetActive(true);
@@ -294,6 +364,10 @@ public class CharacterSelector : MonoBehaviour
 
         else if (Settings.gac == true)
         {
+            plague.SetActive(false);
+            plagueDeselected.SetActive(true);
+            plagueText.SetActive(false);
+            plagueTextDeselected.SetActive(true);
             bear.SetActive(false);
             bearDeselected.SetActive(true);
             bearText.SetActive(false);
@@ -336,6 +410,10 @@ public class CharacterSelector : MonoBehaviour
         
         else if (Settings.dad == true)
         {
+            plague.SetActive(false);
+            plagueDeselected.SetActive(true);
+            plagueText.SetActive(false);
+            plagueTextDeselected.SetActive(true);
             bear.SetActive(false);
             bearDeselected.SetActive(true);
             bearText.SetActive(false);
@@ -378,7 +456,10 @@ public class CharacterSelector : MonoBehaviour
 
         else if (Settings.among == true)
         {
-            
+            plague.SetActive(false);
+            plagueDeselected.SetActive(true);
+            plagueText.SetActive(false);
+            plagueTextDeselected.SetActive(true);
             bear.SetActive(false);
             bearDeselected.SetActive(true);
             bearText.SetActive(false);
@@ -421,7 +502,10 @@ public class CharacterSelector : MonoBehaviour
         
         else if (Settings.samuria == true)
         {
-            
+            plague.SetActive(false);
+            plagueDeselected.SetActive(true);
+            plagueText.SetActive(false);
+            plagueTextDeselected.SetActive(true);
             bear.SetActive(false);
             bearDeselected.SetActive(true);
             bearText.SetActive(false);
@@ -464,96 +548,126 @@ public class CharacterSelector : MonoBehaviour
     {
         Settings.none = true;
         Settings.roo = false;
+        Settings.recksFrog = false;
         Settings.bear = false;
         Settings.turtle = false;
         Settings.gac = false;
         Settings.dad = false;
         Settings.among = false;
         Settings.samuria = false;
+        Settings.target = 1;
     }
 
     public void Roo()
     {
         Settings.none = false;
         Settings.roo = true;
+        Settings.recksFrog = false;
         Settings.bear = false;
         Settings.turtle = false;
         Settings.gac = false;
         Settings.dad = false;
         Settings.among = false;
         Settings.samuria = false;
+        Settings.target = 1;
+    }
+
+    public void Plague()
+    {
+        Settings.none = false;
+        Settings.roo = false;
+        Settings.recksFrog = true;
+        Settings.bear = false;
+        Settings.turtle = false;
+        Settings.gac = false;
+        Settings.dad = false;
+        Settings.among = false;
+        Settings.samuria = false;
+        Settings.target = 6;
     }
 
     public void Turtle()
     {
         Settings.none = false;
         Settings.roo = false;
+        Settings.recksFrog = false;
         Settings.bear = false;
         Settings.turtle = true;
         Settings.gac = false;
         Settings.dad = false;
         Settings.among = false;
         Settings.samuria = false;
+        Settings.target = 1;
     }
 
     public void Bear()
     {
         Settings.none = false;
         Settings.roo = false;
+        Settings.recksFrog = false;
         Settings.bear = true;
         Settings.turtle = false;
         Settings.gac = false;
         Settings.dad = false;
         Settings.among = false; 
         Settings.samuria = false;
+        Settings.target = 3;
     }
-    
+
     public void GAC()
     {
         Settings.none = false;
         Settings.roo = false;
+        Settings.recksFrog = false;
         Settings.bear = false;
         Settings.turtle = false;
         Settings.gac = true;
         Settings.dad = false;
         Settings.among = false; 
         Settings.samuria = false;
+        Settings.target = 4;
     }
-    
+
     public void Dad()
     {
         Settings.none = false;
         Settings.roo = false;
+        Settings.recksFrog = false;
         Settings.bear = false;
         Settings.turtle = false;
         Settings.gac = false;
         Settings.dad = true;
         Settings.among = false; 
         Settings.samuria = false;
+        Settings.target = 5;
     }
 
     public void Among()
     {
         Settings.none = false;
         Settings.roo = false;
+        Settings.recksFrog = false;
         Settings.bear = false;
         Settings.turtle = false;
         Settings.gac = false;
         Settings.dad = false;
         Settings.among = true;
         Settings.samuria = false;
+        Settings.target = 2;
     }
 
     public void Samuria()
     {
         Settings.none = false;
         Settings.roo = false;
+        Settings.recksFrog = false;
         Settings.bear = false;
         Settings.turtle = false;
         Settings.gac = false;
         Settings.dad = false;
         Settings.among = false;
         Settings.samuria = true;
+        Settings.target = 1;
     }
 
     public void GetCharacters()

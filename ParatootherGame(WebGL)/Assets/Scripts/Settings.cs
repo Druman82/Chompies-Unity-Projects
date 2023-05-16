@@ -73,7 +73,7 @@ public class Settings : MonoBehaviour
     public static int alternateSpaceTog;
     public static bool samuriaTog;
     public static bool turtleTog;
-    public static int target = 1;
+    public static int target;
     public static bool samuria;
     public static bool samuriaActivated;
     public static bool roo;
@@ -81,6 +81,7 @@ public class Settings : MonoBehaviour
     public static bool gac;
     public static bool dad;
     public static bool frog;
+    public static bool recksFrog;
     public static bool turtle;
     public static bool turtleActivated;
     public static bool among;

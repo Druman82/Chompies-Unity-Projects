@@ -1213,7 +1213,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 25)
         {
             other.gameObject.SetActive(false);
-            if (Settings.none == true || Settings.bear == true || Settings.gac == true || Settings.dad == true)
+            if (Settings.none == true || Settings.bear == true || Settings.gac == true || Settings.dad == true || Settings.recksFrog == true)
             {
                 turtleShell.gameObject.SetActive(true);
                 mask.gameObject.SetActive(false);
@@ -1250,7 +1250,7 @@ public class Player : MonoBehaviour
             if (Settings.turtleTog == false && CharacterSelector.turtleGet == null)
             {
                 other.gameObject.SetActive(false);
-                if (Settings.none == true || Settings.bear == true || Settings.gac == true || Settings.dad == true)
+                if (Settings.none == true || Settings.bear == true || Settings.gac == true || Settings.dad == true || Settings.recksFrog == true)
                 {
                     turtleShell.gameObject.SetActive(true);
                     mask.gameObject.SetActive(false);
@@ -1273,7 +1273,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                if (Settings.none == true || Settings.bear == true || Settings.gac == true || Settings.dad == true)
+                if (Settings.none == true || Settings.bear == true || Settings.gac == true || Settings.dad == true || Settings.recksFrog == true)
                 {
                     turtleShell.gameObject.SetActive(true);
                     mask.gameObject.SetActive(false);

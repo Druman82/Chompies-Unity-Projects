@@ -40,7 +40,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsGrounded
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: VerticleSpeed
+    m_ConditionEvent: VerticalSpeed
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2407238179551794374}
@@ -108,7 +108,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Speed
     m_Mirror: 0
-  m_BlendParameter: VerticleSpeed
+  m_BlendParameter: VerticalSpeed
   m_BlendParameterY: Speed
   m_MinThreshold: -2
   m_MaxThreshold: 2
@@ -164,7 +164,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: VerticleSpeed
+  - m_Name: VerticalSpeed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -277,7 +277,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsGrounded
     m_EventTreshold: 0
   - m_ConditionMode: 4
-    m_ConditionEvent: VerticleSpeed
+    m_ConditionEvent: VerticalSpeed
     m_EventTreshold: -20
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2407238179551794374}

@@ -68,7 +68,7 @@ public class CharacterSelector : MonoBehaviour
         }
         else if (Settings.recksFrog == true)
         {
-            content.transform.position = new Vector3(800,3.1f, transform.position.z);
+            content.transform.position = new Vector3(-2800,3.1f, transform.position.z);
         }
         else if (Settings.turtle == true)
         {

@@ -177,6 +177,7 @@ public class GameManager : MonoBehaviour
             dadPlayer.footL.gameObject.SetActive(false);
             plaguePlayer.footL.gameObject.SetActive(false);
             thePlayer.frogCostume.gameObject.SetActive(false);
+            plaguePlayer.frogCostume.gameObject.SetActive(false);
             if (Settings.samuria == true)
             {
                 thePlayer.samuriaLegL.gameObject.SetActive(true);

@@ -8,6 +8,8 @@ public class Bee : MonoBehaviour
     [SerializeField] private Transform target2 = null;
     [SerializeField] private Transform target3 = null;
     [SerializeField] private Transform target4 = null;
+    [SerializeField] private Transform target5 = null;
+    [SerializeField] private Transform target6 = null;
     private Transform target;
 
     private Vector3 offset;
@@ -30,6 +32,14 @@ public class Bee : MonoBehaviour
         else if (Settings.target == 4)
         {
             target = target4;
+        }
+        else if (Settings.target == 5)
+        {
+            target = target5;
+        }
+        else if (Settings.target == 6)
+        {
+            target = target6;
         }
         offset = transform.position - target.position;
     }

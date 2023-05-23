@@ -26268,7 +26268,7 @@ MonoBehaviour:
   randomTurtleShellThreshold: 0
   randomBatteryThreshold: 0
   randomSpaceshipThreshold: 0
-  randomPortalThreshold: 1
+  randomPortalThreshold: 2
   randomPillowThreshold: 0
   randomBedThreshold: 0
   randomBubblegumThreshold: 0
@@ -38490,7 +38490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2802248583187982034, guid: ef7cfff54ca95814f8561792ce85aa0a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3289957120001358952, guid: ef7cfff54ca95814f8561792ce85aa0a, type: 3}
       propertyPath: m_RootOrder

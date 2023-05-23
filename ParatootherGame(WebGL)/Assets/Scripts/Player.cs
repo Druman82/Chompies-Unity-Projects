@@ -1383,7 +1383,7 @@ public class Player : MonoBehaviour
             {
                 portalSound.Play();
             }
-            randomizer = Random.Range(0, 5);
+            randomizer = 1;// Random.Range(0, 5);
             StartCoroutine("Randomizer");
         }
 

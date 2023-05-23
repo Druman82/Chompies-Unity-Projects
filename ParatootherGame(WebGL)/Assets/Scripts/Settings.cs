@@ -73,7 +73,7 @@ public class Settings : MonoBehaviour
     public static int alternateSpaceTog;
     public static bool samuriaTog;
     public static bool turtleTog;
-    public static int target;
+    public static int target = 1;
     public static bool samuria;
     public static bool samuriaActivated;
     public static bool roo;
@@ -579,21 +579,38 @@ public class Settings : MonoBehaviour
         {
             jetpack = true;
         }
+        else
+        {
+            jetpack = false;
+        }
 
         if (ninjaStarCount >= 4)
         {
             turtleShell = true;
+        }
+        else
+        {
+            turtleShell = false;
         }
 
         if (batteryCount >= 4)
         {
             helmet = true;
         }
+        else
+        {
+            helmet = false;
+        }
 
         if (pillowCount >= 5)
         {
             bed = true;
         }
+        else
+        {
+            bed = false;
+        }
+
         if (coins >= 15)
         {
             openHouse = true;

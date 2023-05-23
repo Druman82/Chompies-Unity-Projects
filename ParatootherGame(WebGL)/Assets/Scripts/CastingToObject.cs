@@ -20,7 +20,7 @@ public class CastingToObject : MonoBehaviour
     void Start()
     {
         mainMenu = FindObjectOfType<MainMenu>();
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
 
     }
 

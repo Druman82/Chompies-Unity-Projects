@@ -17040,7 +17040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1d532153cfd25cc44839572d48de7b02, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1d532153cfd25cc44839572d48de7b02, type: 3}
       propertyPath: m_TagString
@@ -87843,7 +87843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &920768869411508513
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -88437,7 +88437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1773797312168949525
 Animator:
   serializedVersion: 4
@@ -92315,7 +92315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5852204319646934205
 Transform:
   m_ObjectHideFlags: 0
@@ -95933,7 +95933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8829670063644236409, guid: 7595bfdd23f63304b8caa40b13a720c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8829670063921608945, guid: 7595bfdd23f63304b8caa40b13a720c4, type: 3}
       propertyPath: m_LocalPosition.x

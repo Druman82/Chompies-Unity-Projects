@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-public class Player : MonoBehaviour
+public class RacePlayerMovementKeyboard : MonoBehaviour
 {
     [SerializeField] public Transform catcher;
     [SerializeField] public Transform ceiling;
@@ -68,16 +68,19 @@ public class Player : MonoBehaviour
     [SerializeField] public Transform dadPlayer;
     [SerializeField] public Transform plaguePlayer;
 
+
+
     public float gravity;
-    private CharacterController characterController;
+    public CharacterController characterController;
     public Vector3 velocity;
     private bool mobile;
     public bool isGrounded;
     public float horizontalInput;
+    public bool notMoving;
     private Animator animator;
     public bool jumpPressed;
     public bool touchPressed;
-    private float speed = -200.0f;
+    public float speed;
     private float jumpTimer = -1;
     private float jumpGracePeriod = .1f;
     public GameManager theGameManager;
@@ -156,6 +159,8 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI batteryText;
     public TextMeshProUGUI pillowText;
     public TextMeshProUGUI crown;
+    public FixedJoystick joystickL;
+
 
     void Start()
     {
@@ -175,11 +180,11 @@ public class Player : MonoBehaviour
             }
         }
         Cursor.visible = false;
-        if(Settings.space == true && Settings.musicBool == true)
+        if (Settings.space == true && Settings.musicBool == true)
         {
             backgroundMusicSpace.Play();
         }
-        else if(Settings.sewer == true && Settings.musicBool == true)
+        else if (Settings.sewer == true && Settings.musicBool == true)
         {
             backgroundMusicSewer.Play();
         }
@@ -193,7 +198,7 @@ public class Player : MonoBehaviour
             backgroundMusicHouse.Play();
         }
         else if (Settings.candyland == true && Settings.musicBool == true)
-        {   
+        {
             backgroundMusicWindLoop.Play();
             backgroundMusicCandyland.Play();
         }
@@ -201,15 +206,15 @@ public class Player : MonoBehaviour
         {
             backgroundMusicSlot.Play();
         }
-        else if(Settings.night == true && Settings.musicBool == true)
+        else if (Settings.night == true && Settings.musicBool == true)
         {
             backgroundMusicNight.Play();
         }
-        else if(Settings.threeD == false && Settings.musicBool == true)
+        else if (Settings.threeD == false && Settings.musicBool == true)
         {
             backgroundMusic2D.Play();
         }
-        else if(Settings.threeD == true && Settings.musicBool == true)
+        else if (Settings.threeD == true && Settings.musicBool == true)
         {
             backgroundMusic3D.Play();
         }
@@ -227,7 +232,6 @@ public class Player : MonoBehaviour
             dadPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
         }
-
 
         if (Settings.samuria == true)
         {
@@ -310,17 +314,32 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(rotate == true)
+        if (rotate == true)
         {
             transform.Rotate(Vector3.up * speed * Time.deltaTime);
         }
 
-        if(bed == true)
+        if (bed == true)
         {
             transform.Rotate(Vector3.forward * 75 * Time.deltaTime);
         }
 
-        horizontalInput = 1;
+
+        float x = Input.GetAxis("Horizontal");
+        Vector2 move = transform.forward * x + transform.forward * -x;
+        characterController.Move(move * speed * Time.deltaTime);
+        
+        horizontalInput = x;
+        
+        if (horizontalInput == 0f)
+        {
+            notMoving = true;
+        }
+        else
+        {
+            notMoving = false;
+        }
+
         if (rotate == false && bed == false)
         {
             transform.forward = new Vector3(horizontalInput, 0, Mathf.Abs(horizontalInput) - 1);
@@ -381,6 +400,8 @@ public class Player : MonoBehaviour
         {
             showPortal.gameObject.SetActive(false);
         }
+
+
 
         isGrounded = false;
 
@@ -496,7 +517,7 @@ public class Player : MonoBehaviour
             {
                 if (velocity.y < 10)
                 {
-                    velocity.y += Mathf.Sqrt((jumpPower * gravity)/32);
+                    velocity.y += Mathf.Sqrt((jumpPower * gravity) / 32);
                 }
             }
             else if (transform.position.y > 8)
@@ -520,7 +541,7 @@ public class Player : MonoBehaviour
         }
 
         if ((jumpPressed && Settings.hoverboard == true && active) || (touchPressed && Settings.hoverboard == true && active))
-        {   
+        {
             Settings.hoverboard = false;
             gravity = -25f;
             velocity.y += Mathf.Sqrt(jumpHeight * jumpPower * gravity);
@@ -549,17 +570,17 @@ public class Player : MonoBehaviour
         {
             mobile = true;
             if (!Settings.frg && Settings.gameLevel == true)
-                {
-                    jumpHeight = 1.4f;
-                }
+            {
+                jumpHeight = 1.4f;
+            }
             else if (Settings.sewer == true || Settings.house == true || Settings.space == true)
-                {
-                    jumpHeight = 1.35f;
-                }
+            {
+                jumpHeight = 1.35f;
+            }
             else if (Settings.city == true || Settings.candyland == true)
-                {
-                    jumpHeight = 1.3f;
-                }
+            {
+                jumpHeight = 1.3f;
+            }
             velocity.y += Mathf.Sqrt(jumpHeight * jumpPower * gravity / 16);
 
             if (Settings.soundFXBool == true)
@@ -574,6 +595,8 @@ public class Player : MonoBehaviour
         animator.SetFloat("Speed", horizontalInput);
 
         animator.SetBool("IsGrounded", isGrounded);
+
+        animator.SetBool("NotMoving", notMoving);
 
         animator.SetFloat("VerticalSpeed", velocity.y);
 
@@ -616,7 +639,7 @@ public class Player : MonoBehaviour
             //Debug.Log(parachuteCount);
             StopCoroutine("Parachute2");
             yield return new WaitForSeconds(4.1f);
-            
+
             if (parachute.gameObject.activeSelf)
             {
                 if (parachuteCount == 1)
@@ -630,7 +653,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-    
+
     public IEnumerator Parachute2()
     {
         StopCoroutine("Parachute1");
@@ -647,7 +670,7 @@ public class Player : MonoBehaviour
             parachute.gameObject.SetActive(false);
         }
     }
-    
+
     public IEnumerator Hover1()
     {
         active = false;
@@ -655,7 +678,7 @@ public class Player : MonoBehaviour
         active = true;
         yield return new WaitForSeconds(1.8f);
         if (hoverboardCount == 1)
-        {   
+        {
             Settings.hoverboard = false;
             gravity = -25f;
             hoverboard.gameObject.SetActive(false);
@@ -741,7 +764,7 @@ public class Player : MonoBehaviour
         }
         velocity.y = 15;
         velocity.x = 20;
-        
+
         yield return new WaitForSeconds(1.75f);
         SceneManager.LoadScene(spaceLevel);
         Settings.space = true;
@@ -794,14 +817,14 @@ public class Player : MonoBehaviour
         hoverboard.gameObject.SetActive(false);
         yield return new WaitForSeconds(1.6f);
         CameraFollow.portal = false;
-        if(randomizer == 0)
+        if (randomizer == 0)
         {
             Settings.gameLevel = true;
             Settings.levelGame = true;
             Settings.space = false;
             SceneManager.LoadScene(gameLevel);
         }
-        else if(randomizer == 1)
+        else if (randomizer == 1)
         {
             Settings.sewer = true;
             Settings.levelSewer = true;
@@ -875,7 +898,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         StartCoroutine("Bubblegum2");
     }
-    
+
     public IEnumerator Bubblegum2()
     {
         if (bubblegumBalloon.gameObject.activeSelf)
@@ -934,7 +957,7 @@ public class Player : MonoBehaviour
                     parachuteSound.Play();
                 }
             }
-            
+
             if (parachuteCount == 0)
             {
                 parachuteCount++;
@@ -971,7 +994,7 @@ public class Player : MonoBehaviour
                     StartCoroutine("ChangeBackgroundSong");
                 }
             }
-            
+
         }
         if (Settings.glasses == true && Settings.sewerPipe == false)
         {
@@ -1040,7 +1063,8 @@ public class Player : MonoBehaviour
                 if (Settings.threeD == true)
                 {
                     planeGameLevel3D.gameObject.SetActive(true);
-                }else if (Settings.threeD == false)
+                }
+                else if (Settings.threeD == false)
                 {
                     planeGameLevel2D.gameObject.SetActive(true);
                 }
@@ -1065,7 +1089,7 @@ public class Player : MonoBehaviour
                     }
                 }
             }
-            
+
         }
 
         //FRG pickup
@@ -1117,7 +1141,7 @@ public class Player : MonoBehaviour
         }
 
         //Rocket pickup
-        if(other.gameObject.layer == 17)
+        if (other.gameObject.layer == 17)
         {
             other.gameObject.SetActive(false);
             rocketText.gameObject.SetActive(true);
@@ -1130,7 +1154,7 @@ public class Player : MonoBehaviour
         }
 
         //Jetpack pickup
-        if(other.gameObject.layer == 18)
+        if (other.gameObject.layer == 18)
         {
             other.gameObject.SetActive(false);
             ceiling.gameObject.SetActive(false);
@@ -1145,7 +1169,7 @@ public class Player : MonoBehaviour
         }
 
         //Hoverboard pickup
-        if(other.gameObject.layer == 19 && portal == false)
+        if (other.gameObject.layer == 19 && portal == false)
         {
             other.gameObject.SetActive(false);
             if (Settings.soundFXBool == true)
@@ -1224,24 +1248,24 @@ public class Player : MonoBehaviour
             }
             Settings.sewerPipe = true;
             randomNum = Random.Range(0, 4);
-            if(randomNum == 0)
+            if (randomNum == 0)
             {
                 bandannaBlue.gameObject.SetActive(true);
             }
-            else if(randomNum == 1)
+            else if (randomNum == 1)
             {
                 bandannaOrange.gameObject.SetActive(true);
             }
-            else if(randomNum == 2)
+            else if (randomNum == 2)
             {
                 bandannaPurple.gameObject.SetActive(true);
             }
-            else if(randomNum == 3)
+            else if (randomNum == 3)
             {
                 bandannaRed.gameObject.SetActive(true);
             }
         }
-        
+
         //TurtleShell Costume Pickup
         if (other.gameObject.tag == "Turtle")
         {
@@ -1286,13 +1310,13 @@ public class Player : MonoBehaviour
         }
 
         //Ladder
-        if(other.gameObject.layer == 26)
+        if (other.gameObject.layer == 26)
         {
             velocity.y = 10;
         }
 
         //Battery
-        if(other.gameObject.layer == 27)
+        if (other.gameObject.layer == 27)
         {
             other.gameObject.SetActive(false);
             batteryText.gameObject.SetActive(true);
@@ -1317,7 +1341,7 @@ public class Player : MonoBehaviour
             }
             Settings.spaceship = true;
         }
-        
+
         //Noodle Shop
         if (other.gameObject.tag == "Samuria")
         {
@@ -1369,7 +1393,7 @@ public class Player : MonoBehaviour
         }
 
         //Portal
-        if(other.gameObject.layer == 29)
+        if (other.gameObject.layer == 29)
         {
             CameraFollow.portal = true;
             Settings.hoverboard = false;
@@ -1386,7 +1410,7 @@ public class Player : MonoBehaviour
         }
 
         //Pillow
-        if(other.gameObject.layer == 30)
+        if (other.gameObject.layer == 30)
         {
             other.gameObject.SetActive(false);
             pillowText.gameObject.SetActive(true);
@@ -1400,7 +1424,7 @@ public class Player : MonoBehaviour
         }
 
         //Bed
-        if(other.gameObject.layer == 3)
+        if (other.gameObject.layer == 3)
         {
             bed = true;
             velocity.x = -2;
@@ -1408,7 +1432,7 @@ public class Player : MonoBehaviour
         }
 
         //OpenHouse
-        if(other.gameObject.layer == 31)
+        if (other.gameObject.layer == 31)
         {
             if (Settings.soundFXBool == true)
             {
@@ -1422,7 +1446,7 @@ public class Player : MonoBehaviour
         }
 
         //Bubblegum
-        if(other.gameObject.tag == "Bubblegum")
+        if (other.gameObject.tag == "Bubblegum")
         {
             other.gameObject.SetActive(false);
             bubblegumBalloon.gameObject.SetActive(true);
@@ -1513,7 +1537,7 @@ public class Player : MonoBehaviour
                 if (Settings.thePlague == true)
                 {
                     playfabManager.SendThePlagueLeaderboard(Settings.points);
-                }   
+                }
                 else if (Settings.apeGang == false && Settings.brawlerBears == false && Settings.cryptoDads == false && Settings.gamingApeClub == false && Settings.spaceRiders == false && Settings.tacoTribe == false && Settings.thePlague == false)
                 {
                     playfabManager.SendLeaderboard(Settings.points);
@@ -1721,7 +1745,7 @@ public class Player : MonoBehaviour
         }
         scoreText.color = new Color(0, 255, 0, 255);
         scoreText.rectTransform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
-        
+
 
 
         theScoreManager.AddScore(scoreToGive * 25);

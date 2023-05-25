@@ -72,19 +72,19 @@ public class CameraFollow : MonoBehaviour
 
         if(up == 0)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, 0.5f, target.position.z) + offset, Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, 0.5f, 0) + offset, Time.deltaTime);
         }
         else if (up == 1)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, 2, target.position.z) + offset, Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, 2, 0) + offset, Time.deltaTime);
         }
         else if (up == 2)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, 3f, target.position.z) + offset, Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, 3f, 0) + offset, Time.deltaTime);
         }
         else if (up == 3)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, 5, target.position.z) + offset, Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, 5, 0) + offset, Time.deltaTime);
         }
 
 

@@ -19,7 +19,9 @@ public class SelectionManager : MonoBehaviour
             _selection = null;
         }
 
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        var ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {

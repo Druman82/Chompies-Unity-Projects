@@ -924,8 +924,8 @@ public class PlayfabManager : MonoBehaviour
 
     public void MainMenu()
     {
-        //SceneManager.LoadScene(mainMenu);
-        SceneManager.LoadScene(houseMenu);
+        SceneManager.LoadScene(mainMenu);
+        //SceneManager.LoadScene(houseMenu);
     }
 
     public void DeleteAccount()

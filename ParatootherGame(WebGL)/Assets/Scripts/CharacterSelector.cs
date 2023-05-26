@@ -80,11 +80,11 @@ public class CharacterSelector : MonoBehaviour
         }
         else if (Settings.gac == true)
         {
-            content.transform.position = new Vector3(-1800, 3.1f, transform.position.z);
+            content.transform.position = new Vector3(800, 3.1f, transform.position.z);
         }
         else if (Settings.dad == true)
         {
-            content.transform.position = new Vector3(-1800, 3.1f, transform.position.z);
+            content.transform.position = new Vector3(800, 3.1f, transform.position.z);
         }
         else if (Settings.among == true)
         {

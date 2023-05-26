@@ -9,6 +9,21 @@ public class CastingToObjectsMobile : MonoBehaviour
     public string internalObject;
     public RaycastHit theObject;
     public MainMenu mainMenu;
+    public MainMenu firstLevel;
+    public MainMenu easyLevel;
+    public MainMenu recksLevel;
+    public MainMenu leaderboard;
+    public MainMenu apeGangLeaderboard;
+    public MainMenu brawlerBearsLeaderboard;
+    public MainMenu cryptoDadsLeaderboard;
+    public MainMenu gamingApeClubLeaderboard;
+    public MainMenu hikeshiLeaderboard;
+    public MainMenu spaceRidersLeaderboard;
+    public MainMenu tacoTribeLeaderboard;
+    public MainMenu thePlagueLeaderboard;
+    public MainMenu teamLeaderboard;
+    public MainMenu credits;
+    public MainMenu loginScreen;
     [SerializeField] public Transform none;
     [SerializeField] public Transform bear;
     [SerializeField] public Transform dad;
@@ -190,8 +205,56 @@ public class CastingToObjectsMobile : MonoBehaviour
         }
         if (internalObject == "Door")
         {
-            Cursor.lockState = CursorLockMode.None;
+            //Cursor.lockState = CursorLockMode.None;
             mainMenu.StartGame();
+        }
+        
+        if (internalObject == "Start")
+        {
+            //Cursor.lockState = CursorLockMode.None;
+            mainMenu.StartGame();
+        }
+
+        if (internalObject == "Leaderboards")
+        {
+            //Cursor.lockState = CursorLockMode.None;
+            mainMenu.Leaderboard();
+        }
+
+        if (internalObject == "Credits")
+        {
+            //Cursor.lockState = CursorLockMode.None;
+            mainMenu.Credits();
+        }
+
+        if (internalObject == "Quit")
+        {
+            //Cursor.lockState = CursorLockMode.None;
+            mainMenu.QuitGame();
+        }
+
+        if (internalObject == "Options")
+        {
+            //Cursor.lockState = CursorLockMode.None;
+            mainMenu.Options();
+        }
+
+        if (internalObject == "Achievements")
+        {
+            //Cursor.lockState = CursorLockMode.None;
+            mainMenu.Achievements();
+        }
+
+        if (internalObject == "HowToPlay")
+        {
+            //Cursor.lockState = CursorLockMode.None;
+            mainMenu.HowToPlay();
+        }
+
+        if (internalObject == "LogOut")
+        {
+            //Cursor.lockState = CursorLockMode.None;
+            mainMenu.LoginScreens();
         }
     }
 }

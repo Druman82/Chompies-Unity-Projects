@@ -395,6 +395,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: Main Menu
   theWayToFindHome: {fileID: 1348546155}
+  share: {fileID: 0}
+  houseMenu: HouseMenu
 --- !u!1 &347408490
 GameObject:
   m_ObjectHideFlags: 0
@@ -3244,7 +3246,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 287839192}
         m_TargetAssemblyTypeName: LeaderboardMenu, Assembly-CSharp
-        m_MethodName: MainMenu
+        m_MethodName: HouseMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

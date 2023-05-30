@@ -50746,6 +50746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1242791973}
   PauseButton: {fileID: 2061568673}
+  share: {fileID: 1045731550}
 --- !u!114 &1838790238
 MonoBehaviour:
   m_ObjectHideFlags: 0

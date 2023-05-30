@@ -65803,6 +65803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 369971771}
   PauseButton: {fileID: 1858405458}
+  share: {fileID: 1780406944}
 --- !u!1 &1407372613
 GameObject:
   m_ObjectHideFlags: 0

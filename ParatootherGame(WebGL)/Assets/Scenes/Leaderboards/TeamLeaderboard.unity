@@ -6729,6 +6729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: Main Menu
   theWayToFindHome: {fileID: 0}
+  share: {fileID: 1270310337}
 --- !u!114 &1646940898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8901,6 +8902,7 @@ MonoBehaviour:
   menu: {fileID: 582700011}
   chooseLeaderboard: {fileID: 0}
   among: {fileID: 582700011}
+  share: {fileID: 0}
 --- !u!1 &2055031007
 GameObject:
   m_ObjectHideFlags: 0

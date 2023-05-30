@@ -6,6 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     public PauseMenu pauseMenu;
     public GameObject PauseButton;
+    public GameObject share;
 
     // Update is called once per frame
     void Update()
@@ -25,6 +26,14 @@ public class MenuManager : MonoBehaviour
                 PauseButton.SetActive(true);
             }
             pauseMenu.gameObject.SetActive(!pauseMenu.gameObject.activeSelf);
+        }
+        if (SystemInfo.deviceType == DeviceType.Handheld)
+        {
+            share.gameObject.SetActive(true);
+        }
+        else
+        {
+            share.gameObject.SetActive(false);
         }
     }
 }

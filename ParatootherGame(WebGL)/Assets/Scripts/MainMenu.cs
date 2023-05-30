@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
     public string credits;
     public string loginScreen;
     public string mainMenu;
+    public string houseMenu;
     private bool loading;
     public AudioSource crystalCaveBGMusic;
     public AchievementGet achievementGet;
@@ -35,10 +36,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] public Transform menu;
     [SerializeField] public Transform chooseLeaderboard;
     [SerializeField] public Transform among;
+    [SerializeField] public Transform share;
 
 
     public void Start()
     {
+        Cursor.visible = true;
+
         chooseCostume.gameObject.SetActive(false);
         menu.gameObject.SetActive(true);
         if (Settings.musicBool == false)
@@ -147,12 +151,25 @@ public class MainMenu : MonoBehaviour
         achievementGet.GetLevelMaster();
         achievements.gameObject.SetActive(true);
         menu.gameObject.SetActive(false);
+        if (SystemInfo.deviceType == DeviceType.Handheld)
+        {
+            share.gameObject.SetActive(true);
+        }
+        else
+        {
+            share.gameObject.SetActive(false);
+        }
     }
 
     public void HowToPlay()
     {
         howToPlay.gameObject.SetActive(true);
         menu.gameObject.SetActive(false);
+    }
+    
+    public void HouseMenu()
+    {
+        StartCoroutine("GoToHouseMenu");
     }
     
     public void ChooseCostume()
@@ -221,6 +238,11 @@ public class MainMenu : MonoBehaviour
         menu.gameObject.SetActive(true);
     }
 
+    public void ComputerMain()
+    {
+        howToPlay.gameObject.SetActive(false);
+    }
+
     public void ChooseLeaderboard()
     {
         menu.gameObject.SetActive(false);
@@ -279,6 +301,11 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         Settings.creditsMenu = true;
         SceneManager.LoadScene(credits);
+    }
+    public IEnumerator GoToHouseMenu()
+    {
+        yield return new WaitForSeconds(0.75f);
+        SceneManager.LoadScene(houseMenu);
     }
 
     public IEnumerator CloseGame()

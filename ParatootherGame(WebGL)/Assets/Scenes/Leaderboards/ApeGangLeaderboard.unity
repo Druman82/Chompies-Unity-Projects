@@ -532,6 +532,7 @@ MonoBehaviour:
   menu: {fileID: 0}
   chooseLeaderboard: {fileID: 0}
   among: {fileID: 0}
+  share: {fileID: 0}
 --- !u!1 &149461543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,6 +2677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: Main Menu
   theWayToFindHome: {fileID: 0}
+  share: {fileID: 1196332962}
 --- !u!114 &849865819
 MonoBehaviour:
   m_ObjectHideFlags: 0

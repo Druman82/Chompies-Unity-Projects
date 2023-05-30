@@ -1432,6 +1432,7 @@ MonoBehaviour:
   menu: {fileID: 1966522889}
   chooseLeaderboard: {fileID: 0}
   among: {fileID: 0}
+  share: {fileID: 0}
 --- !u!1 &420290357
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,6 +2425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: Main Menu
   theWayToFindHome: {fileID: 0}
+  share: {fileID: 1196332962}
 --- !u!114 &849865819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2487,6 +2489,7 @@ MonoBehaviour:
   usernameInput: {fileID: 0}
   passwordInput: {fileID: 32542476}
   mainMenu: Main Menu
+  houseMenu: 
   recipientEmail: {fileID: 0}
   crypto: {fileID: 0}
   rememberMe: {fileID: 445467382}
@@ -2989,7 +2992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1196332963
 RectTransform:
   m_ObjectHideFlags: 0

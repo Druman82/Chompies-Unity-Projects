@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class CastingToObject : MonoBehaviour
 {
@@ -22,14 +24,17 @@ public class CastingToObject : MonoBehaviour
     public MainMenu tacoTribeLeaderboard;
     public MainMenu thePlagueLeaderboard;
     public MainMenu teamLeaderboard;
-    public MainMenu credits;
     public MainMenu loginScreen;
+    public string options;
+    public string credits;
+    public string achievements;
     [SerializeField] public Transform none;
     [SerializeField] public Transform bear;
     [SerializeField] public Transform dad;
     [SerializeField] public Transform gac;
     [SerializeField] public Transform turtle;
     [SerializeField] public Transform samurai;
+    [SerializeField] public Transform howToPlay;
     public AudioSource selectSound;
 
     void Start()
@@ -203,57 +208,74 @@ public class CastingToObject : MonoBehaviour
             }
             if (internalObject == "Door")
             {
-                //Cursor.lockState = CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.None;
                 mainMenu.StartGame();
             }
 
             if (internalObject == "Start")
             {
-                //Cursor.lockState = CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.None;
                 mainMenu.StartGame();
             }
 
             if (internalObject == "Leaderboards")
             {
-                //Cursor.lockState = CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.None;
                 mainMenu.Leaderboard();
             }
 
             if (internalObject == "Credits")
             {
-                //Cursor.lockState = CursorLockMode.None;
-                mainMenu.Credits();
+                Cursor.lockState = CursorLockMode.None;
+                SceneManager.LoadScene(credits);
             }
 
             if (internalObject == "Quit")
             {
-                //Cursor.lockState = CursorLockMode.None;
-                mainMenu.QuitGame();
+                Application.Quit();
             }
 
             if (internalObject == "Options")
             {
-                //Cursor.lockState = CursorLockMode.None;
-                mainMenu.Options();
+                Cursor.lockState = CursorLockMode.None;
+                SceneManager.LoadScene(options);
+
             }
 
             if (internalObject == "Achievements")
             {
-                //Cursor.lockState = CursorLockMode.None;
-                mainMenu.Achievements();
+                Cursor.lockState = CursorLockMode.None;
+                SceneManager.LoadScene(achievements);
             }
 
             if (internalObject == "HowToPlay")
             {
                 //Cursor.lockState = CursorLockMode.None;
-                mainMenu.HowToPlay();
+                HowToPlay();
             }
 
             if (internalObject == "LogOut")
             {
-                //Cursor.lockState = CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.None;
                 mainMenu.LoginScreens();
             }
+            
+            if (internalObject == "MainMenu")
+            {
+                //Cursor.lockState = CursorLockMode.None;
+                ComputerMain();
+            }
         }
+    }
+
+    public void HowToPlay()
+    {
+        howToPlay.gameObject.SetActive(true);
+        //menu.gameObject.SetActive(false);
+    }
+
+    public void ComputerMain()
+    {
+        howToPlay.gameObject.SetActive(false);
     }
 }

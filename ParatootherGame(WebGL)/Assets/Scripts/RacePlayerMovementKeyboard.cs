@@ -67,7 +67,7 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
     [SerializeField] public Transform gacPlayer;
     [SerializeField] public Transform dadPlayer;
     [SerializeField] public Transform plaguePlayer;
-
+    public GameObject joystickCanvas;
 
 
     public float gravity;
@@ -324,12 +324,25 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
             transform.Rotate(Vector3.forward * 75 * Time.deltaTime);
         }
 
+        if (SystemInfo.deviceType == DeviceType.Handheld)
+        {
+            joystickCanvas.SetActive(true);
+            float x = joystickL.Horizontal;
+            Vector2 move = transform.forward * x + transform.forward * -x;
+            characterController.Move(move * speed * Time.deltaTime);
 
-        float x = Input.GetAxis("Horizontal");
-        Vector2 move = transform.forward * x + transform.forward * -x;
-        characterController.Move(move * speed * Time.deltaTime);
+            horizontalInput = x;
+        }
+        else
+        {
+            //joystickCanvas.SetActive(false);
+            float x = Input.GetAxis("Horizontal");
+            Vector2 move = transform.forward * x + transform.forward * -x;
+            characterController.Move(move * speed * Time.deltaTime);
         
-        horizontalInput = x;
+            horizontalInput = x;
+        }
+
         
         if (horizontalInput == 0f)
         {
@@ -493,7 +506,7 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
         }
 
         jumpPressed = Input.GetKey(KeyCode.Space);
-        touchPressed = Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began;
+        //touchPressed = Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began;
         if (jumpPressed || touchPressed)
         {
             jumpTimer = Time.time;
@@ -601,6 +614,27 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
         animator.SetFloat("VerticalSpeed", velocity.y);
 
     }
+
+    public void Jump()
+    {
+        //jumpPressed = true;
+        jumpTimer = Time.time;
+        /*if (isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -gravity);
+        }*/
+        if (isGrounded && (jumpTimer > 0 && Time.time < jumpTimer + jumpGracePeriod))
+        {
+            velocity.y += Mathf.Sqrt(jumpHeight * jumpPower * gravity);
+
+            if (Settings.soundFXBool == true)
+            {
+                jumpSound.Play();
+            }
+            jumpTimer = -1;
+        }
+    }
+
     public IEnumerator Colors()
     {
         yield return new WaitForSeconds(0.2f);

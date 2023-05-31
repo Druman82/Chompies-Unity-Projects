@@ -4720,7 +4720,7 @@ RectTransform:
   - {fileID: 1915752535}
   - {fileID: 1556221098}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -19704,9 +19704,7 @@ GameObject:
   - component: {fileID: 526529499}
   - component: {fileID: 526529498}
   - component: {fileID: 526529502}
-  - component: {fileID: 526529506}
   - component: {fileID: 526529504}
-  - component: {fileID: 526529505}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -19772,9 +19770,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526529497}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.766, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9999998, y: 1, z: 0.9999998}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 222452235}
@@ -19833,59 +19831,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e013936d63547d240883085697ddb48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
-  playerBody: {fileID: 671127482}
---- !u!114 &526529505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526529497}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bacde0a2dd4d00742bce5f78ad1b2f7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 4
+  mouseSensitivity: 10
   joystickR: {fileID: 162960482}
-  player: {fileID: 671127482}
---- !u!114 &526529506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526529497}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c03c474ab6cbb54f9f24a0396417697, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  internalObject: 
-  mainMenu: {fileID: 1782189839}
-  firstLevel: {fileID: 0}
-  easyLevel: {fileID: 0}
-  recksLevel: {fileID: 0}
-  leaderboard: {fileID: 0}
-  apeGangLeaderboard: {fileID: 0}
-  brawlerBearsLeaderboard: {fileID: 0}
-  cryptoDadsLeaderboard: {fileID: 0}
-  gamingApeClubLeaderboard: {fileID: 0}
-  hikeshiLeaderboard: {fileID: 0}
-  spaceRidersLeaderboard: {fileID: 0}
-  tacoTribeLeaderboard: {fileID: 0}
-  thePlagueLeaderboard: {fileID: 0}
-  teamLeaderboard: {fileID: 0}
-  credits: {fileID: 0}
-  loginScreen: {fileID: 0}
-  none: {fileID: 1041953697}
-  bear: {fileID: 543450653560497357}
-  dad: {fileID: 1285794501}
-  gac: {fileID: 1630539934}
-  turtle: {fileID: 1553847404}
-  samurai: {fileID: 166702307}
-  selectSound: {fileID: 860414953}
+  playerBody: {fileID: 671127482}
+  joystickCanvas: {fileID: 1933526199}
 --- !u!65 &527094004
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30752,7 +30701,6 @@ GameObject:
   m_Component:
   - component: {fileID: 671127482}
   - component: {fileID: 671127486}
-  - component: {fileID: 671127488}
   - component: {fileID: 671127487}
   m_Layer: 0
   m_Name: Player
@@ -30768,9 +30716,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671127481}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 58.678, y: 0.875, z: -33.598}
-  m_LocalScale: {x: 0.61993, y: 0.61993, z: 0.61993}
+  m_LocalScale: {x: 0.6199304, y: 0.61993, z: 0.6199304}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2045115788}
@@ -30811,28 +30759,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 671127486}
   speed: 5
-  gravity: -20
-  groundCheck: {fileID: 877210029}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
-  jumpHeight: 3
-  joystickL: {fileID: 2929252283386003050}
---- !u!114 &671127488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671127481}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2898962bef827604e82b5dda30be9aac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 671127486}
-  speed: 12
   gravity: -20
   groundCheck: {fileID: 877210029}
   groundDistance: 0.4
@@ -62285,7 +62211,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 671127488}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: PlayerMovementMobile, Assembly-CSharp
           m_MethodName: Jump
           m_Mode: 1
@@ -62301,7 +62227,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 671127488}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: PlayerMovementMobile, Assembly-CSharp
           m_MethodName: Jump
           m_Mode: 1
@@ -71339,7 +71265,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 526529506}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CastingToObjectsMobile, Assembly-CSharp
           m_MethodName: Select
           m_Mode: 1
@@ -71355,7 +71281,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 526529506}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: CastingToObjectsMobile, Assembly-CSharp
           m_MethodName: Select
           m_Mode: 1
@@ -78622,7 +78548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1933526200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78701,7 +78627,7 @@ RectTransform:
   - {fileID: 162960480}
   - {fileID: 1472756202}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -74,6 +74,7 @@ public class PlayfabManager : MonoBehaviour
     public InputField passwordInput;
     public string mainMenu;
     public string houseMenu;
+    public string raceLevel;
     public InputField recipientEmail;
     public static string cryptoWallet;
     public static string levelMaster;
@@ -925,7 +926,8 @@ public class PlayfabManager : MonoBehaviour
     public void MainMenu()
     {
         //SceneManager.LoadScene(mainMenu);
-        SceneManager.LoadScene(houseMenu);
+        //SceneManager.LoadScene(houseMenu);
+        SceneManager.LoadScene(raceLevel);
     }
 
     public void DeleteAccount()

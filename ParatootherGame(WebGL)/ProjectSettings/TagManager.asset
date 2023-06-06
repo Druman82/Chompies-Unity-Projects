@@ -20,6 +20,9 @@ TagManager:
   - CharacterSelector
   - PickUp
   - Selectable
+  - FinishLine
+  - StartingLine
+  - Glider
   layers:
   - Default
   - TransparentFX

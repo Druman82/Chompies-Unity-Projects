@@ -35,6 +35,5 @@ public class PauseMenu : MonoBehaviour
         Settings.recks = false;
         Settings.easy = false;
         SceneManager.LoadScene(mainMenuLevel);
-
     }
 }

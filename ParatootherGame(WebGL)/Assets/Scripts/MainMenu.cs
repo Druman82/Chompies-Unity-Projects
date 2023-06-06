@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class MainMenu : MonoBehaviour
 {
@@ -19,14 +21,18 @@ public class MainMenu : MonoBehaviour
     public string tacoTribeLeaderboard;
     public string thePlagueLeaderboard;
     public string teamLeaderboard;
+    public string raceLeaderboard;
     public string credits;
     public string loginScreen;
     public string mainMenu;
     public string houseMenu;
+    public string raceLevel;
+    public TextMeshProUGUI progressText;
+    public Slider slider;
+    public GameObject loadingScreen;
     private bool loading;
     public AudioSource crystalCaveBGMusic;
     public AchievementGet achievementGet;
-    [SerializeField] public Transform loadingScreen;
     [SerializeField] public Transform options;
     [SerializeField] public Transform achievements;
     [SerializeField] public Transform achievementsButton;
@@ -37,6 +43,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] public Transform chooseLeaderboard;
     [SerializeField] public Transform among;
     [SerializeField] public Transform share;
+    [SerializeField] public Transform gameSelector;
 
 
     public void Start()
@@ -77,19 +84,81 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        loadingScreen.gameObject.SetActive(true);
         if (Settings.difficulty == 1)
         {
-            SceneManager.LoadScene(easyLevel);
+            LoadLevel(easyLevel);
         }
         else if (Settings.difficulty == 2)
         {
-            SceneManager.LoadScene(firstLevel);
+            LoadLevel(firstLevel);
         }
         else if (Settings.difficulty == 3)
         {
-            SceneManager.LoadScene(recksLevel);
+            LoadLevel(recksLevel);
         }
+        Settings.threeD = false;
+        Settings.night = false;
+        Settings.points = 0;
+        Settings.rocketCount = 0;
+        Settings.jetpack = false;
+        Settings.jetpackStart = false;
+        Settings.space = false;
+        Settings.glasses = false;
+        Settings.frg = false;
+        Settings.hoverboard = false;
+        Settings.crownCoin = 0;
+        Settings.tokenNum = 0;
+        Settings.ninjaStarCount = 0;
+        Settings.batteryCount = 0;
+        Settings.pillowCount = 0;
+        Settings.bubblegumCount = 0;
+        Settings.coins = 0;
+        Settings.sewer = false;
+        Settings.sewerPipe = false;
+        Settings.slots = false;
+        Settings.slotBG = false;
+        Settings.city = false;
+        Settings.turtleShell = false;
+        Settings.helmet = false;
+        Settings.spaceship = false;
+        Settings.spaceshipStart = false;
+        Settings.bed = false;
+        Settings.gameLevel = true;
+        Settings.candyland = false;
+        Settings.openHouse = false;
+        Settings.house = false;
+        Settings.raceLevel = false;
+        Settings.hotAirBalloon = false;
+        Settings.hotAirBalloonStart = false;
+        Settings.portal = false;
+        Settings.levelSewer = false;
+        Settings.levelCity = false;
+        Settings.levelHouse = false;
+        Settings.levelCandyland = false;
+        Settings.levelSpace = false;
+        Settings.levelChange = false;
+        CameraFollow.jetpack = false;
+        CameraFollow.up = 0;
+        CameraFollow.portal = false;
+        CameraFollow.frogFeet = false;
+    }
+
+    public void Race()
+    {
+        LoadLevel(raceLevel);
+
+        Settings.raceLevel = true;
+        Settings.target = 1;
+        Settings.samuria = false;
+        Settings.roo = false;
+        Settings.bear = false;
+        Settings.gac = false;
+        Settings.dad = false;
+        Settings.frog = false;
+        Settings.recksFrog = false;
+        Settings.turtle = false;
+        Settings.among = false;
+        Settings.none = true;
         Settings.threeD = false;
         Settings.night = false;
         Settings.points = 0;
@@ -136,6 +205,11 @@ public class MainMenu : MonoBehaviour
         CameraFollow.frogFeet = false;
     }
 
+    public void GameSelector()
+    {
+        gameSelector.gameObject.SetActive(true);
+    }
+    
     public void Credits()
     {
         StartCoroutine("CreditsMenu");
@@ -175,6 +249,7 @@ public class MainMenu : MonoBehaviour
     public void ChooseCostume()
     {
         chooseCostume.gameObject.SetActive(true);
+        gameSelector.gameObject.SetActive(false);
         menu.gameObject.SetActive(false);
     }
 
@@ -223,6 +298,10 @@ public class MainMenu : MonoBehaviour
     {
         StartCoroutine("TeamLeaderboards");
     }
+    public void RaceLeaderboard()
+    {
+        StartCoroutine("RaceLeaderboards");
+    }
 
     public void LoginScreens()
     {
@@ -235,6 +314,7 @@ public class MainMenu : MonoBehaviour
         howToPlay.gameObject.SetActive(false);
         chooseCostume.gameObject.SetActive(false);
         chooseLeaderboard.gameObject.SetActive(false);
+        gameSelector.gameObject.SetActive(false);
         menu.gameObject.SetActive(true);
     }
 
@@ -325,6 +405,7 @@ public class MainMenu : MonoBehaviour
         Settings.tacoTribeLeaderboard = false;
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(leaderboard);
     }
@@ -340,6 +421,7 @@ public class MainMenu : MonoBehaviour
         Settings.tacoTribeLeaderboard = false;
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(apeGangLeaderboard);
     }
@@ -354,6 +436,7 @@ public class MainMenu : MonoBehaviour
         Settings.tacoTribeLeaderboard = false;
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(brawlerBearsLeaderboard);
     }
@@ -368,6 +451,7 @@ public class MainMenu : MonoBehaviour
         Settings.tacoTribeLeaderboard = false;
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(cryptoDadsLeaderboard);
     }
@@ -382,6 +466,7 @@ public class MainMenu : MonoBehaviour
         Settings.tacoTribeLeaderboard = false;
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(gamingApeClubLeaderboard);
     }
@@ -396,6 +481,7 @@ public class MainMenu : MonoBehaviour
         Settings.tacoTribeLeaderboard = false;
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(hikeshiLeaderboard);
     }
@@ -410,6 +496,7 @@ public class MainMenu : MonoBehaviour
         Settings.tacoTribeLeaderboard = false;
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(spaceRidersLeaderboard);
     }
@@ -424,6 +511,7 @@ public class MainMenu : MonoBehaviour
         Settings.tacoTribeLeaderboard = true;
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(tacoTribeLeaderboard);
     }
@@ -438,8 +526,24 @@ public class MainMenu : MonoBehaviour
         Settings.tacoTribeLeaderboard = false;
         Settings.thePlagueLeaderboard = true;
         Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(thePlagueLeaderboard);
+    }
+    public IEnumerator RaceLeaderboards()
+    {
+        Settings.apeGangLeaderboard = false;
+        Settings.brawlerBearsLeaderboard = false;
+        Settings.cryptoDadsLeaderboard = false;
+        Settings.gamingApeClubLeaderboard = false;
+        Settings.hikeshiLeaderboard = false;
+        Settings.spaceRidersLeaderboard = false;
+        Settings.tacoTribeLeaderboard = false;
+        Settings.thePlagueLeaderboard = false;
+        Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = true;
+        yield return new WaitForSeconds(0.75f);
+        SceneManager.LoadScene(raceLeaderboard);
     }
     public IEnumerator TeamLeaderboards()
     {
@@ -452,6 +556,7 @@ public class MainMenu : MonoBehaviour
         Settings.tacoTribeLeaderboard = false;
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = true;
+        Settings.raceLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(teamLeaderboard);
     }
@@ -470,6 +575,29 @@ public class MainMenu : MonoBehaviour
         Settings.tacoTribe = false;
         Settings.thePlague = false;
         Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
         SceneManager.LoadScene(loginScreen);
+    }
+
+    public void LoadLevel(string gameLevel)
+    {
+        StartCoroutine(LoadAsynchronously(gameLevel));
+    }
+
+    IEnumerator LoadAsynchronously(string gameLevel)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(gameLevel);
+
+        loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+
+            slider.value = progress;
+            progressText.text = (progress * 100f).ToString("0") + "%";
+
+            yield return null;
+        }
     }
 }

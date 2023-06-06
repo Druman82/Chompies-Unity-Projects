@@ -25,6 +25,7 @@ public class CrownCoinGenerator : MonoBehaviour
     public ObjectPooler bubblegumPool;
     public ObjectPooler hotAirBalloonPool;
 
+
     public void SpawnHotAirBalloon(Vector3 startPosition)
     {
         GameObject hotAirBalloon = hotAirBalloonPool.GetPooledObject();

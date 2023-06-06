@@ -634,8 +634,8 @@ public class Player : MonoBehaviour
     public IEnumerator Parachute2()
     {
         StopCoroutine("Parachute1");
-        Debug.Log("Parachute 2");
-        Debug.Log(parachuteCount);
+        //Debug.Log("Parachute 2");
+        //Debug.Log(parachuteCount);
         parachuteCount = 0;
         yield return new WaitForSeconds(4.1f);
         if (parachute.gameObject.activeSelf && parachuteCount != 0)

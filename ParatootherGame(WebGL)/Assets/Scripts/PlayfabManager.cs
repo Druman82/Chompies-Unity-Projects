@@ -101,6 +101,10 @@ public class PlayfabManager : MonoBehaviour
 
     void Start()
     {
+        if (Settings.raceLeaderboard == true)
+        {
+            GetRaceLeaderboard();
+        }
         if (Settings.apeGangLeaderboard == true)
         {
             GetApeGangLeaderboard();
@@ -148,7 +152,7 @@ public class PlayfabManager : MonoBehaviour
             GetThePlagueLeaderboardAverage();
         }
 
-        else if (Settings.apeGangLeaderboard == false && Settings.brawlerBearsLeaderboard == false && Settings.cryptoDadsLeaderboard == false && Settings.gamingApeClubLeaderboard == false && Settings.hikeshiLeaderboard == false && Settings.spaceRidersLeaderboard == false && Settings.tacoTribeLeaderboard == false && Settings.thePlagueLeaderboard == false && Settings.teamLeaderboard == false)
+        else if (Settings.apeGangLeaderboard == false && Settings.brawlerBearsLeaderboard == false && Settings.cryptoDadsLeaderboard == false && Settings.gamingApeClubLeaderboard == false && Settings.hikeshiLeaderboard == false && Settings.spaceRidersLeaderboard == false && Settings.tacoTribeLeaderboard == false && Settings.thePlagueLeaderboard == false && Settings.teamLeaderboard == false && Settings.raceLeaderboard == false)
         {
             GetLeaderboard();
         }
@@ -325,6 +329,22 @@ public class PlayfabManager : MonoBehaviour
 
 
     //Send Leaderboards
+    public void SendTimeLeaderboard(int time)
+    {
+        var request = new UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<StatisticUpdate>
+            {
+                new StatisticUpdate
+                {
+                    StatisticName = "TimeRunner",
+                    Value = time
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
+    }
+
     public void SendLeaderboard(int score)
     {
         var request = new UpdatePlayerStatisticsRequest
@@ -469,6 +489,16 @@ public class PlayfabManager : MonoBehaviour
 
 
     //Get Leaderboards
+    public void GetRaceLeaderboard()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "TimeRunner",
+            StartPosition = 0,
+            MaxResultsCount = 100
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnRaceLeaderboardGet, OnError);
+    }
     public void GetLeaderboard()
     {
         var request = new GetLeaderboardRequest
@@ -804,6 +834,21 @@ public class PlayfabManager : MonoBehaviour
 
 
     //On Leaderboard Get
+    void OnRaceLeaderboardGet(GetLeaderboardResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            GameObject newGo = Instantiate(rowPrefab, rowsParent);
+            Text[] texts = newGo.GetComponentsInChildren<Text>();
+            texts[0].text = " ";//(item.Position + 1).ToString();
+            texts[1].text = item.DisplayName;
+            float score = (float)item.StatValue;
+            score = score / 100;
+            texts[2].text = score.ToString("0.00");
+
+            //Debug.Log(item.Position + " " + item.PlayFabId + " item.StatValue");
+        }
+    }
     void OnLeaderboardGet(GetLeaderboardResult result)
     {
         foreach (var item in result.Leaderboard)
@@ -925,9 +970,8 @@ public class PlayfabManager : MonoBehaviour
 
     public void MainMenu()
     {
-        //SceneManager.LoadScene(mainMenu);
+        SceneManager.LoadScene(mainMenu);
         //SceneManager.LoadScene(houseMenu);
-        SceneManager.LoadScene(raceLevel);
     }
 
     public void DeleteAccount()

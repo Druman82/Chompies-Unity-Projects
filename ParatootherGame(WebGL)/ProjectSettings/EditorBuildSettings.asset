@@ -59,6 +59,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/Achievements.unity
     guid: 1c7ab9152ebd4cd4f9d48850eabec989
+  - enabled: 1
+    path: Assets/Scenes/Leaderboards/RaceLeaderboard.unity
+    guid: d3c9d0ad23aa78c4288d2d8a38bdc06c
   - enabled: 0
     path: Assets/Scenes/Leaderboards/TeamLeaderboard.unity
     guid: 16739c2b0cd980a4e863d7bc217af724

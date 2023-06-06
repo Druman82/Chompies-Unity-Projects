@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class RaceCameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform target1 = null;
     [SerializeField] private Transform target2 = null;
@@ -44,7 +44,7 @@ public class CameraFollow : MonoBehaviour
         {
             target = target6;
         }
-        offset = transform.position - target.position;   
+        offset = transform.position - target.position;
     }
 
     // Update is called once per frame
@@ -65,26 +65,26 @@ public class CameraFollow : MonoBehaviour
             up = 1;
         }
 
-        else if(target.position.y <= 1.5f)
+        else if (target.position.y <= 1.5f)
         {
             up = 0;
         }
 
-        if(up == 0)
+        if (up == 0)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, 0.5f, 0) + offset, Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x + 5, 0.5f, 0) + offset, Time.deltaTime);
         }
         else if (up == 1)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, 2, 0) + offset, Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x + 5, 2, 0) + offset, Time.deltaTime);
         }
         else if (up == 2)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, 3f, 0) + offset, Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x + 5, 3f, 0) + offset, Time.deltaTime);
         }
         else if (up == 3)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, 5, 0) + offset, Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x + 5, 5, 0) + offset, Time.deltaTime);
         }
 
 
@@ -97,7 +97,7 @@ public class CameraFollow : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x - 4, target.position.y - 3, target.position.z + 15) + offset, Time.deltaTime * 2);
         }
-        
+
         if (frogFeet == true)
         {
             transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, target.position.y, target.position.z) + offset, Time.deltaTime * 2);

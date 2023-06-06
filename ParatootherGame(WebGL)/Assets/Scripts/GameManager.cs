@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private Vector3 platformStartPoint;
     public Transform cloudGenerator;
     private Vector3 cloudStartPoint;
+    public RacePlayerMovementKeyboard racePlayer;
     public Player thePlayer;
     public Player amongPlayer;
     public Player bearPlayer;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Transform ninjaStarText;
     [SerializeField] public Transform batteryText;
     [SerializeField] public Transform pillowText;
+    public GameObject finishMessage;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +64,9 @@ public class GameManager : MonoBehaviour
 
     public void Reset()
     {
+        racePlayer.currentTime = 0;
         theDeathScreen.gameObject.SetActive(false);
+        finishMessage.SetActive(false);
         platformList = FindObjectsOfType<PlatformDestroyer>();
         for (int i = 0; i < platformList.Length; i++)
         {

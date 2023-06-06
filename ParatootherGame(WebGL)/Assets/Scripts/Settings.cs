@@ -26,6 +26,7 @@ public class Settings : MonoBehaviour
     public static bool tacoTribeLeaderboard = false;
     public static bool thePlagueLeaderboard = false;
     public static bool teamLeaderboard = false;
+    public static bool raceLeaderboard = false;
     public static bool creditsMenu;
     public static bool levelGame;
     public static bool levelChange;
@@ -96,11 +97,13 @@ public class Settings : MonoBehaviour
     public static bool house;
     public static bool candyland;
     public static bool gameLevel;
+    public static bool raceLevel;
     public static bool easy;
     public static bool recks;
     public static bool slots = false;
     public static bool slotBG;
     public static int points;
+    public static int time;
     public static int rocketCount;
     public static int slotScore;
     public static bool jetpack;
@@ -122,6 +125,7 @@ public class Settings : MonoBehaviour
     public static bool frg;
     public static bool hoverboard;
     public static bool portal;
+    public static bool finishLine;
     public static int crownCoin;
     public static int coins;
     public Camera theCamera;

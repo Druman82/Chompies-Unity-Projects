@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 
 public class CastingToObject : MonoBehaviour
 {
-
     public static string selectedObject;
     public string internalObject;
     public RaycastHit theObject;
     public MainMenu mainMenu;
-    public MainMenu firstLevel;
+    public string firstLevel;
     public MainMenu easyLevel;
     public MainMenu recksLevel;
     public MainMenu leaderboard;
@@ -28,6 +29,9 @@ public class CastingToObject : MonoBehaviour
     public string options;
     public string credits;
     public string achievements;
+    public TextMeshProUGUI progressText;
+    public Slider slider;
+    public GameObject loadingScreen;
     [SerializeField] public Transform none;
     [SerializeField] public Transform bear;
     [SerializeField] public Transform dad;
@@ -41,23 +45,17 @@ public class CastingToObject : MonoBehaviour
     {
         mainMenu = FindObjectOfType<MainMenu>();
         //Cursor.lockState = CursorLockMode.Locked;
-
     }
 
     void Update()
     {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out theObject))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out theObject, 2))
         {
             selectedObject = theObject.transform.gameObject.name;
             internalObject = theObject.transform.gameObject.name;
             internalObject.ToString();
         }
-        /*
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
-        {
-            mouseX = Input.GetTouch(0).deltaPosition.x;
-            mouseY = Input.GetTouch(0).deltaPosition.y;
-        }*/
+
         if (SystemInfo.deviceType == DeviceType.Handheld)
         {
             Select();
@@ -67,7 +65,6 @@ public class CastingToObject : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Select();
-               
             }
         }
     }
@@ -222,13 +219,14 @@ public class CastingToObject : MonoBehaviour
         if (internalObject == "Door")
         {
             Cursor.lockState = CursorLockMode.None;
-            mainMenu.StartGame();
+            loadingScreen.SetActive(true);
+            LoadLevel(firstLevel);
         }
 
         if (internalObject == "Start")
         {
             Cursor.lockState = CursorLockMode.None;
-            mainMenu.StartGame();
+            LoadLevel(firstLevel);
         }
 
         if (internalObject == "Leaderboards")
@@ -289,5 +287,27 @@ public class CastingToObject : MonoBehaviour
     public void ComputerMain()
     {
         howToPlay.gameObject.SetActive(false);
+    }
+
+    public void LoadLevel(string gameLevel)
+    {
+        StartCoroutine(LoadAsynchronously(gameLevel));
+    }
+
+    IEnumerator LoadAsynchronously(string gameLevel)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(gameLevel);
+
+        loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+
+            slider.value = progress;
+            progressText.text = (progress * 100f).ToString("0") + "%";
+
+            yield return null;
+        }
     }
 }

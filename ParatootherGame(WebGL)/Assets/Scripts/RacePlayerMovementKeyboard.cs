@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class RacePlayerMovementKeyboard : MonoBehaviour
@@ -25,6 +26,7 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
     [SerializeField] private Transform sunLight;
     [SerializeField] private Transform moonLight;
     [SerializeField] public Transform parachute;
+    [SerializeField] public Transform glider;
     [SerializeField] public Transform bubblegumBalloon;
     [SerializeField] public Transform bubblegumPop;
     [SerializeField] public Transform hotAirBalloon;
@@ -68,6 +70,7 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
     [SerializeField] public Transform dadPlayer;
     [SerializeField] public Transform plaguePlayer;
     public GameObject joystickCanvas;
+    public GameObject finishMessage;
 
 
     public float gravity;
@@ -103,6 +106,7 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
     private float jumpTimeCounter;
     private int randomNum;
     private int parachuteCount = 0;
+    private int gliderCount = 0;
     private int hoverboardCount = 0;
     public PauseMenu pauseMenu;
     public AudioSource coinSound;
@@ -141,6 +145,7 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
     public AudioSource hotAirBalloonSound;
     public AudioSource beeSound;
     public AudioSource beeMusic;
+    public AudioSource finishSound;
     public PlayfabManager playfabManager;
     public Settings settings;
     private bool jumping;
@@ -159,11 +164,16 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
     public TextMeshProUGUI batteryText;
     public TextMeshProUGUI pillowText;
     public TextMeshProUGUI crown;
-    public FixedJoystick joystickL;
+    public FloatingJoystick joystickL;
+    public TextMeshProUGUI timeText;
+    public float currentTime;
+    private bool startingLine = false;
+    public bool glide = false;
 
 
     void Start()
     {
+
         if (Settings.gameLevel == true)
         {
             if (Settings.night == false)
@@ -303,7 +313,6 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
 
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-        speedMilestoneCount = speedIncreaseMilestone;
         theScoreManager = FindObjectOfType<ScoreManager>();
 
         //jumpTimeCounter = jumpTime;
@@ -314,6 +323,13 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (startingLine == true)
+        {
+            currentTime = currentTime + Time.deltaTime;
+            timeText.text = currentTime.ToString("0.00");
+        }
+
+ 
         if (rotate == true)
         {
             transform.Rotate(Vector3.up * speed * Time.deltaTime);
@@ -324,12 +340,14 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
             transform.Rotate(Vector3.forward * 75 * Time.deltaTime);
         }
 
+
+
         if (SystemInfo.deviceType == DeviceType.Handheld)
         {
             joystickCanvas.SetActive(true);
             float x = joystickL.Horizontal;
             Vector2 move = transform.forward * x + transform.forward * -x;
-            characterController.Move(move * speed * Time.deltaTime);
+            characterController.Move(move * runSpeed * Time.deltaTime);
 
             horizontalInput = x;
         }
@@ -338,7 +356,7 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
             //joystickCanvas.SetActive(false);
             float x = Input.GetAxis("Horizontal");
             Vector2 move = transform.forward * x + transform.forward * -x;
-            characterController.Move(move * speed * Time.deltaTime);
+            characterController.Move(move * runSpeed * Time.deltaTime);
         
             horizontalInput = x;
         }
@@ -426,11 +444,11 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
         // Speed increase
         if (transform.position.x > speedMilestoneCount)
         {
-            speedMilestoneCount += speedIncreaseMilestone;
+            Settings.finishLine = true;
 
-            speedIncreaseMilestone = speedIncreaseMilestone * speedMultiplier;
-
-            runSpeed = runSpeed * speedMultiplier;
+            //speedMilestoneCount += speedIncreaseMilestone;
+            //speedIncreaseMilestone = speedIncreaseMilestone * speedMultiplier;
+            //runSpeed = runSpeed * speedMultiplier;
         }
         // Ground checking
         foreach (var groundCheck in groundChecks)
@@ -472,10 +490,14 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
         {
             StopCoroutine("Parachute1");
             StopCoroutine("Parachute2");
+            StopCoroutine("Glider1");
+            StopCoroutine("Glider2");
             parachute.gameObject.SetActive(false);
+            glider.gameObject.SetActive(false);
             bubblegumBalloon.gameObject.SetActive(false);
             balloonInflate.Stop();
             parachuteCount = 0;
+            gliderCount = 0;
             hoverboardCount = 0;
 
             if (Settings.space == false && rotate == false && spaceshipLift == false && Settings.candyland == false && Settings.gameLevel == false && Settings.house == false && Settings.sewer == false)
@@ -501,6 +523,10 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
             else if (Settings.candyland == true)
             {
                 gravity = -25f;
+            }
+            else if (Settings.raceLevel == true)
+            {
+                gravity = -40f;
             }
             jumpPower = -2f;
         }
@@ -553,6 +579,27 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
             }
         }
 
+        //Glider
+        if (glider.gameObject.activeSelf && (jumpPressed || glide == true))
+        {
+            runSpeed = 10;
+            if (transform.position.y <= 8)
+            {
+                if (velocity.y < 10)
+                {
+                    velocity.y += Mathf.Sqrt((jumpPower * gravity) / 32);
+                }
+            }
+            else if (transform.position.y > 8)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            }
+        }
+        else if (!glider.gameObject.activeSelf)
+        {
+            runSpeed = 7;
+        }
+
         if ((jumpPressed && Settings.hoverboard == true && active) || (touchPressed && Settings.hoverboard == true && active))
         {
             Settings.hoverboard = false;
@@ -579,29 +626,6 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
             }
             jumpTimer = -1;
         }
-        if (isGrounded && jumping && (touchPressed || (jumpTimer > 0 && Time.time < jumpTimer + jumpGracePeriod)))
-        {
-            mobile = true;
-            if (!Settings.frg && Settings.gameLevel == true)
-            {
-                jumpHeight = 1.4f;
-            }
-            else if (Settings.sewer == true || Settings.house == true || Settings.space == true)
-            {
-                jumpHeight = 1.35f;
-            }
-            else if (Settings.city == true || Settings.candyland == true)
-            {
-                jumpHeight = 1.3f;
-            }
-            velocity.y += Mathf.Sqrt(jumpHeight * jumpPower * gravity / 16);
-
-            if (Settings.soundFXBool == true)
-            {
-                jumpSound.Play();
-            }
-            jumpTimer = -1;
-        }
 
         characterController.Move(velocity * Time.deltaTime);
 
@@ -617,21 +641,42 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
 
     public void Jump()
     {
-        //jumpPressed = true;
         jumpTimer = Time.time;
-        /*if (isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -gravity);
-        }*/
-        if (isGrounded && (jumpTimer > 0 && Time.time < jumpTimer + jumpGracePeriod))
-        {
-            velocity.y += Mathf.Sqrt(jumpHeight * jumpPower * gravity);
 
-            if (Settings.soundFXBool == true)
+        if (isGrounded)
+        {
+            if (jumpTimer > 0 && Time.time < jumpTimer + jumpGracePeriod)
             {
-                jumpSound.Play();
+                velocity.y += Mathf.Sqrt(jumpHeight * jumpPower * gravity);
+
+                if (Settings.soundFXBool == true)
+                {
+                    jumpSound.Play();
+                }
+                jumpTimer = -1;
             }
-            jumpTimer = -1;
+        }
+
+        //Glider
+        if (glider.gameObject.activeSelf)
+        {
+            glide = true;
+            runSpeed = 10;
+            if (transform.position.y <= 8)
+            {
+                if (velocity.y <= 10)
+                {
+                    velocity.y += Mathf.Sqrt((jumpPower * gravity) / 8);
+                }
+            }
+            else if (transform.position.y > 8)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            }
+        }
+        else if (!glider.gameObject.activeSelf)
+        {
+            runSpeed = 7;
         }
     }
 
@@ -702,6 +747,40 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
         else if (parachute.gameObject.activeSelf && parachuteCount == 0)
         {
             parachute.gameObject.SetActive(false);
+        }
+    }
+
+
+    public IEnumerator Glider1()
+    {
+        StopCoroutine("Glider2");
+        yield return new WaitForSeconds(4.1f);
+
+        if (glider.gameObject.activeSelf)
+        {
+            if (gliderCount == 1)
+            {
+                glider.gameObject.SetActive(false);
+            }
+            else
+            {
+                StartCoroutine("Glider2");
+            }
+        }
+    }
+
+    public IEnumerator Glider2()
+    {
+        StopCoroutine("Glider1");
+        gliderCount = 0;
+        yield return new WaitForSeconds(4.1f);
+        if (glider.gameObject.activeSelf && parachuteCount != 0)
+        {
+            StartCoroutine("Glider1");
+        }
+        else if (glider.gameObject.activeSelf && gliderCount == 0)
+        {
+            glider.gameObject.SetActive(false);
         }
     }
 
@@ -958,9 +1037,10 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
         if (other.gameObject.layer == 8)
         {
             other.gameObject.SetActive(false);
-            Settings.coins++;
-            Settings.coinCount++;
-            StartCoroutine("Pulse");
+            currentTime -= 1;
+            //Settings.coins++;
+            //Settings.coinCount++;
+            //StartCoroutine("Pulse");
             if (Settings.soundFXBool == true)
             {
                 coinSound.Play();
@@ -1005,7 +1085,35 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
             gravity = -20f;
             velocity.y += Mathf.Sqrt(jumpHeight * jumpPower * gravity);
             parachute.gameObject.SetActive(true);
-            StartCoroutine("PulseParachute");
+            //StartCoroutine("PulseParachute");
+            if (Settings.soundFXBool == true)
+            {
+                jumpSound.Play();
+            }
+        }
+
+        //Glider pickup
+        if (other.gameObject.tag == "Glider")
+        {
+            other.gameObject.SetActive(false);
+            if (Settings.soundFXBool == true)
+            {
+                parachuteSound.Play();
+            }
+
+            if (gliderCount == 0)
+            {
+                gliderCount++;
+                StartCoroutine("Glider1");
+            }
+            else
+            {
+                StartCoroutine("Glider2");
+            }
+            jumpPower *= .3f;
+            gravity = -20f;
+            velocity.y += Mathf.Sqrt(jumpHeight * jumpPower * gravity);
+            glider.gameObject.SetActive(true);
             if (Settings.soundFXBool == true)
             {
                 jumpSound.Play();
@@ -1520,9 +1628,37 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
                 balloonPop.Play();
             }
         }
+
+        //StartingLine
+        if (other.gameObject.tag == "StartingLine")
+        {
+            startingLine = true;
+        }
+
+        //FinishLine
+        if (other.gameObject.tag == "FinishLine")
+        {
+            startingLine = false;
+            finishMessage.SetActive(true);
+            Time.timeScale = 0f;
+            player.gameObject.SetActive(false);
+            amongPlayer.gameObject.SetActive(false);
+            bearPlayer.gameObject.SetActive(false);
+            gacPlayer.gameObject.SetActive(false);
+            dadPlayer.gameObject.SetActive(false);
+            plaguePlayer.gameObject.SetActive(false);
+            currentTime = currentTime * 100;
+            Settings.time = (int)currentTime;
+            playfabManager.SendTimeLeaderboard(Settings.time);
+            finishSound.Play();
+        }
+
         //Killbox collision
         if (other.gameObject.tag == "killbox")
         {
+            startingLine = false;
+            currentTime = 0;
+            timeText.text = ("0");
             if (Settings.recks == true)
             {
                 beeSound.Stop();
@@ -1540,6 +1676,7 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
                     deathSound.Play();
                 }
                 theGameManager.RestartGame();
+
                 if (Settings.apeGang == true)
                 {
                     playfabManager.SendApeGangLeaderboard(Settings.points);
@@ -1582,6 +1719,7 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
             }
         }
     }
+    /*
     private IEnumerator Pulse()
     {
         for (float i = 1f; i <= 1.1f; i += 0.05f)
@@ -1791,5 +1929,5 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
         }
         scoreText.rectTransform.localScale = new Vector3(1f, 1f, 1f);
         scoreText.color = new Color(255, 255, 255, 255);
-    }
+    }*/
 }

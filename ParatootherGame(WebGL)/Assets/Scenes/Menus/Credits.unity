@@ -3246,7 +3246,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 287839192}
         m_TargetAssemblyTypeName: LeaderboardMenu, Assembly-CSharp
-        m_MethodName: HouseMenu
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

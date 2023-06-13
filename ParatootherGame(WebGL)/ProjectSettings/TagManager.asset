@@ -23,6 +23,7 @@ TagManager:
   - FinishLine
   - StartingLine
   - Glider
+  - Ladder
   layers:
   - Default
   - TransparentFX

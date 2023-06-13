@@ -12,8 +12,8 @@ public class GameControl : MonoBehaviour
     [SerializeField] private TextMeshProUGUI prizeText;
     [SerializeField] private Row[] rows;
     [SerializeField] private Transform handle;
-    [SerializeField] private Transform planSlots2D;
-    [SerializeField] private Transform planSlots3D;
+    [SerializeField] private Transform planeSlots2D;
+    [SerializeField] private Transform planeSlots3D;
     [SerializeField] public GameObject achievementGet;
     [SerializeField] public GameObject winnerWinnerBanner;
     [SerializeField] public GameObject jackpotBanner;
@@ -44,7 +44,7 @@ public class GameControl : MonoBehaviour
     {
         Cursor.visible = true;
         Settings.slotBG = true;
-        planSlots3D.gameObject.SetActive(true);
+        planeSlots3D.gameObject.SetActive(true);
     }
     void Start()
     {

@@ -64,7 +64,10 @@ public class GameManager : MonoBehaviour
 
     public void Reset()
     {
-        racePlayer.currentTime = 0;
+        if (Settings.raceLevel)
+        {
+            racePlayer.currentTime = 0;
+        }
         theDeathScreen.gameObject.SetActive(false);
         finishMessage.SetActive(false);
         platformList = FindObjectsOfType<PlatformDestroyer>();

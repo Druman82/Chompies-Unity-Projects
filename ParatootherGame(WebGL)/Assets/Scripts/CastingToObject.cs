@@ -32,6 +32,7 @@ public class CastingToObject : MonoBehaviour
     public TextMeshProUGUI progressText;
     public Slider slider;
     public GameObject loadingScreen;
+    public Vector3 offset;
     [SerializeField] public Transform none;
     [SerializeField] public Transform bear;
     [SerializeField] public Transform dad;
@@ -39,6 +40,10 @@ public class CastingToObject : MonoBehaviour
     [SerializeField] public Transform turtle;
     [SerializeField] public Transform samurai;
     [SerializeField] public Transform howToPlay;
+    [SerializeField] public Transform shelfMovable;
+    [SerializeField] public Transform shelfHeld;
+    [SerializeField] public Transform shelfOnFence;
+
     public AudioSource selectSound;
 
     void Start()
@@ -216,10 +221,22 @@ public class CastingToObject : MonoBehaviour
             Settings.among = false;
 
         }
+
+        if (internalObject == "ShelfMovable")
+        {
+            shelfMovable.gameObject.SetActive(false);
+            shelfHeld.gameObject.SetActive(true);
+        }
+
+        if (internalObject == "BrokenFence" && shelfHeld.gameObject.activeSelf)
+        {
+            shelfHeld.gameObject.SetActive(false);
+            shelfOnFence.gameObject.SetActive(true);
+        }
+
         if (internalObject == "Door")
         {
             Cursor.lockState = CursorLockMode.None;
-            loadingScreen.SetActive(true);
             LoadLevel(firstLevel);
         }
 

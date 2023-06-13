@@ -64,11 +64,7 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
     [SerializeField] public Transform samuriaLegR;
     [SerializeField] public Transform samuriaCostume;
     [SerializeField] public Transform player;
-    [SerializeField] public Transform amongPlayer;
-    [SerializeField] public Transform bearPlayer;
-    [SerializeField] public Transform gacPlayer;
-    [SerializeField] public Transform dadPlayer;
-    [SerializeField] public Transform plaguePlayer;
+
     public GameObject joystickCanvas;
     public GameObject finishMessage;
 
@@ -229,87 +225,7 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
             backgroundMusic3D.Play();
         }
 
-        //Characters
-        if (Settings.turtle == true)
-        {
-            turtleCostume.gameObject.SetActive(true);
-            footL.gameObject.SetActive(true);
-            footR.gameObject.SetActive(true);
-            mask.gameObject.SetActive(false);
-            amongPlayer.gameObject.SetActive(false);
-            bearPlayer.gameObject.SetActive(false);
-            gacPlayer.gameObject.SetActive(false);
-            dadPlayer.gameObject.SetActive(false);
-            plaguePlayer.gameObject.SetActive(false);
-        }
 
-        if (Settings.samuria == true)
-        {
-            samuriaCostume.gameObject.SetActive(true);
-            samuriaLegL.gameObject.SetActive(true);
-            samuriaLegR.gameObject.SetActive(true);
-            mask.gameObject.SetActive(false);
-            amongPlayer.gameObject.SetActive(false);
-            bearPlayer.gameObject.SetActive(false);
-            gacPlayer.gameObject.SetActive(false);
-            dadPlayer.gameObject.SetActive(false);
-            plaguePlayer.gameObject.SetActive(false);
-        }
-
-        if (Settings.among == true)
-        {
-            player.gameObject.SetActive(false);
-            amongPlayer.gameObject.SetActive(true);
-            bearPlayer.gameObject.SetActive(false);
-            gacPlayer.gameObject.SetActive(false);
-            dadPlayer.gameObject.SetActive(false);
-            plaguePlayer.gameObject.SetActive(false);
-        }
-        else if (Settings.among == false && Settings.none == true)
-        {
-            player.gameObject.SetActive(true);
-            amongPlayer.gameObject.SetActive(false);
-            bearPlayer.gameObject.SetActive(false);
-            gacPlayer.gameObject.SetActive(false);
-            dadPlayer.gameObject.SetActive(false);
-            plaguePlayer.gameObject.SetActive(false);
-        }
-        else if (Settings.bear == true && Settings.among == false && Settings.none == false)
-        {
-            player.gameObject.SetActive(false);
-            amongPlayer.gameObject.SetActive(false);
-            bearPlayer.gameObject.SetActive(true);
-            gacPlayer.gameObject.SetActive(false);
-            dadPlayer.gameObject.SetActive(false);
-            plaguePlayer.gameObject.SetActive(false);
-        }
-        else if (Settings.bear == false && Settings.among == false && Settings.none == false && Settings.gac == true)
-        {
-            player.gameObject.SetActive(false);
-            amongPlayer.gameObject.SetActive(false);
-            bearPlayer.gameObject.SetActive(false);
-            gacPlayer.gameObject.SetActive(true);
-            dadPlayer.gameObject.SetActive(false);
-            plaguePlayer.gameObject.SetActive(false);
-        }
-        else if (Settings.bear == false && Settings.among == false && Settings.none == false && Settings.gac == false && Settings.dad == true)
-        {
-            player.gameObject.SetActive(false);
-            amongPlayer.gameObject.SetActive(false);
-            bearPlayer.gameObject.SetActive(false);
-            gacPlayer.gameObject.SetActive(false);
-            dadPlayer.gameObject.SetActive(true);
-            plaguePlayer.gameObject.SetActive(false);
-        }
-        else if (Settings.bear == false && Settings.among == false && Settings.none == false && Settings.gac == false && Settings.dad == false && Settings.recksFrog == true)
-        {
-            player.gameObject.SetActive(false);
-            amongPlayer.gameObject.SetActive(false);
-            bearPlayer.gameObject.SetActive(false);
-            gacPlayer.gameObject.SetActive(false);
-            dadPlayer.gameObject.SetActive(false);
-            plaguePlayer.gameObject.SetActive(true);
-        }
 
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
@@ -353,7 +269,7 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
         }
         else
         {
-            //joystickCanvas.SetActive(false);
+            joystickCanvas.SetActive(false);
             float x = Input.GetAxis("Horizontal");
             Vector2 move = transform.forward * x + transform.forward * -x;
             characterController.Move(move * runSpeed * Time.deltaTime);
@@ -548,6 +464,11 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
         {
             jumping = true;
         }
+        if (isGrounded)
+        {
+            runSpeed = 7;
+            glide = false;
+        }
 
         //Parachute
         if (parachute.gameObject.activeSelf && jumpPressed)
@@ -656,9 +577,8 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
                 jumpTimer = -1;
             }
         }
-
         //Glider
-        if (glider.gameObject.activeSelf)
+        else if (!isGrounded && glider.gameObject.activeSelf)
         {
             glide = true;
             runSpeed = 10;
@@ -666,17 +586,13 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
             {
                 if (velocity.y <= 10)
                 {
-                    velocity.y += Mathf.Sqrt((jumpPower * gravity) / 8);
+                    velocity.y += Mathf.Sqrt((jumpPower * gravity) * 2);
                 }
             }
             else if (transform.position.y > 8)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             }
-        }
-        else if (!glider.gameObject.activeSelf)
-        {
-            runSpeed = 7;
         }
     }
 
@@ -1642,11 +1558,6 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
             finishMessage.SetActive(true);
             Time.timeScale = 0f;
             player.gameObject.SetActive(false);
-            amongPlayer.gameObject.SetActive(false);
-            bearPlayer.gameObject.SetActive(false);
-            gacPlayer.gameObject.SetActive(false);
-            dadPlayer.gameObject.SetActive(false);
-            plaguePlayer.gameObject.SetActive(false);
             currentTime = currentTime * 100;
             Settings.time = (int)currentTime;
             playfabManager.SendTimeLeaderboard(Settings.time);

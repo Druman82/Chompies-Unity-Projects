@@ -13,6 +13,7 @@ public class PlayerMovementKeyboard : MonoBehaviour
     public LayerMask groundMask;
     public float jumpHeight = 1f;
     public FixedJoystick joystickL;
+    public AudioSource waterSound;
 
 
     Vector3 velocity;
@@ -34,7 +35,7 @@ public class PlayerMovementKeyboard : MonoBehaviour
 
             Vector3 move = transform.right * x + transform.forward * z;
 
-            controller.Move(move * speed * Time.deltaTime);
+            controller.Move(move * (speed / 1.5f) * Time.deltaTime);
 
             if (CrossPlatformInputManager.GetButtonDown("Jump") && isGrounded)
             {
@@ -49,7 +50,7 @@ public class PlayerMovementKeyboard : MonoBehaviour
         {
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
-            
+
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
             if (isGrounded && velocity.y < 0)
@@ -77,6 +78,23 @@ public class PlayerMovementKeyboard : MonoBehaviour
         if (isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -gravity);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Ladder")
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -gravity);
+        }
+
+        //Water collision
+        if (other.gameObject.layer == 4)
+        {
+            if (Settings.soundFXBool == true)
+            {
+                waterSound.Play();
+            }
         }
     }
 }

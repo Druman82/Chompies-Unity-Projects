@@ -17,6 +17,11 @@ public class Settings : MonoBehaviour
     public static bool spaceRiders = false;
     public static bool tacoTribe = false;
     public static bool thePlague = false;
+    public static bool team1 = false;
+    public static bool team2 = false;
+    public static bool team3 = false;
+    public static bool team4 = false;
+    public static bool team5 = false;
     public static bool apeGangLeaderboard = false;
     public static bool brawlerBearsLeaderboard = false;
     public static bool cryptoDadsLeaderboard = false;
@@ -26,7 +31,13 @@ public class Settings : MonoBehaviour
     public static bool tacoTribeLeaderboard = false;
     public static bool thePlagueLeaderboard = false;
     public static bool teamLeaderboard = false;
+    public static bool raceTeamLeaderboard = false;
     public static bool raceLeaderboard = false;
+    public static bool team1Leaderboard = false;
+    public static bool team2Leaderboard = false;
+    public static bool team3Leaderboard = false;
+    public static bool team4Leaderboard = false;
+    public static bool team5Leaderboard = false;
     public static bool creditsMenu;
     public static bool levelGame;
     public static bool levelChange;
@@ -77,7 +88,7 @@ public class Settings : MonoBehaviour
     public static int target = 1;
     public static bool samuria;
     public static bool samuriaActivated;
-    public static bool roo;
+    public static bool taco;
     public static bool bear;
     public static bool gac;
     public static bool dad;
@@ -126,6 +137,7 @@ public class Settings : MonoBehaviour
     public static bool hoverboard;
     public static bool portal;
     public static bool finishLine;
+    public static bool joyImage;
     public static int crownCoin;
     public static int coins;
     public Camera theCamera;

@@ -60,10 +60,12 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
     [SerializeField] public Transform bandannaOrange;
     [SerializeField] public Transform showPortal;
     [SerializeField] public Transform bee;
+    [SerializeField] public Transform goldKey;
     [SerializeField] public Transform samuriaLegL;
     [SerializeField] public Transform samuriaLegR;
     [SerializeField] public Transform samuriaCostume;
     [SerializeField] public Transform player;
+    [SerializeField] public Transform joystickImage;
 
     public GameObject joystickCanvas;
     public GameObject finishMessage;
@@ -261,6 +263,15 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
         if (SystemInfo.deviceType == DeviceType.Handheld)
         {
             joystickCanvas.SetActive(true);
+            if (horizontalInput == 0 && Settings.joyImage == true)
+            {
+                joystickImage.gameObject.SetActive(true);
+                Settings.joyImage = false;
+            }
+            else if (horizontalInput != 0)
+            {
+                joystickImage.gameObject.SetActive(false);
+            }
             float x = joystickL.Horizontal;
             Vector2 move = transform.forward * x + transform.forward * -x;
             characterController.Move(move * runSpeed * Time.deltaTime);
@@ -1545,6 +1556,15 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
             }
         }
 
+        //Gold Key
+        if (other.gameObject.tag == "GoldKey")
+        {
+            goldKey.gameObject.SetActive(false);
+            {
+                coinSound.Play();
+            }
+        }
+
         //StartingLine
         if (other.gameObject.tag == "StartingLine")
         {
@@ -1560,7 +1580,31 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
             player.gameObject.SetActive(false);
             currentTime = currentTime * 100;
             Settings.time = (int)currentTime;
-            playfabManager.SendTimeLeaderboard(Settings.time);
+
+            if (Settings.team1 == true)
+            {
+                playfabManager.SendTeam1Leaderboard(Settings.time);
+            }
+            if (Settings.team2 == true)
+            {
+                playfabManager.SendTeam2Leaderboard(Settings.time);
+            }
+            if (Settings.team3 == true)
+            {
+                playfabManager.SendTeam3Leaderboard(Settings.time);
+            }
+            if (Settings.team4 == true)
+            {
+                playfabManager.SendTeam4Leaderboard(Settings.time);
+            }
+            if (Settings.team5 == true)
+            {
+                playfabManager.SendTeam5Leaderboard(Settings.time);
+            }
+            else if (Settings.team1 == false && Settings.team2 == false && Settings.team3 == false && Settings.team4 == false && Settings.team5 == false)
+            {
+                playfabManager.SendTimeLeaderboard(Settings.time);
+            }
             finishSound.Play();
         }
 

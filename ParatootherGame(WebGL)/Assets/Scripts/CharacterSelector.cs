@@ -17,10 +17,10 @@ public class CharacterSelector : MonoBehaviour
     public GameObject noneTextDeselected;
     public GameObject none;
     public GameObject noneDeselected;
-    public GameObject rooText;
-    public GameObject rooTextDeselected;
-    public GameObject roo;
-    public GameObject rooDeselected;
+    public GameObject tacoText;
+    public GameObject tacoTextDeselected;
+    public GameObject taco;
+    public GameObject tacoDeselected;
     public GameObject plagueText;
     public GameObject plagueTextDeselected;
     public GameObject plague;
@@ -62,7 +62,7 @@ public class CharacterSelector : MonoBehaviour
         {
             content.transform.position = new Vector3(800, 3.1f, transform.position.z);
         }
-        else if (Settings.roo == true)
+        else if (Settings.taco == true)
         {
             content.transform.position = new Vector3(800,3.1f, transform.position.z);
         }
@@ -141,10 +141,10 @@ public class CharacterSelector : MonoBehaviour
 
         if (Settings.none == true)
         {
-            roo.SetActive(false);
-            rooDeselected.SetActive(true);
-            rooText.SetActive(false);
-            rooTextDeselected.SetActive(true);
+            taco.SetActive(false);
+            tacoDeselected.SetActive(true);
+            tacoText.SetActive(false);
+            tacoTextDeselected.SetActive(true);
             plague.SetActive(false);
             plagueDeselected.SetActive(true);
             plagueText.SetActive(false);
@@ -185,12 +185,12 @@ public class CharacterSelector : MonoBehaviour
             noneDeselected.SetActive(false);
         }
 
-        else if (Settings.roo == true)
+        else if (Settings.taco == true)
         {
-            roo.SetActive(true);
-            rooDeselected.SetActive(false);
-            rooText.SetActive(true);
-            rooTextDeselected.SetActive(false);
+            taco.SetActive(true);
+            tacoDeselected.SetActive(false);
+            tacoText.SetActive(true);
+            tacoTextDeselected.SetActive(false);
             plague.SetActive(false);
             plagueDeselected.SetActive(true);
             plagueText.SetActive(false);
@@ -233,10 +233,10 @@ public class CharacterSelector : MonoBehaviour
         
         else if (Settings.recksFrog == true)
         {
-            roo.SetActive(false);
-            rooDeselected.SetActive(true);
-            rooText.SetActive(false);
-            rooTextDeselected.SetActive(true);
+            taco.SetActive(false);
+            tacoDeselected.SetActive(true);
+            tacoText.SetActive(false);
+            tacoTextDeselected.SetActive(true);
             plague.SetActive(true);
             plagueDeselected.SetActive(false);
             plagueText.SetActive(true);
@@ -341,10 +341,10 @@ public class CharacterSelector : MonoBehaviour
                 turtleTextDeselected.SetActive(true);
                 turtleText.SetActive(false);
             }
-            roo.SetActive(false);
-            rooDeselected.SetActive(true);
-            rooText.SetActive(false);
-            rooTextDeselected.SetActive(true);
+            taco.SetActive(false);
+            tacoDeselected.SetActive(true);
+            tacoText.SetActive(false);
+            tacoTextDeselected.SetActive(true);
             among.SetActive(false);
             amongDeselected.SetActive(true);
             amongText.SetActive(false);
@@ -387,10 +387,10 @@ public class CharacterSelector : MonoBehaviour
                 turtleTextDeselected.SetActive(true);
                 turtleText.SetActive(false);
             }
-            roo.SetActive(false);
-            rooDeselected.SetActive(true);
-            rooText.SetActive(false);
-            rooTextDeselected.SetActive(true);
+            taco.SetActive(false);
+            tacoDeselected.SetActive(true);
+            tacoText.SetActive(false);
+            tacoTextDeselected.SetActive(true);
             among.SetActive(false);
             amongDeselected.SetActive(true);
             amongText.SetActive(false);
@@ -433,10 +433,10 @@ public class CharacterSelector : MonoBehaviour
                 turtleTextDeselected.SetActive(true);
                 turtleText.SetActive(false);
             }
-            roo.SetActive(false);
-            rooDeselected.SetActive(true);
-            rooText.SetActive(false);
-            rooTextDeselected.SetActive(true);
+            taco.SetActive(false);
+            tacoDeselected.SetActive(true);
+            tacoText.SetActive(false);
+            tacoTextDeselected.SetActive(true);
             among.SetActive(false);
             amongDeselected.SetActive(true);
             amongText.SetActive(false);
@@ -479,10 +479,10 @@ public class CharacterSelector : MonoBehaviour
                 turtleTextDeselected.SetActive(true);
                 turtleText.SetActive(false);
             }
-            roo.SetActive(false);
-            rooDeselected.SetActive(true);
-            rooText.SetActive(false);
-            rooTextDeselected.SetActive(true);
+            taco.SetActive(false);
+            tacoDeselected.SetActive(true);
+            tacoText.SetActive(false);
+            tacoTextDeselected.SetActive(true);
             among.SetActive(true);
             amongDeselected.SetActive(false);
             amongText.SetActive(true);
@@ -525,10 +525,10 @@ public class CharacterSelector : MonoBehaviour
                 turtleTextDeselected.SetActive(true);
                 turtleText.SetActive(false);
             }
-            roo.SetActive(false);
-            rooDeselected.SetActive(true);
-            rooText.SetActive(false);
-            rooTextDeselected.SetActive(true);
+            taco.SetActive(false);
+            tacoDeselected.SetActive(true);
+            tacoText.SetActive(false);
+            tacoTextDeselected.SetActive(true);
             among.SetActive(false);
             amongDeselected.SetActive(true);
             amongText.SetActive(false);
@@ -547,7 +547,7 @@ public class CharacterSelector : MonoBehaviour
     public void None()
     {
         Settings.none = true;
-        Settings.roo = false;
+        Settings.taco = false;
         Settings.recksFrog = false;
         Settings.bear = false;
         Settings.turtle = false;
@@ -558,10 +558,10 @@ public class CharacterSelector : MonoBehaviour
         Settings.target = 1;
     }
 
-    public void Roo()
+    public void Taco()
     {
         Settings.none = false;
-        Settings.roo = true;
+        Settings.taco = true;
         Settings.recksFrog = false;
         Settings.bear = false;
         Settings.turtle = false;
@@ -569,13 +569,13 @@ public class CharacterSelector : MonoBehaviour
         Settings.dad = false;
         Settings.among = false;
         Settings.samuria = false;
-        Settings.target = 1;
+        Settings.target = 7;
     }
 
     public void Plague()
     {
         Settings.none = false;
-        Settings.roo = false;
+        Settings.taco = false;
         Settings.recksFrog = true;
         Settings.bear = false;
         Settings.turtle = false;
@@ -589,7 +589,7 @@ public class CharacterSelector : MonoBehaviour
     public void Turtle()
     {
         Settings.none = false;
-        Settings.roo = false;
+        Settings.taco = false;
         Settings.recksFrog = false;
         Settings.bear = false;
         Settings.turtle = true;
@@ -603,7 +603,7 @@ public class CharacterSelector : MonoBehaviour
     public void Bear()
     {
         Settings.none = false;
-        Settings.roo = false;
+        Settings.taco = false;
         Settings.recksFrog = false;
         Settings.bear = true;
         Settings.turtle = false;
@@ -617,7 +617,7 @@ public class CharacterSelector : MonoBehaviour
     public void GAC()
     {
         Settings.none = false;
-        Settings.roo = false;
+        Settings.taco = false;
         Settings.recksFrog = false;
         Settings.bear = false;
         Settings.turtle = false;
@@ -631,7 +631,7 @@ public class CharacterSelector : MonoBehaviour
     public void Dad()
     {
         Settings.none = false;
-        Settings.roo = false;
+        Settings.taco = false;
         Settings.recksFrog = false;
         Settings.bear = false;
         Settings.turtle = false;
@@ -645,7 +645,7 @@ public class CharacterSelector : MonoBehaviour
     public void Among()
     {
         Settings.none = false;
-        Settings.roo = false;
+        Settings.taco = false;
         Settings.recksFrog = false;
         Settings.bear = false;
         Settings.turtle = false;
@@ -659,7 +659,7 @@ public class CharacterSelector : MonoBehaviour
     public void Samuria()
     {
         Settings.none = false;
-        Settings.roo = false;
+        Settings.taco = false;
         Settings.recksFrog = false;
         Settings.bear = false;
         Settings.turtle = false;

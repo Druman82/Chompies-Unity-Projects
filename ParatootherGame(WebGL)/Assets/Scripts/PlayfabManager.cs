@@ -38,6 +38,11 @@ public class PlayfabManager : MonoBehaviour
     public int spaceRidersNum;
     public int tacoTribeNum;
     public int thePlagueNum;
+    public int team1Num;
+    public int team2Num;
+    public int team3Num;
+    public int team4Num;
+    public int team5Num;
     private int chompiesCount;
     private int chompies2Count;
     private int hikeshiCount;
@@ -48,6 +53,11 @@ public class PlayfabManager : MonoBehaviour
     private int spaceRidersCount;
     private int tacoTribeCount;
     private int thePlagueCount;
+    private int team1Count;
+    private int team2Count;
+    private int team3Count;
+    private int team4Count;
+    private int team5Count;
     public double chompiesAverageNum;
     public double chompies2AverageNum;
     public double hikeshiAverageNum;
@@ -58,6 +68,11 @@ public class PlayfabManager : MonoBehaviour
     public double spaceRidersAverageNum;
     public double tacoTribeAverageNum;
     public double thePlagueAverageNum;
+    public double team1AverageNum;
+    public double team2AverageNum;
+    public double team3AverageNum;
+    public double team4AverageNum;
+    public double team5AverageNum;
     public static double chompiesAverageNumber;
     public static double chompies2AverageNumber;
     public static double hikeshiAverageNumber;
@@ -68,6 +83,11 @@ public class PlayfabManager : MonoBehaviour
     public static double spaceRidersAverageNumber;
     public static double tacoTribeAverageNumber;
     public static double thePlagueAverageNumber;
+    public static double team1AverageNumber;
+    public static double team2AverageNumber;
+    public static double team3AverageNumber;
+    public static double team4AverageNumber;
+    public static double team5AverageNumber;
     public Text deleteAccountMessageText;
     public InputField emailInput;
     public InputField usernameInput;
@@ -137,6 +157,27 @@ public class PlayfabManager : MonoBehaviour
         {
             GetThePlagueLeaderboard();
         }
+        
+        if (Settings.team1Leaderboard == true)
+        {
+            GetTeam1Leaderboard();
+        }
+        if (Settings.team2Leaderboard == true)
+        {
+            GetTeam2Leaderboard();
+        }
+        if (Settings.team3Leaderboard == true)
+        {
+            GetTeam3Leaderboard();
+        }
+        if (Settings.team4Leaderboard == true)
+        {
+            GetTeam4Leaderboard();
+        }
+        if (Settings.team5Leaderboard == true)
+        {
+            GetTeam5Leaderboard();
+        }
 
         else if (Settings.teamLeaderboard == true)
         {
@@ -151,8 +192,16 @@ public class PlayfabManager : MonoBehaviour
             GetTacoTribeLeaderboardAverage();
             GetThePlagueLeaderboardAverage();
         }
+        else if (Settings.raceTeamLeaderboard == true)
+        {
+            GetTeam1LeaderboardAverage();
+            GetTeam2LeaderboardAverage();
+            GetTeam3LeaderboardAverage();
+            GetTeam4LeaderboardAverage();
+            GetTeam5LeaderboardAverage();
+        }
 
-        else if (Settings.apeGangLeaderboard == false && Settings.brawlerBearsLeaderboard == false && Settings.cryptoDadsLeaderboard == false && Settings.gamingApeClubLeaderboard == false && Settings.hikeshiLeaderboard == false && Settings.spaceRidersLeaderboard == false && Settings.tacoTribeLeaderboard == false && Settings.thePlagueLeaderboard == false && Settings.teamLeaderboard == false && Settings.raceLeaderboard == false)
+        else if (Settings.apeGangLeaderboard == false && Settings.brawlerBearsLeaderboard == false && Settings.cryptoDadsLeaderboard == false && Settings.gamingApeClubLeaderboard == false && Settings.hikeshiLeaderboard == false && Settings.spaceRidersLeaderboard == false && Settings.tacoTribeLeaderboard == false && Settings.thePlagueLeaderboard == false && Settings.teamLeaderboard == false && Settings.raceLeaderboard == false && Settings.raceTeamLeaderboard == false && Settings.team1Leaderboard == false && Settings.team2Leaderboard == false && Settings.team3Leaderboard == false && Settings.team4Leaderboard == false && Settings.team5Leaderboard == false)
         {
             GetLeaderboard();
         }
@@ -184,13 +233,6 @@ public class PlayfabManager : MonoBehaviour
         messageText.text = "Registered and logged in!";
         nameWindow.SetActive(true);
         loginWindow.SetActive(false);
-    }
-
-    public void SkipUserName()
-    {
-        //chooseTeamWindow.SetActive(true);
-        nameWindow.SetActive(false);
-        MainMenu();
     }
 
     public void LoginButton()
@@ -286,8 +328,8 @@ public class PlayfabManager : MonoBehaviour
         else
         {
             Debug.Log("Successful login/account created!");
-            //chooseTeamWindow.SetActive(true);
-            MainMenu();
+            chooseTeamWindow.SetActive(true);
+            //MainMenu();
         }
     }
 
@@ -298,11 +340,17 @@ public class PlayfabManager : MonoBehaviour
             DisplayName = usernameInput.text,
         };
         PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnDisplayNameUpdate, OnError);
-        //chooseTeamWindow.SetActive(true);
+        chooseTeamWindow.SetActive(true);
         nameWindow.SetActive(false);
-        MainMenu();
+        //MainMenu();
     }
 
+    public void SkipUserName()
+    {
+        chooseTeamWindow.SetActive(true);
+        nameWindow.SetActive(false);
+        //MainMenu();
+    }
 
     public void TryParatoother()
     {
@@ -329,6 +377,7 @@ public class PlayfabManager : MonoBehaviour
 
 
     //Send Leaderboards
+    //Race Leaderboards
     public void SendTimeLeaderboard(int time)
     {
         var request = new UpdatePlayerStatisticsRequest
@@ -344,7 +393,83 @@ public class PlayfabManager : MonoBehaviour
         };
         PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
     }
+    public void SendTeam1Leaderboard(int time)
+    {
+        var request = new UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<StatisticUpdate>
+            {
+                new StatisticUpdate
+                {
+                    StatisticName = "Electric Chompy",
+                    Value = time
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
+    }
+    public void SendTeam2Leaderboard(int time)
+    {
+        var request = new UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<StatisticUpdate>
+            {
+                new StatisticUpdate
+                {
+                    StatisticName = "Hoodie Gang",
+                    Value = time
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
+    }
+    public void SendTeam3Leaderboard(int time)
+    {
+        var request = new UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<StatisticUpdate>
+            {
+                new StatisticUpdate
+                {
+                    StatisticName = "Nude",
+                    Value = time
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
+    }
+    public void SendTeam4Leaderboard(int time)
+    {
+        var request = new UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<StatisticUpdate>
+            {
+                new StatisticUpdate
+                {
+                    StatisticName = "Money Maker",
+                    Value = time
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
+    }
+    public void SendTeam5Leaderboard(int time)
+    {
+        var request = new UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<StatisticUpdate>
+            {
+                new StatisticUpdate
+                {
+                    StatisticName = "Sports Illustrated",
+                    Value = time
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
+    }
 
+    //Paratoother Leaderboards
     public void SendLeaderboard(int score)
     {
         var request = new UpdatePlayerStatisticsRequest
@@ -489,6 +614,7 @@ public class PlayfabManager : MonoBehaviour
 
 
     //Get Leaderboards
+    //Race Leaderboards
     public void GetRaceLeaderboard()
     {
         var request = new GetLeaderboardRequest
@@ -498,7 +624,60 @@ public class PlayfabManager : MonoBehaviour
             MaxResultsCount = 100
         };
         PlayFabClientAPI.GetLeaderboard(request, OnRaceLeaderboardGet, OnError);
+        GetTitleData();
     }
+    public void GetTeam1Leaderboard()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "Electric Chompy",
+            StartPosition = 0,
+            MaxResultsCount = 100
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnTeam1LeaderboardGet, OnError);
+    }
+    public void GetTeam2Leaderboard()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "Hoodie Gang",
+            StartPosition = 0,
+            MaxResultsCount = 100
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnTeam2LeaderboardGet, OnError);
+    }
+    public void GetTeam3Leaderboard()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "Nude",
+            StartPosition = 0,
+            MaxResultsCount = 100
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnTeam3LeaderboardGet, OnError);
+    }
+    public void GetTeam4Leaderboard()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "Money Maker",
+            StartPosition = 0,
+            MaxResultsCount = 100
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnTeam4LeaderboardGet, OnError);
+    }
+    public void GetTeam5Leaderboard()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "Sports Illustrated",
+            StartPosition = 0,
+            MaxResultsCount = 100
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnTeam5LeaderboardGet, OnError);
+    }
+
+    //Paratoother Leaderboards
     public void GetLeaderboard()
     {
         var request = new GetLeaderboardRequest
@@ -508,7 +687,7 @@ public class PlayfabManager : MonoBehaviour
             MaxResultsCount = 100
         };
         PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
-        //GetTitleData();
+        GetTitleData();
         //GetUserData();
     }
     public void GetApeGangLeaderboard()
@@ -594,6 +773,59 @@ public class PlayfabManager : MonoBehaviour
 
 
     //Get Leaderboard Averages
+    //Race Leaderboard
+    public void GetTeam1LeaderboardAverage()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "Electric Chompy",
+            StartPosition = 0,
+            MaxResultsCount = 10
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnTeam1LeaderboardGetAverage, OnError);
+    }
+    public void GetTeam2LeaderboardAverage()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "Hoodie Gang",
+            StartPosition = 0,
+            MaxResultsCount = 10
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnTeam2LeaderboardGetAverage, OnError);
+    }
+    public void GetTeam3LeaderboardAverage()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "Nude",
+            StartPosition = 0,
+            MaxResultsCount = 10
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnTeam3LeaderboardGetAverage, OnError);
+    }
+    public void GetTeam4LeaderboardAverage()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "Money Maker",
+            StartPosition = 0,
+            MaxResultsCount = 10
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnTeam4LeaderboardGetAverage, OnError);
+    }
+    public void GetTeam5LeaderboardAverage()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "Sports Illustrated",
+            StartPosition = 0,
+            MaxResultsCount = 10
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnTeam5LeaderboardGetAverage, OnError);
+    }
+
+    //Paratoother Leaderboard
     public void GetChompiesLeaderboardAverage()
     {
         var request = new GetLeaderboardRequest
@@ -697,6 +929,64 @@ public class PlayfabManager : MonoBehaviour
 
 
     //On Leaderboard Get Average
+    //Race Leaderboard
+    void OnTeam1LeaderboardGetAverage(GetLeaderboardResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            team1Num = item.StatValue;
+            team1Count++;
+            team1AverageNum = team1AverageNum + team1Num;
+        }
+        team1AverageNumber = Math.Round(team1AverageNum / team1Count);
+        leaderboardList.Add(team1AverageNumber);
+    }
+    void OnTeam2LeaderboardGetAverage(GetLeaderboardResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            team2Num = item.StatValue;
+            team2Count++;
+            team2AverageNum = team2AverageNum + team2Num;
+        }
+        team2AverageNumber = Math.Round(team2AverageNum / team2Count);
+        leaderboardList.Add(team2AverageNumber);
+    }
+    void OnTeam3LeaderboardGetAverage(GetLeaderboardResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            team3Num = item.StatValue;
+            team3Count++;
+            team3AverageNum = team3AverageNum + team3Num;
+        }
+        team3AverageNumber = Math.Round(team3AverageNum / team3Count);
+        leaderboardList.Add(team3AverageNumber);
+    }
+    void OnTeam4LeaderboardGetAverage(GetLeaderboardResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            team4Num = item.StatValue;
+            team4Count++;
+            team4AverageNum = team4AverageNum + team4Num;
+        }
+        team4AverageNumber = Math.Round(team4AverageNum / team4Count);
+        leaderboardList.Add(team4AverageNumber);
+    }
+    void OnTeam5LeaderboardGetAverage(GetLeaderboardResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            team5Num = item.StatValue;
+            team5Count++;
+            team5AverageNum = team5AverageNum + team5Num;
+        }
+        team5AverageNumber = Math.Round(team5AverageNum / team5Count);
+        leaderboardList.Add(team5AverageNumber);
+    }
+
+    //Paratoother Leaderboard
     void OnChompiesLeaderboardGetAverage(GetLeaderboardResult result)
     {
         foreach (var item in result.Leaderboard)
@@ -717,8 +1007,6 @@ public class PlayfabManager : MonoBehaviour
             chompies2Num = item.StatValue;
             chompies2Count++;
             chompies2AverageNum = chompies2AverageNum + chompies2Num;
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
         }
         chompies2AverageNumber = Math.Round(chompies2AverageNum / chompies2Count);
         leaderboardList.Add(chompies2AverageNumber);
@@ -730,8 +1018,6 @@ public class PlayfabManager : MonoBehaviour
             apeGangNum = item.StatValue;
             apeGangCount++;
             apeGangAverageNum = apeGangAverageNum + apeGangNum;
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
         }
         apeGangAverageNumber = Math.Round(apeGangAverageNum / apeGangCount);
         leaderboardList.Add(apeGangAverageNumber);
@@ -743,8 +1029,6 @@ public class PlayfabManager : MonoBehaviour
             brawlerBearsNum = item.StatValue;
             brawlerBearsCount++;
             brawlerBearsAverageNum = brawlerBearsAverageNum + brawlerBearsNum;
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
         }
         brawlerBearsAverageNumber = Math.Round(brawlerBearsAverageNum / brawlerBearsCount);
         leaderboardList.Add(brawlerBearsAverageNumber);
@@ -756,8 +1040,6 @@ public class PlayfabManager : MonoBehaviour
             cryptoDadsNum = item.StatValue;
             cryptoDadsCount++;
             cryptoDadsAverageNum = cryptoDadsAverageNum + cryptoDadsNum;
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
         }
         cryptoDadsAverageNumber = Math.Round(cryptoDadsAverageNum / cryptoDadsCount);
         leaderboardList.Add(cryptoDadsAverageNumber);
@@ -769,8 +1051,6 @@ public class PlayfabManager : MonoBehaviour
             gamingApeClubNum = item.StatValue;
             gamingApeClubCount++;
             gamingApeClubAverageNum = gamingApeClubAverageNum + gamingApeClubNum;
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
         }
         gamingApeClubAverageNumber = Math.Round(gamingApeClubAverageNum / gamingApeClubCount);
         leaderboardList.Add(gamingApeClubAverageNumber);
@@ -782,8 +1062,6 @@ public class PlayfabManager : MonoBehaviour
             hikeshiNum = item.StatValue;
             hikeshiCount++;
             hikeshiAverageNum = hikeshiAverageNum + hikeshiNum;
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
         }
         hikeshiAverageNumber = Math.Round(hikeshiAverageNum / hikeshiCount);
         leaderboardList.Add(hikeshiAverageNumber);
@@ -799,8 +1077,6 @@ public class PlayfabManager : MonoBehaviour
             spaceRidersNum = item.StatValue;
             spaceRidersCount++;
             spaceRidersAverageNum = spaceRidersAverageNum + spaceRidersNum;
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
         }
         spaceRidersAverageNumber = Math.Round(spaceRidersAverageNum / spaceRidersCount);
         leaderboardList.Add(spaceRidersAverageNumber);
@@ -812,8 +1088,6 @@ public class PlayfabManager : MonoBehaviour
             tacoTribeNum = item.StatValue;
             tacoTribeCount++;
             tacoTribeAverageNum = tacoTribeAverageNum + tacoTribeNum;
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
         }
         tacoTribeAverageNumber = Math.Round(tacoTribeAverageNum / tacoTribeCount);
         leaderboardList.Add(tacoTribeAverageNumber);
@@ -825,8 +1099,6 @@ public class PlayfabManager : MonoBehaviour
             thePlagueNum = item.StatValue;
             thePlagueCount++;
             thePlagueAverageNum = thePlagueAverageNum + thePlagueNum;
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
         }
         thePlagueAverageNumber = Math.Round(thePlagueAverageNum / thePlagueCount);
         leaderboardList.Add(thePlagueAverageNumber);
@@ -834,21 +1106,87 @@ public class PlayfabManager : MonoBehaviour
 
 
     //On Leaderboard Get
+    //Race Leaderboard
     void OnRaceLeaderboardGet(GetLeaderboardResult result)
     {
         foreach (var item in result.Leaderboard)
         {
             GameObject newGo = Instantiate(rowPrefab, rowsParent);
             Text[] texts = newGo.GetComponentsInChildren<Text>();
-            texts[0].text = " ";//(item.Position + 1).ToString();
+            texts[0].text = " ";
             texts[1].text = item.DisplayName;
             float score = (float)item.StatValue;
             score = score / 100;
             texts[2].text = score.ToString("0.00");
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " item.StatValue");
         }
     }
+    void OnTeam1LeaderboardGet(GetLeaderboardResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            GameObject newGo = Instantiate(rowPrefab, rowsParent);
+            Text[] texts = newGo.GetComponentsInChildren<Text>();
+            texts[0].text = " ";
+            texts[1].text = item.DisplayName;
+            float score = (float)item.StatValue;
+            score = score / 100;
+            texts[2].text = score.ToString("0.00");
+        }
+    }
+    void OnTeam2LeaderboardGet(GetLeaderboardResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            GameObject newGo = Instantiate(rowPrefab, rowsParent);
+            Text[] texts = newGo.GetComponentsInChildren<Text>();
+            texts[0].text = " ";
+            texts[1].text = item.DisplayName;
+            float score = (float)item.StatValue;
+            score = score / 100;
+            texts[2].text = score.ToString("0.00");
+        }
+    }
+    void OnTeam3LeaderboardGet(GetLeaderboardResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            GameObject newGo = Instantiate(rowPrefab, rowsParent);
+            Text[] texts = newGo.GetComponentsInChildren<Text>();
+            texts[0].text = " ";
+            texts[1].text = item.DisplayName;
+            float score = (float)item.StatValue;
+            score = score / 100;
+            texts[2].text = score.ToString("0.00");
+        }
+    }
+    void OnTeam4LeaderboardGet(GetLeaderboardResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            GameObject newGo = Instantiate(rowPrefab, rowsParent);
+            Text[] texts = newGo.GetComponentsInChildren<Text>();
+            texts[0].text = " ";
+            texts[1].text = item.DisplayName;
+            float score = (float)item.StatValue;
+            score = score / 100;
+            texts[2].text = score.ToString("0.00");
+        }
+    }
+    void OnTeam5LeaderboardGet(GetLeaderboardResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            GameObject newGo = Instantiate(rowPrefab, rowsParent);
+            Text[] texts = newGo.GetComponentsInChildren<Text>();
+            texts[0].text = " ";
+            texts[1].text = item.DisplayName;
+            float score = (float)item.StatValue;
+            score = score / 100;
+            texts[2].text = score.ToString("0.00");
+        }
+    }
+
+    //Paratoother Leaderboard
     void OnLeaderboardGet(GetLeaderboardResult result)
     {
         foreach (var item in result.Leaderboard)
@@ -871,8 +1209,6 @@ public class PlayfabManager : MonoBehaviour
             texts[0].text = (item.Position + 1).ToString();
             texts[1].text = item.DisplayName;
             texts[2].text = item.StatValue.ToString();
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " item.StatValue");
         }
     }
     void OnBrawlerBearsLeaderboardGet(GetLeaderboardResult result)
@@ -884,8 +1220,6 @@ public class PlayfabManager : MonoBehaviour
             texts[0].text = (item.Position + 1).ToString();
             texts[1].text = item.DisplayName;
             texts[2].text = item.StatValue.ToString();
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " item.StatValue");
         }
     }
     void OnCryptoDadsLeaderboardGet(GetLeaderboardResult result)
@@ -897,8 +1231,6 @@ public class PlayfabManager : MonoBehaviour
             texts[0].text = (item.Position + 1).ToString();
             texts[1].text = item.DisplayName;
             texts[2].text = item.StatValue.ToString();
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " item.StatValue");
         }
     }
     void OnGamingApeClubLeaderboardGet(GetLeaderboardResult result)
@@ -910,8 +1242,6 @@ public class PlayfabManager : MonoBehaviour
             texts[0].text = (item.Position + 1).ToString();
             texts[1].text = item.DisplayName;
             texts[2].text = item.StatValue.ToString();
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " item.StatValue");
         }
     }
     void OnHikeshiLeaderboardGet(GetLeaderboardResult result)
@@ -923,8 +1253,6 @@ public class PlayfabManager : MonoBehaviour
             texts[0].text = (item.Position + 1).ToString();
             texts[1].text = item.DisplayName;
             texts[2].text = item.StatValue.ToString();
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " item.StatValue");
         }
     }
     void OnSpaceRidersLeaderboardGet(GetLeaderboardResult result)
@@ -936,8 +1264,6 @@ public class PlayfabManager : MonoBehaviour
             texts[0].text = (item.Position + 1).ToString();
             texts[1].text = item.DisplayName;
             texts[2].text = item.StatValue.ToString();
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " item.StatValue");
         }
     }
     void OnTacoTribeLeaderboardGet(GetLeaderboardResult result)
@@ -949,8 +1275,6 @@ public class PlayfabManager : MonoBehaviour
             texts[0].text = (item.Position + 1).ToString();
             texts[1].text = item.DisplayName;
             texts[2].text = item.StatValue.ToString();
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " item.StatValue");
         }
     }
     void OnThePlagueLeaderboardGet(GetLeaderboardResult result)
@@ -962,8 +1286,6 @@ public class PlayfabManager : MonoBehaviour
             texts[0].text = (item.Position + 1).ToString();
             texts[1].text = item.DisplayName;
             texts[2].text = item.StatValue.ToString();
-
-            //Debug.Log(item.Position + " " + item.PlayFabId + " item.StatValue");
         }
     }
 

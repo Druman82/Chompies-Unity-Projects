@@ -10,6 +10,7 @@ public class Celing : MonoBehaviour
     [SerializeField] private Transform target4 = null;
     [SerializeField] private Transform target5 = null;
     [SerializeField] private Transform target6 = null;
+    [SerializeField] private Transform target7 = null;
     private Transform target;
 
     private Vector3 offset;
@@ -40,6 +41,10 @@ public class Celing : MonoBehaviour
         else if (Settings.target == 6)
         {
             target = target6;
+        }
+        else if (Settings.target == 7)
+        {
+            target = target7;
         }
         offset = transform.position - target.position;
     }

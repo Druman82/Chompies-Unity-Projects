@@ -22,6 +22,12 @@ public class MainMenu : MonoBehaviour
     public string thePlagueLeaderboard;
     public string teamLeaderboard;
     public string raceLeaderboard;
+    public string raceTeamLeaderboard;
+    public string team1Leaderboard;
+    public string team2Leaderboard;
+    public string team3Leaderboard;
+    public string team4Leaderboard;
+    public string team5Leaderboard;
     public string credits;
     public string loginScreen;
     public string mainMenu;
@@ -147,10 +153,11 @@ public class MainMenu : MonoBehaviour
     {
         LoadLevel(raceLevel);
 
+        Settings.joyImage = true;
         Settings.raceLevel = true;
         Settings.target = 1;
         Settings.samuria = false;
-        Settings.roo = false;
+        Settings.taco = false;
         Settings.bear = false;
         Settings.gac = false;
         Settings.dad = false;
@@ -302,6 +309,30 @@ public class MainMenu : MonoBehaviour
     {
         StartCoroutine("RaceLeaderboards");
     }
+    public void RaceTeamLeaderboard()
+    {
+        StartCoroutine("RaceTeamLeaderboards");
+    }
+    public void Team1Leaderboard()
+    {
+        StartCoroutine("Team1Leaderboards");
+    }
+    public void Team2Leaderboard()
+    {
+        StartCoroutine("Team2Leaderboards");
+    }
+    public void Team3Leaderboard()
+    {
+        StartCoroutine("Team3Leaderboards");
+    }
+    public void Team4Leaderboard()
+    {
+        StartCoroutine("Team4Leaderboards");
+    }
+    public void Team5Leaderboard()
+    {
+        StartCoroutine("Team5Leaderboards");
+    }
 
     public void LoginScreens()
     {
@@ -396,6 +427,11 @@ public class MainMenu : MonoBehaviour
 
     public IEnumerator Leaderboards()
     {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
         Settings.apeGangLeaderboard = false;
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
@@ -406,12 +442,18 @@ public class MainMenu : MonoBehaviour
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
         Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(leaderboard);
     }
 
     public IEnumerator ApeGangLeaderboards()
     {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
         Settings.apeGangLeaderboard = true;
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
@@ -422,11 +464,17 @@ public class MainMenu : MonoBehaviour
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
         Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(apeGangLeaderboard);
     }
     public IEnumerator BrawlerBearsLeaderboards()
     {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
         Settings.apeGangLeaderboard = false;
         Settings.brawlerBearsLeaderboard = true;
         Settings.cryptoDadsLeaderboard = false;
@@ -437,11 +485,17 @@ public class MainMenu : MonoBehaviour
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
         Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(brawlerBearsLeaderboard);
     }
     public IEnumerator CryptoDadsLeaderboards()
     {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
         Settings.apeGangLeaderboard = false;
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = true;
@@ -452,11 +506,17 @@ public class MainMenu : MonoBehaviour
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
         Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(cryptoDadsLeaderboard);
     }
     public IEnumerator GamingApeClubLeaderboards()
     {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
         Settings.apeGangLeaderboard = false;
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
@@ -467,11 +527,17 @@ public class MainMenu : MonoBehaviour
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
         Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(gamingApeClubLeaderboard);
     }
     public IEnumerator HikeshiLeaderboards()
     {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
         Settings.apeGangLeaderboard = false;
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
@@ -482,11 +548,17 @@ public class MainMenu : MonoBehaviour
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
         Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(hikeshiLeaderboard);
     }
     public IEnumerator SpaceRidersLeaderboards()
     {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
         Settings.apeGangLeaderboard = false;
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
@@ -497,11 +569,17 @@ public class MainMenu : MonoBehaviour
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
         Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(spaceRidersLeaderboard);
     }
     public IEnumerator TacoTribeLeaderboards()
     {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
         Settings.apeGangLeaderboard = false;
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
@@ -512,11 +590,17 @@ public class MainMenu : MonoBehaviour
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
         Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(tacoTribeLeaderboard);
     }
     public IEnumerator ThePlagueLeaderboards()
     {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
         Settings.apeGangLeaderboard = false;
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
@@ -527,11 +611,17 @@ public class MainMenu : MonoBehaviour
         Settings.thePlagueLeaderboard = true;
         Settings.teamLeaderboard = false;
         Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(thePlagueLeaderboard);
     }
     public IEnumerator RaceLeaderboards()
     {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
         Settings.apeGangLeaderboard = false;
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
@@ -542,11 +632,143 @@ public class MainMenu : MonoBehaviour
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = false;
         Settings.raceLeaderboard = true;
+        Settings.raceTeamLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(raceLeaderboard);
     }
+    public IEnumerator RaceTeamLeaderboards()
+    {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
+        Settings.apeGangLeaderboard = false;
+        Settings.brawlerBearsLeaderboard = false;
+        Settings.cryptoDadsLeaderboard = false;
+        Settings.gamingApeClubLeaderboard = false;
+        Settings.hikeshiLeaderboard = false;
+        Settings.spaceRidersLeaderboard = false;
+        Settings.tacoTribeLeaderboard = false;
+        Settings.thePlagueLeaderboard = false;
+        Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = true;
+        yield return new WaitForSeconds(0.75f);
+        SceneManager.LoadScene(raceTeamLeaderboard);
+    }
+    public IEnumerator Team1Leaderboards()
+    {
+        Settings.team1Leaderboard = true;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
+        Settings.apeGangLeaderboard = false;
+        Settings.brawlerBearsLeaderboard = false;
+        Settings.cryptoDadsLeaderboard = false;
+        Settings.gamingApeClubLeaderboard = false;
+        Settings.hikeshiLeaderboard = false;
+        Settings.spaceRidersLeaderboard = false;
+        Settings.tacoTribeLeaderboard = false;
+        Settings.thePlagueLeaderboard = false;
+        Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
+        yield return new WaitForSeconds(0.75f);
+        SceneManager.LoadScene(team1Leaderboard);
+    }
+    public IEnumerator Team2Leaderboards()
+    {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = true;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
+        Settings.apeGangLeaderboard = false;
+        Settings.brawlerBearsLeaderboard = false;
+        Settings.cryptoDadsLeaderboard = false;
+        Settings.gamingApeClubLeaderboard = false;
+        Settings.hikeshiLeaderboard = false;
+        Settings.spaceRidersLeaderboard = false;
+        Settings.tacoTribeLeaderboard = false;
+        Settings.thePlagueLeaderboard = false;
+        Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
+        yield return new WaitForSeconds(0.75f);
+        SceneManager.LoadScene(team2Leaderboard);
+    }
+    public IEnumerator Team3Leaderboards()
+    {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = true;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
+        Settings.apeGangLeaderboard = false;
+        Settings.brawlerBearsLeaderboard = false;
+        Settings.cryptoDadsLeaderboard = false;
+        Settings.gamingApeClubLeaderboard = false;
+        Settings.hikeshiLeaderboard = false;
+        Settings.spaceRidersLeaderboard = false;
+        Settings.tacoTribeLeaderboard = false;
+        Settings.thePlagueLeaderboard = false;
+        Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
+        yield return new WaitForSeconds(0.75f);
+        SceneManager.LoadScene(team3Leaderboard);
+    }
+    public IEnumerator Team4Leaderboards()
+    {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = true;
+        Settings.team5Leaderboard = false;
+        Settings.apeGangLeaderboard = false;
+        Settings.brawlerBearsLeaderboard = false;
+        Settings.cryptoDadsLeaderboard = false;
+        Settings.gamingApeClubLeaderboard = false;
+        Settings.hikeshiLeaderboard = false;
+        Settings.spaceRidersLeaderboard = false;
+        Settings.tacoTribeLeaderboard = false;
+        Settings.thePlagueLeaderboard = false;
+        Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
+        yield return new WaitForSeconds(0.75f);
+        SceneManager.LoadScene(team4Leaderboard);
+    }
+    public IEnumerator Team5Leaderboards()
+    {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = true;
+        Settings.apeGangLeaderboard = false;
+        Settings.brawlerBearsLeaderboard = false;
+        Settings.cryptoDadsLeaderboard = false;
+        Settings.gamingApeClubLeaderboard = false;
+        Settings.hikeshiLeaderboard = false;
+        Settings.spaceRidersLeaderboard = false;
+        Settings.tacoTribeLeaderboard = false;
+        Settings.thePlagueLeaderboard = false;
+        Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
+        yield return new WaitForSeconds(0.75f);
+        SceneManager.LoadScene(team5Leaderboard);
+    }
     public IEnumerator TeamLeaderboards()
     {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
         Settings.apeGangLeaderboard = false;
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
@@ -557,6 +779,7 @@ public class MainMenu : MonoBehaviour
         Settings.thePlagueLeaderboard = false;
         Settings.teamLeaderboard = true;
         Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(teamLeaderboard);
     }

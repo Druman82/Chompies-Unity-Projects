@@ -24,6 +24,7 @@ TagManager:
   - StartingLine
   - Glider
   - Ladder
+  - GoldKey
   layers:
   - Default
   - TransparentFX

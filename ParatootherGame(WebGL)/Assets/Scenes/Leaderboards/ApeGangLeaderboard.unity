@@ -517,12 +517,17 @@ MonoBehaviour:
   tacoTribeLeaderboard: TacoTribeLeaderboard
   thePlagueLeaderboard: ThePlagueLeaderboard
   teamLeaderboard: TeamLeaderboard
+  raceLeaderboard: 
   credits: Credits
   loginScreen: LoginScreen
   mainMenu: Main Menu
+  houseMenu: 
+  raceLevel: 
+  progressText: {fileID: 0}
+  slider: {fileID: 0}
+  loadingScreen: {fileID: 0}
   crystalCaveBGMusic: {fileID: 2052611223}
   achievementGet: {fileID: 0}
-  loadingScreen: {fileID: 0}
   options: {fileID: 0}
   achievements: {fileID: 0}
   achievementsButton: {fileID: 0}
@@ -533,6 +538,7 @@ MonoBehaviour:
   chooseLeaderboard: {fileID: 0}
   among: {fileID: 0}
   share: {fileID: 0}
+  gameSelector: {fileID: 0}
 --- !u!1 &149461543
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +623,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 946100259}
   m_Direction: 2
   m_Value: 0.99937314
-  m_Size: 0.080875106
+  m_Size: 0.08087511
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2678,6 +2684,7 @@ MonoBehaviour:
   mainMenu: Main Menu
   theWayToFindHome: {fileID: 0}
   share: {fileID: 1196332962}
+  houseMenu: HouseMenu
 --- !u!114 &849865819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2726,6 +2733,11 @@ MonoBehaviour:
   spaceRidersNum: 0
   tacoTribeNum: 0
   thePlagueNum: 0
+  team1Num: 0
+  team2Num: 0
+  team3Num: 0
+  team4Num: 0
+  team5Num: 0
   chompiesAverageNum: 0
   chompies2AverageNum: 0
   hikeshiAverageNum: 0
@@ -2736,12 +2748,18 @@ MonoBehaviour:
   spaceRidersAverageNum: 0
   tacoTribeAverageNum: 0
   thePlagueAverageNum: 0
+  team1AverageNum: 0
+  team2AverageNum: 0
+  team3AverageNum: 0
+  team4AverageNum: 0
+  team5AverageNum: 0
   deleteAccountMessageText: {fileID: 0}
   emailInput: {fileID: 1731982849}
   usernameInput: {fileID: 0}
   passwordInput: {fileID: 32542476}
   mainMenu: Main Menu
   houseMenu: 
+  raceLevel: 
   recipientEmail: {fileID: 0}
   crypto: {fileID: 0}
   rememberMe: {fileID: 445467382}

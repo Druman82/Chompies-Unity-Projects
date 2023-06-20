@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
     [SerializeField] public Transform gacPlayer;
     [SerializeField] public Transform dadPlayer;
     [SerializeField] public Transform plaguePlayer;
+    [SerializeField] public Transform tacoPlayer;
 
     public float gravity;
     private CharacterController characterController;
@@ -226,6 +227,7 @@ public class Player : MonoBehaviour
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
+            tacoPlayer.gameObject.SetActive(false);
         }
 
 
@@ -240,6 +242,7 @@ public class Player : MonoBehaviour
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
+            tacoPlayer.gameObject.SetActive(false);
         }
 
         if (Settings.among == true)
@@ -250,6 +253,7 @@ public class Player : MonoBehaviour
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
+            tacoPlayer.gameObject.SetActive(false);
         }
         else if (Settings.among == false && Settings.none == true)
         {
@@ -259,6 +263,7 @@ public class Player : MonoBehaviour
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
+            tacoPlayer.gameObject.SetActive(false);
         }
         else if (Settings.bear == true && Settings.among == false && Settings.none == false)
         {
@@ -268,6 +273,7 @@ public class Player : MonoBehaviour
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
+            tacoPlayer.gameObject.SetActive(false);
         }
         else if (Settings.bear == false && Settings.among == false && Settings.none == false && Settings.gac == true)
         {
@@ -277,6 +283,7 @@ public class Player : MonoBehaviour
             gacPlayer.gameObject.SetActive(true);
             dadPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
+            tacoPlayer.gameObject.SetActive(false);
         }
         else if (Settings.bear == false && Settings.among == false && Settings.none == false && Settings.gac == false && Settings.dad == true)
         {
@@ -286,6 +293,7 @@ public class Player : MonoBehaviour
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(true);
             plaguePlayer.gameObject.SetActive(false);
+            tacoPlayer.gameObject.SetActive(false);
         }
         else if (Settings.bear == false && Settings.among == false && Settings.none == false && Settings.gac == false && Settings.dad == false && Settings.recksFrog == true)
         {
@@ -295,6 +303,17 @@ public class Player : MonoBehaviour
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(true);
+            tacoPlayer.gameObject.SetActive(false);
+        }
+        else if (Settings.bear == false && Settings.among == false && Settings.none == false && Settings.gac == false && Settings.dad == false && Settings.recksFrog == false && Settings.taco == true)
+        {
+            player.gameObject.SetActive(false);
+            amongPlayer.gameObject.SetActive(false);
+            bearPlayer.gameObject.SetActive(false);
+            gacPlayer.gameObject.SetActive(false);
+            dadPlayer.gameObject.SetActive(false);
+            plaguePlayer.gameObject.SetActive(false);
+            tacoPlayer.gameObject.SetActive(true);
         }
 
         characterController = GetComponent<CharacterController>();
@@ -419,6 +438,7 @@ public class Player : MonoBehaviour
 
         //Wallcheck - prevents player from getting stuck when running into a block and jumping
         var blocked = false;
+        /*
         foreach (var wallCheck in wallChecks)
         {
             if (Physics.CheckSphere(wallCheck.position, 0.01f, groundLayers, QueryTriggerInteraction.Ignore))
@@ -426,7 +446,7 @@ public class Player : MonoBehaviour
                 blocked = true;
                 break;
             }
-        }
+        }*/
 
         if (!blocked)
         {

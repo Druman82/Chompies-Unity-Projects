@@ -43,6 +43,7 @@ public class CastingToObject : MonoBehaviour
     [SerializeField] public Transform shelfMovable;
     [SerializeField] public Transform shelfHeld;
     [SerializeField] public Transform shelfOnFence;
+    [SerializeField] public Transform padLock;
 
     public AudioSource selectSound;
 
@@ -232,6 +233,12 @@ public class CastingToObject : MonoBehaviour
         {
             shelfHeld.gameObject.SetActive(false);
             shelfOnFence.gameObject.SetActive(true);
+        }
+
+        if (internalObject == "Lock" && Settings.goldKeyHeld)
+        {
+            padLock.gameObject.SetActive(false);
+            Settings.chestUnlock = true;
         }
 
         if (internalObject == "Door")

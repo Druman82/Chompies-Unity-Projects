@@ -15370,7 +15370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382693671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.111, y: 0, z: 0.009}
+  m_LocalPosition: {x: -0.111, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74207,6 +74207,7 @@ MonoBehaviour:
   bandannaOrange: {fileID: 1097688103}
   showPortal: {fileID: 0}
   bee: {fileID: 1467475931}
+  goldKey: {fileID: 0}
   samuriaLegL: {fileID: 722349927}
   samuriaLegR: {fileID: 1293879690}
   samuriaCostume: {fileID: 1911212431}
@@ -91070,7 +91071,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748216694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.065, y: 0, z: -0.007}
+  m_LocalPosition: {x: 0.02, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106500,7 +106501,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 0.5
-  m_Radius: 0.11
+  m_Radius: 0.14
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08

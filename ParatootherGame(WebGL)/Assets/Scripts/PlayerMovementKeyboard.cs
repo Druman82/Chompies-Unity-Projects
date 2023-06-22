@@ -14,6 +14,11 @@ public class PlayerMovementKeyboard : MonoBehaviour
     public float jumpHeight = 1f;
     public FixedJoystick joystickL;
     public AudioSource waterSound;
+    private bool gliding;
+    public bool onPlatform;
+    [SerializeField] public Transform gliderGet;
+    [SerializeField] public Transform gliderRide;
+    //[SerializeField] public Transform platform;
 
 
     Vector3 velocity;
@@ -21,6 +26,7 @@ public class PlayerMovementKeyboard : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(isGrounded);
         if (SystemInfo.deviceType == DeviceType.Handheld)
         {
             float x = joystickL.Horizontal;
@@ -71,8 +77,18 @@ public class PlayerMovementKeyboard : MonoBehaviour
 
             controller.Move(velocity * Time.deltaTime);
         }
-
+        if (isGrounded)
+        {
+            gravity = -20;
+            onPlatform = false;
+            gliderRide.gameObject.SetActive(false);
+        }
+        else if (!isGrounded && Settings.glider && onPlatform)
+        {
+            gliderRide.gameObject.SetActive(true);
+        }
     }
+
     public void Jump()
     {
         if (isGrounded)
@@ -95,6 +111,20 @@ public class PlayerMovementKeyboard : MonoBehaviour
             {
                 waterSound.Play();
             }
+        }
+
+        //Glider Get
+        if (other.gameObject.tag == "GliderGet")
+        {
+            gliderGet.gameObject.SetActive(false);
+            Settings.glider = true;
+        }
+
+        //Platform
+        if (other.gameObject.tag == "Platform")
+        {
+            gravity = -2;
+            onPlatform = true;
         }
     }
 }

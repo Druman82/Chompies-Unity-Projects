@@ -16374,7 +16374,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 0.6
-  m_Radius: 0.12
+  m_Radius: 0.14
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -22911,7 +22911,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621134121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.065, y: 0, z: -0.007}
+  m_LocalPosition: {x: 0.02, y: 0, z: -0.007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53539,6 +53539,7 @@ MonoBehaviour:
   bandannaOrange: {fileID: 900241063}
   showPortal: {fileID: 0}
   bee: {fileID: 2089333269}
+  goldKey: {fileID: 0}
   samuriaLegL: {fileID: 547552152}
   samuriaLegR: {fileID: 210871133}
   samuriaCostume: {fileID: 1352676572}

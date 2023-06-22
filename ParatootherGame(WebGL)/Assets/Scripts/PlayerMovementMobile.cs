@@ -52,4 +52,5 @@ public class PlayerMovementMobile : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -gravity);
         }
     }
+
 }

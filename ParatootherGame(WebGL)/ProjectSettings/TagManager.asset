@@ -25,6 +25,9 @@ TagManager:
   - Glider
   - Ladder
   - GoldKey
+  - Lock
+  - GliderGet
+  - Platform
   layers:
   - Default
   - TransparentFX

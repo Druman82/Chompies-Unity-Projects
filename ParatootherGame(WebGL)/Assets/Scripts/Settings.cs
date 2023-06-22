@@ -137,6 +137,10 @@ public class Settings : MonoBehaviour
     public static bool hoverboard;
     public static bool portal;
     public static bool finishLine;
+    public static bool goldKey;
+    public static bool goldKeyHeld = true;
+    public static bool chestUnlock = false;
+    public static bool glider;
     public static bool joyImage;
     public static int crownCoin;
     public static int coins;

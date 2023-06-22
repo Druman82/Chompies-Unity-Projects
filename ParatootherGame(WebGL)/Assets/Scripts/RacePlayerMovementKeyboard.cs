@@ -1557,11 +1557,20 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
         }
 
         //Gold Key
+        if (Settings.goldKey == false)
+        {
+            goldKey.gameObject.SetActive(false);
+        }
+        else
+        {
+            goldKey.gameObject.SetActive(true);
+        }
         if (other.gameObject.tag == "GoldKey")
         {
             goldKey.gameObject.SetActive(false);
             {
                 coinSound.Play();
+                Settings.goldKey = false;
             }
         }
 

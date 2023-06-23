@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Car : MonoBehaviour
+public class CarController : MonoBehaviour
 {
     public Transform centerOfMass;
     public float motorTorque = 1500f;
@@ -21,9 +21,6 @@ public class Car : MonoBehaviour
 
     void Update()
     {
-        Steer = GameManagerRaceTrack.Instance.InputController.SteerInput;
-        Throttle = GameManagerRaceTrack.Instance.InputController.ThrottleInput;
-
         foreach (var wheel in wheels)
         {
             wheel.SteerAngle = Steer * maxSteer;

@@ -918,7 +918,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Coin pickup
-        if (other.gameObject.layer == 8)
+        if (other.gameObject.tag == "Coin")
         {
             other.gameObject.SetActive(false);
             Settings.coins++;

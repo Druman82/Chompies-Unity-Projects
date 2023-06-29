@@ -1523,7 +1523,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 4.664598, y: -232.64789}
-  m_SizeDelta: {x: 510.51, y: 90}
+  m_SizeDelta: {x: 575, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &90878316
 MonoBehaviour:
@@ -25385,7 +25385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Race Mode
+  m_text: Runner Mode
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1c5bcfe24eef6824ab4964f74a53ebea, type: 2}
   m_sharedMaterial: {fileID: -6688365001052805126, guid: 1c5bcfe24eef6824ab4964f74a53ebea, type: 2}
@@ -26737,7 +26737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4421269848533780805, guid: 9ac5cc1bbb9ca0643bc5da0b88a1d8f2, type: 3}
       propertyPath: m_text
-      value: Race Mode
+      value: Runner Mode
       objectReference: {fileID: 0}
     - target: {fileID: 4421269848533780805, guid: 9ac5cc1bbb9ca0643bc5da0b88a1d8f2, type: 3}
       propertyPath: m_fontAsset
@@ -26945,7 +26945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4421269848592181179, guid: 9ac5cc1bbb9ca0643bc5da0b88a1d8f2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 4421269848592181179, guid: 9ac5cc1bbb9ca0643bc5da0b88a1d8f2, type: 3}
       propertyPath: m_SizeDelta.y
@@ -57590,7 +57590,7 @@ GameObject:
   - component: {fileID: 1785696878}
   - component: {fileID: 1785696877}
   m_Layer: 5
-  m_Name: RaceMode
+  m_Name: RunnerMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

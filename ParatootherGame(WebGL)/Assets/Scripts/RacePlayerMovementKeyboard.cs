@@ -964,7 +964,7 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
         if (other.gameObject.layer == 8)
         {
             other.gameObject.SetActive(false);
-            currentTime -= 1;
+            //currentTime -= 1;
             //Settings.coins++;
             //Settings.coinCount++;
             //StartCoroutine("Pulse");

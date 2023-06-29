@@ -939,7 +939,7 @@ public class PlayfabManager : MonoBehaviour
             team1AverageNum = team1AverageNum + team1Num;
         }
         team1AverageNumber = Math.Round(team1AverageNum / team1Count);
-        leaderboardList.Add(team1AverageNumber);
+        leaderboardList.Add(team1AverageNumber / 100);
     }
     void OnTeam2LeaderboardGetAverage(GetLeaderboardResult result)
     {
@@ -950,7 +950,7 @@ public class PlayfabManager : MonoBehaviour
             team2AverageNum = team2AverageNum + team2Num;
         }
         team2AverageNumber = Math.Round(team2AverageNum / team2Count);
-        leaderboardList.Add(team2AverageNumber);
+        leaderboardList.Add(team2AverageNumber / 100);
     }
     void OnTeam3LeaderboardGetAverage(GetLeaderboardResult result)
     {
@@ -961,7 +961,7 @@ public class PlayfabManager : MonoBehaviour
             team3AverageNum = team3AverageNum + team3Num;
         }
         team3AverageNumber = Math.Round(team3AverageNum / team3Count);
-        leaderboardList.Add(team3AverageNumber);
+        leaderboardList.Add(team3AverageNumber / 100);
     }
     void OnTeam4LeaderboardGetAverage(GetLeaderboardResult result)
     {
@@ -972,7 +972,7 @@ public class PlayfabManager : MonoBehaviour
             team4AverageNum = team4AverageNum + team4Num;
         }
         team4AverageNumber = Math.Round(team4AverageNum / team4Count);
-        leaderboardList.Add(team4AverageNumber);
+        leaderboardList.Add(team4AverageNumber / 100);
     }
     void OnTeam5LeaderboardGetAverage(GetLeaderboardResult result)
     {
@@ -983,7 +983,7 @@ public class PlayfabManager : MonoBehaviour
             team5AverageNum = team5AverageNum + team5Num;
         }
         team5AverageNumber = Math.Round(team5AverageNum / team5Count);
-        leaderboardList.Add(team5AverageNumber);
+        leaderboardList.Add(team5AverageNumber / 100);
     }
 
     //Paratoother Leaderboard

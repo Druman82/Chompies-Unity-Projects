@@ -13,8 +13,8 @@ public class CastingToObject : MonoBehaviour
     public RaycastHit theObject;
     public MainMenu mainMenu;
     public string firstLevel;
-    public MainMenu easyLevel;
-    public MainMenu recksLevel;
+    public string easyLevel;
+    public string recksLevel;
     public MainMenu leaderboard;
     public MainMenu apeGangLeaderboard;
     public MainMenu brawlerBearsLeaderboard;
@@ -39,6 +39,12 @@ public class CastingToObject : MonoBehaviour
     [SerializeField] public Transform gac;
     [SerializeField] public Transform turtle;
     [SerializeField] public Transform samurai;
+    [SerializeField] public Transform noneHeld;
+    [SerializeField] public Transform bearHeld;
+    [SerializeField] public Transform dadHeld;
+    [SerializeField] public Transform gacHeld;
+    [SerializeField] public Transform turtleHeld;
+    [SerializeField] public Transform samuraiHeld;
     [SerializeField] public Transform howToPlay;
     [SerializeField] public Transform shelfMovable;
     [SerializeField] public Transform shelfHeld;
@@ -55,7 +61,7 @@ public class CastingToObject : MonoBehaviour
 
     void Update()
     {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out theObject, 2))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out theObject, 2.5f))
         {
             selectedObject = theObject.transform.gameObject.name;
             internalObject = theObject.transform.gameObject.name;
@@ -89,6 +95,14 @@ public class CastingToObject : MonoBehaviour
             gac.gameObject.SetActive(true);
             turtle.gameObject.SetActive(true);
             samurai.gameObject.SetActive(true);
+            noneHeld.gameObject.SetActive(true);
+            bearHeld.gameObject.SetActive(false);
+            dadHeld.gameObject.SetActive(false);
+            gacHeld.gameObject.SetActive(false);
+            turtleHeld.gameObject.SetActive(false);
+            samuraiHeld.gameObject.SetActive(false);
+            shelfMovable.gameObject.SetActive(true);
+            shelfHeld.gameObject.SetActive(false);
 
             Settings.target = 1;
 
@@ -113,6 +127,14 @@ public class CastingToObject : MonoBehaviour
             gac.gameObject.SetActive(true);
             turtle.gameObject.SetActive(true);
             samurai.gameObject.SetActive(true);
+            noneHeld.gameObject.SetActive(false);
+            bearHeld.gameObject.SetActive(true);
+            dadHeld.gameObject.SetActive(false);
+            gacHeld.gameObject.SetActive(false);
+            turtleHeld.gameObject.SetActive(false);
+            samuraiHeld.gameObject.SetActive(false);
+            shelfMovable.gameObject.SetActive(true);
+            shelfHeld.gameObject.SetActive(false);
 
             Settings.target = 3;
 
@@ -137,6 +159,14 @@ public class CastingToObject : MonoBehaviour
             gac.gameObject.SetActive(true);
             turtle.gameObject.SetActive(true);
             samurai.gameObject.SetActive(true);
+            noneHeld.gameObject.SetActive(false);
+            bearHeld.gameObject.SetActive(false);
+            dadHeld.gameObject.SetActive(true);
+            gacHeld.gameObject.SetActive(false);
+            turtleHeld.gameObject.SetActive(false);
+            samuraiHeld.gameObject.SetActive(false);
+            shelfMovable.gameObject.SetActive(true);
+            shelfHeld.gameObject.SetActive(false);
 
             Settings.target = 5;
 
@@ -161,6 +191,14 @@ public class CastingToObject : MonoBehaviour
             gac.gameObject.SetActive(false);
             turtle.gameObject.SetActive(true);
             samurai.gameObject.SetActive(true);
+            noneHeld.gameObject.SetActive(false);
+            bearHeld.gameObject.SetActive(false);
+            dadHeld.gameObject.SetActive(false);
+            gacHeld.gameObject.SetActive(true);
+            turtleHeld.gameObject.SetActive(false);
+            samuraiHeld.gameObject.SetActive(false);
+            shelfMovable.gameObject.SetActive(true);
+            shelfHeld.gameObject.SetActive(false);
 
             Settings.target = 4;
 
@@ -186,6 +224,14 @@ public class CastingToObject : MonoBehaviour
             gac.gameObject.SetActive(true);
             turtle.gameObject.SetActive(false);
             samurai.gameObject.SetActive(true);
+            noneHeld.gameObject.SetActive(false);
+            bearHeld.gameObject.SetActive(false);
+            dadHeld.gameObject.SetActive(false);
+            gacHeld.gameObject.SetActive(false);
+            turtleHeld.gameObject.SetActive(true);
+            samuraiHeld.gameObject.SetActive(false);
+            shelfMovable.gameObject.SetActive(true);
+            shelfHeld.gameObject.SetActive(false);
 
             Settings.target = 1;
 
@@ -210,6 +256,14 @@ public class CastingToObject : MonoBehaviour
             gac.gameObject.SetActive(true);
             turtle.gameObject.SetActive(true);
             samurai.gameObject.SetActive(false);
+            noneHeld.gameObject.SetActive(false);
+            bearHeld.gameObject.SetActive(false);
+            dadHeld.gameObject.SetActive(false);
+            gacHeld.gameObject.SetActive(false);
+            turtleHeld.gameObject.SetActive(false);
+            samuraiHeld.gameObject.SetActive(true);
+            shelfMovable.gameObject.SetActive(true);
+            shelfHeld.gameObject.SetActive(false);
 
             Settings.target = 1;
 
@@ -227,6 +281,18 @@ public class CastingToObject : MonoBehaviour
         {
             shelfMovable.gameObject.SetActive(false);
             shelfHeld.gameObject.SetActive(true);
+            none.gameObject.SetActive(true);
+            bear.gameObject.SetActive(true);
+            dad.gameObject.SetActive(true);
+            gac.gameObject.SetActive(true);
+            turtle.gameObject.SetActive(true);
+            samurai.gameObject.SetActive(true);
+            noneHeld.gameObject.SetActive(false);
+            bearHeld.gameObject.SetActive(false);
+            dadHeld.gameObject.SetActive(false);
+            gacHeld.gameObject.SetActive(false);
+            turtleHeld.gameObject.SetActive(false);
+            samuraiHeld.gameObject.SetActive(false);
         }
 
         if (internalObject == "BrokenFence" && shelfHeld.gameObject.activeSelf)
@@ -244,7 +310,63 @@ public class CastingToObject : MonoBehaviour
         if (internalObject == "Door")
         {
             Cursor.lockState = CursorLockMode.None;
-            LoadLevel(firstLevel);
+            if (Settings.difficulty == 1)
+            {
+                LoadLevel(easyLevel);
+            }
+            else if (Settings.difficulty == 2)
+            {
+                LoadLevel(firstLevel);
+            }
+            else if (Settings.difficulty == 3)
+            {
+                LoadLevel(recksLevel);
+            }
+            Settings.threeD = false;
+            Settings.night = false;
+            Settings.points = 0;
+            Settings.rocketCount = 0;
+            Settings.jetpack = false;
+            Settings.jetpackStart = false;
+            Settings.space = false;
+            Settings.glasses = false;
+            Settings.frg = false;
+            Settings.hoverboard = false;
+            Settings.crownCoin = 0;
+            Settings.tokenNum = 0;
+            Settings.ninjaStarCount = 0;
+            Settings.batteryCount = 0;
+            Settings.pillowCount = 0;
+            Settings.bubblegumCount = 0;
+            Settings.coins = 0;
+            Settings.sewer = false;
+            Settings.sewerPipe = false;
+            Settings.slots = false;
+            Settings.slotBG = false;
+            Settings.city = false;
+            Settings.turtleShell = false;
+            Settings.helmet = false;
+            Settings.spaceship = false;
+            Settings.spaceshipStart = false;
+            Settings.bed = false;
+            Settings.gameLevel = true;
+            Settings.candyland = false;
+            Settings.openHouse = false;
+            Settings.house = false;
+            Settings.raceLevel = false;
+            Settings.hotAirBalloon = false;
+            Settings.hotAirBalloonStart = false;
+            Settings.portal = false;
+            Settings.levelSewer = false;
+            Settings.levelCity = false;
+            Settings.levelHouse = false;
+            Settings.levelCandyland = false;
+            Settings.levelSpace = false;
+            Settings.levelChange = false;
+            CameraFollow.jetpack = false;
+            CameraFollow.up = 0;
+            CameraFollow.portal = false;
+            CameraFollow.frogFeet = false;
         }
 
         if (internalObject == "Start")

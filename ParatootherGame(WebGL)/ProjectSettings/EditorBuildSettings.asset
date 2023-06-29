@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/Main Menu.unity
     guid: 4276c9cbec858304e8f6b22125cadc9c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menus/HouseMenu.unity
     guid: aa7765def3fd177479b6c9a7658f213b
   - enabled: 1
@@ -81,8 +81,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Leaderboards/Team5Leaderboard.unity
     guid: b1a2f9723752df3448799ff2dc185d91
   - enabled: 0
-    path: Assets/Scenes/Leaderboards/TeamLeaderboard.unity
-    guid: 16739c2b0cd980a4e863d7bc217af724
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/Leaderboards/ApeGangLeaderboard.unity
     guid: 31ab3d5b393fbed4ebb0982059bbf4cc

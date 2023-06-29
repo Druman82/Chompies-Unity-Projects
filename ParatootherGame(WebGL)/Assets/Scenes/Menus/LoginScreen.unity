@@ -825,15 +825,15 @@ MonoBehaviour:
     - m_Text: Choose Team
       m_Image: {fileID: 0}
     - m_Text: Electric Chompy
-      m_Image: {fileID: 21300000, guid: af761852e9f3ef74ca29a09ace2d86c7, type: 3}
+      m_Image: {fileID: 21300000, guid: 41ff095f60fc2854c895ed1027276566, type: 3}
     - m_Text: Hoodie Gang
-      m_Image: {fileID: 21300000, guid: c3bef59d031842c4e8b84fe466d988ee, type: 3}
+      m_Image: {fileID: 21300000, guid: 47357db16f27a9b449546a67d25b2f85, type: 3}
     - m_Text: Nude
-      m_Image: {fileID: 21300000, guid: 13144eec4d8d6504788735fbab641b15, type: 3}
+      m_Image: {fileID: 21300000, guid: 0a777195522acbc41afb3c9ed0fede4d, type: 3}
     - m_Text: Money Maker
-      m_Image: {fileID: 21300000, guid: 56556f8610d173148891020bcd1d074f, type: 3}
+      m_Image: {fileID: 21300000, guid: 7d18d7d7aae9d944caff37eeb3bbbc43, type: 3}
     - m_Text: Sports Illustrated
-      m_Image: {fileID: 21300000, guid: 4a93d44d06b06774983177811649650b, type: 3}
+      m_Image: {fileID: 21300000, guid: f821cf88d355807488748ab229ae053d, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -8964,7 +8964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1358724683
 RectTransform:
   m_ObjectHideFlags: 0

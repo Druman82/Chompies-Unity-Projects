@@ -328,8 +328,8 @@ public class PlayfabManager : MonoBehaviour
         else
         {
             Debug.Log("Successful login/account created!");
-            chooseTeamWindow.SetActive(true);
-            //MainMenu();
+            //chooseTeamWindow.SetActive(true);
+            MainMenu();
         }
     }
 
@@ -340,16 +340,16 @@ public class PlayfabManager : MonoBehaviour
             DisplayName = usernameInput.text,
         };
         PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnDisplayNameUpdate, OnError);
-        chooseTeamWindow.SetActive(true);
+        //chooseTeamWindow.SetActive(true);
         nameWindow.SetActive(false);
-        //MainMenu();
+       MainMenu();
     }
 
     public void SkipUserName()
     {
-        chooseTeamWindow.SetActive(true);
+        //chooseTeamWindow.SetActive(true);
         nameWindow.SetActive(false);
-        //MainMenu();
+        MainMenu();
     }
 
     public void TryParatoother()

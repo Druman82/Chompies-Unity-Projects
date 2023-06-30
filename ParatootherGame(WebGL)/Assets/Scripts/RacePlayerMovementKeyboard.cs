@@ -961,10 +961,10 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Coin pickup
-        if (other.gameObject.layer == 8)
+        if (other.gameObject.tag == "Coin")
         {
             other.gameObject.SetActive(false);
-            //currentTime -= 1;
+            currentTime -= 1;
             //Settings.coins++;
             //Settings.coinCount++;
             //StartCoroutine("Pulse");

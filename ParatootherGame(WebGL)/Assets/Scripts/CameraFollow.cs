@@ -11,6 +11,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Transform target5 = null;
     [SerializeField] private Transform target6 = null;
     [SerializeField] private Transform target7 = null;
+    [SerializeField] private Transform target8 = null;
     private Transform target;
     public Vector3 offset;
     public static bool jetpack;
@@ -48,6 +49,10 @@ public class CameraFollow : MonoBehaviour
         else if (Settings.target == 7)
         {
             target = target7;
+        }
+        else if (Settings.target == 8)
+        {
+            target = target8;
         }
         offset = transform.position - target.position;   
     }

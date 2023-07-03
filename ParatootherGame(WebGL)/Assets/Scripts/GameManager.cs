@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public Player dadPlayer;
     public Player plaguePlayer;
     public Player tacoPlayer;
+    public Player spaceRiderPlayer;
     private Vector3 playerStartPoint;
     private PlatformDestroyer[] platformList;
     private CloudDestroyer[] cloudList;
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviour
         dadPlayer.gameObject.SetActive(false);
         plaguePlayer.gameObject.SetActive(false);
         tacoPlayer.gameObject.SetActive(false);
+        spaceRiderPlayer.gameObject.SetActive(false);
         theDeathScreen.gameObject.SetActive(true);
     }
 
@@ -134,6 +136,7 @@ public class GameManager : MonoBehaviour
         dadPlayer.transform.position = playerStartPoint;
         plaguePlayer.transform.position = playerStartPoint;
         tacoPlayer.transform.position = playerStartPoint;
+        spaceRiderPlayer.transform.position = playerStartPoint;
         platformGenerator.position = platformStartPoint;
         cloudGenerator.position = cloudStartPoint;
         if (Settings.none == true || Settings.turtle == true || Settings.samuria == true)
@@ -164,6 +167,10 @@ public class GameManager : MonoBehaviour
         {
             tacoPlayer.gameObject.SetActive(true);
         }
+        if (Settings.spaceRider == true)
+        {
+            spaceRiderPlayer.gameObject.SetActive(true);
+        }
         thePlayer.parachute.gameObject.SetActive(false);
         amongPlayer.parachute.gameObject.SetActive(false);
         bearPlayer.parachute.gameObject.SetActive(false);
@@ -171,6 +178,7 @@ public class GameManager : MonoBehaviour
         dadPlayer.parachute.gameObject.SetActive(false);
         plaguePlayer.parachute.gameObject.SetActive(false);
         tacoPlayer.parachute.gameObject.SetActive(false);
+        spaceRiderPlayer.parachute.gameObject.SetActive(false);
         thePlayer.jumpHeight = 2f;
         amongPlayer.jumpHeight = 2f;
         bearPlayer.jumpHeight = 2f;
@@ -178,7 +186,8 @@ public class GameManager : MonoBehaviour
         dadPlayer.jumpHeight = 2f;
         plaguePlayer.jumpHeight = 2f;
         tacoPlayer.jumpHeight = 2f;
-        if (Settings.none == true || Settings.taco == true || Settings.turtle == true || Settings.gac == true || Settings.samuria == true || Settings.among == true || Settings.bear == true || Settings.dad == true || Settings.recksFrog == true)
+        spaceRiderPlayer.jumpHeight = 2f;
+        if (Settings.none == true || Settings.taco == true || Settings.turtle == true || Settings.gac == true || Settings.samuria == true || Settings.among == true || Settings.bear == true || Settings.dad == true || Settings.recksFrog == true || Settings.spaceRider == true)
         {
             thePlayer.footR.gameObject.SetActive(false);
             amongPlayer.footR.gameObject.SetActive(false);
@@ -187,6 +196,7 @@ public class GameManager : MonoBehaviour
             dadPlayer.footR.gameObject.SetActive(false);
             plaguePlayer.footR.gameObject.SetActive(false);
             tacoPlayer.footR.gameObject.SetActive(false);
+            spaceRiderPlayer.footR.gameObject.SetActive(false);
             thePlayer.footL.gameObject.SetActive(false);
             amongPlayer.footL.gameObject.SetActive(false);
             bearPlayer.footL.gameObject.SetActive(false);
@@ -194,6 +204,7 @@ public class GameManager : MonoBehaviour
             dadPlayer.footL.gameObject.SetActive(false);
             plaguePlayer.footL.gameObject.SetActive(false);
             tacoPlayer.footL.gameObject.SetActive(false);
+            spaceRiderPlayer.footL.gameObject.SetActive(false);
             thePlayer.frogCostume.gameObject.SetActive(false);
             plaguePlayer.frogCostume.gameObject.SetActive(false);
             if (Settings.samuria == true)
@@ -215,6 +226,7 @@ public class GameManager : MonoBehaviour
             gacPlayer.bee.gameObject.SetActive(false);
             dadPlayer.bee.gameObject.SetActive(false);
             plaguePlayer.bee.gameObject.SetActive(false);
+            spaceRiderPlayer.bee.gameObject.SetActive(false);
         }
         rocketText.gameObject.SetActive(false);
         ninjaStarText.gameObject.SetActive(false);
@@ -278,6 +290,7 @@ public class GameManager : MonoBehaviour
         dadPlayer.velocity.y = 0;
         plaguePlayer.velocity.y = 0;
         tacoPlayer.velocity.y = 0;
+        spaceRiderPlayer.velocity.y = 0;
         CameraFollow.jetpack = false;
         CameraFollow.up = 0;
         CameraFollow.portal = false;

@@ -43,6 +43,10 @@ public class CharacterSelector : MonoBehaviour
     public GameObject dadTextDeselected;
     public GameObject dad;
     public GameObject dadDeselected;
+    public GameObject spaceRiderText;
+    public GameObject spaceRiderTextDeselected;
+    public GameObject spaceRider;
+    public GameObject spaceRiderDeselected;
     public GameObject amongText;
     public GameObject amongTextDeselected;
     public GameObject among;
@@ -83,6 +87,10 @@ public class CharacterSelector : MonoBehaviour
             content.transform.position = new Vector3(800, 3.1f, transform.position.z);
         }
         else if (Settings.dad == true)
+        {
+            content.transform.position = new Vector3(800, 3.1f, transform.position.z);
+        }
+        else if (Settings.spaceRider == true)
         {
             content.transform.position = new Vector3(800, 3.1f, transform.position.z);
         }
@@ -161,6 +169,10 @@ public class CharacterSelector : MonoBehaviour
             dadDeselected.SetActive(true);
             dadText.SetActive(false);
             dadTextDeselected.SetActive(true);
+            spaceRider.SetActive(false);
+            spaceRiderDeselected.SetActive(true);
+            spaceRiderText.SetActive(false);
+            spaceRiderTextDeselected.SetActive(true);
             if (Settings.turtleActivated == true)
             {
                 turtleDeselected.SetActive(true);
@@ -207,6 +219,10 @@ public class CharacterSelector : MonoBehaviour
             dadDeselected.SetActive(true);
             dadText.SetActive(false);
             dadTextDeselected.SetActive(true);
+            spaceRider.SetActive(false);
+            spaceRiderDeselected.SetActive(true);
+            spaceRiderText.SetActive(false);
+            spaceRiderTextDeselected.SetActive(true);
             if (Settings.turtleActivated == true)
             {
                 turtleDeselected.SetActive(true);
@@ -253,6 +269,10 @@ public class CharacterSelector : MonoBehaviour
             dadDeselected.SetActive(true);
             dadText.SetActive(false);
             dadTextDeselected.SetActive(true);
+            spaceRider.SetActive(false);
+            spaceRiderDeselected.SetActive(true);
+            spaceRiderText.SetActive(false);
+            spaceRiderTextDeselected.SetActive(true);
             if (Settings.turtleActivated == true)
             {
                 turtleDeselected.SetActive(true);
@@ -299,6 +319,10 @@ public class CharacterSelector : MonoBehaviour
             dadDeselected.SetActive(true);
             dadText.SetActive(false);
             dadTextDeselected.SetActive(true);
+            spaceRider.SetActive(false);
+            spaceRiderDeselected.SetActive(true);
+            spaceRiderText.SetActive(false);
+            spaceRiderTextDeselected.SetActive(true);
             among.SetActive(false);
             amongDeselected.SetActive(true);
             amongText.SetActive(false);
@@ -334,6 +358,10 @@ public class CharacterSelector : MonoBehaviour
             dadDeselected.SetActive(true);
             dadText.SetActive(false);
             dadTextDeselected.SetActive(true);
+            spaceRider.SetActive(false);
+            spaceRiderDeselected.SetActive(true);
+            spaceRiderText.SetActive(false);
+            spaceRiderTextDeselected.SetActive(true);
             if (Settings.turtleActivated == true)
             {
                 turtleDeselected.SetActive(true);
@@ -380,6 +408,10 @@ public class CharacterSelector : MonoBehaviour
             dadDeselected.SetActive(true);
             dadText.SetActive(false);
             dadTextDeselected.SetActive(true);
+            spaceRider.SetActive(false);
+            spaceRiderDeselected.SetActive(true);
+            spaceRiderText.SetActive(false);
+            spaceRiderTextDeselected.SetActive(true);
             if (Settings.turtleActivated == true)
             {
                 turtleDeselected.SetActive(true);
@@ -426,6 +458,60 @@ public class CharacterSelector : MonoBehaviour
             dadDeselected.SetActive(false);
             dadText.SetActive(true);
             dadTextDeselected.SetActive(false);
+            spaceRider.SetActive(false);
+            spaceRiderDeselected.SetActive(true);
+            spaceRiderText.SetActive(false);
+            spaceRiderTextDeselected.SetActive(true);
+            if (Settings.turtleActivated == true)
+            {
+                turtleDeselected.SetActive(true);
+                turtle.SetActive(false);
+                turtleTextDeselected.SetActive(true);
+                turtleText.SetActive(false);
+            }
+            taco.SetActive(false);
+            tacoDeselected.SetActive(true);
+            tacoText.SetActive(false);
+            tacoTextDeselected.SetActive(true);
+            among.SetActive(false);
+            amongDeselected.SetActive(true);
+            amongText.SetActive(false);
+            amongTextDeselected.SetActive(true);
+            if (Settings.samuriaActivated == true)
+            {
+                samuriaDeselected.SetActive(true);
+                samuria.SetActive(false);
+                samuriaTextDeselected.SetActive(true);
+                samuriaText.SetActive(false);
+            }
+            none.SetActive(false);
+            noneDeselected.SetActive(true);
+            noneText.SetActive(false);
+            noneTextDeselected.SetActive(true);
+        }
+        
+        else if (Settings.spaceRider == true)
+        {
+            plague.SetActive(false);
+            plagueDeselected.SetActive(true);
+            plagueText.SetActive(false);
+            plagueTextDeselected.SetActive(true);
+            bear.SetActive(false);
+            bearDeselected.SetActive(true);
+            bearText.SetActive(false);
+            bearTextDeselected.SetActive(true);
+            gac.SetActive(false);
+            gacDeselected.SetActive(true);
+            gacText.SetActive(false);
+            gacTextDeselected.SetActive(true);
+            dad.SetActive(false);
+            dadDeselected.SetActive(true);
+            dadText.SetActive(false);
+            dadTextDeselected.SetActive(true);
+            spaceRider.SetActive(true);
+            spaceRiderDeselected.SetActive(false);
+            spaceRiderText.SetActive(true);
+            spaceRiderTextDeselected.SetActive(false);
             if (Settings.turtleActivated == true)
             {
                 turtleDeselected.SetActive(true);
@@ -472,6 +558,10 @@ public class CharacterSelector : MonoBehaviour
             dadDeselected.SetActive(true);
             dadText.SetActive(false);
             dadTextDeselected.SetActive(true);
+            spaceRider.SetActive(false);
+            spaceRiderDeselected.SetActive(true);
+            spaceRiderText.SetActive(false);
+            spaceRiderTextDeselected.SetActive(true);
             if (Settings.turtleActivated == true)
             {
                 turtleDeselected.SetActive(true);
@@ -518,6 +608,10 @@ public class CharacterSelector : MonoBehaviour
             dadDeselected.SetActive(true);
             dadText.SetActive(false);
             dadTextDeselected.SetActive(true);
+            spaceRider.SetActive(false);
+            spaceRiderDeselected.SetActive(true);
+            spaceRiderText.SetActive(false);
+            spaceRiderTextDeselected.SetActive(true);
             if (Settings.turtleActivated == true)
             {
                 turtleDeselected.SetActive(true);
@@ -553,6 +647,7 @@ public class CharacterSelector : MonoBehaviour
         Settings.turtle = false;
         Settings.gac = false;
         Settings.dad = false;
+        Settings.spaceRider = false;
         Settings.among = false;
         Settings.samuria = false;
         Settings.target = 1;
@@ -567,6 +662,7 @@ public class CharacterSelector : MonoBehaviour
         Settings.turtle = false;
         Settings.gac = false;
         Settings.dad = false;
+        Settings.spaceRider = false;
         Settings.among = false;
         Settings.samuria = false;
         Settings.target = 7;
@@ -581,6 +677,7 @@ public class CharacterSelector : MonoBehaviour
         Settings.turtle = false;
         Settings.gac = false;
         Settings.dad = false;
+        Settings.spaceRider = false;
         Settings.among = false;
         Settings.samuria = false;
         Settings.target = 6;
@@ -595,6 +692,7 @@ public class CharacterSelector : MonoBehaviour
         Settings.turtle = true;
         Settings.gac = false;
         Settings.dad = false;
+        Settings.spaceRider = false;
         Settings.among = false;
         Settings.samuria = false;
         Settings.target = 1;
@@ -609,6 +707,7 @@ public class CharacterSelector : MonoBehaviour
         Settings.turtle = false;
         Settings.gac = false;
         Settings.dad = false;
+        Settings.spaceRider = false;
         Settings.among = false; 
         Settings.samuria = false;
         Settings.target = 3;
@@ -623,6 +722,7 @@ public class CharacterSelector : MonoBehaviour
         Settings.turtle = false;
         Settings.gac = true;
         Settings.dad = false;
+        Settings.spaceRider = false;
         Settings.among = false; 
         Settings.samuria = false;
         Settings.target = 4;
@@ -637,9 +737,25 @@ public class CharacterSelector : MonoBehaviour
         Settings.turtle = false;
         Settings.gac = false;
         Settings.dad = true;
+        Settings.spaceRider = true;
         Settings.among = false; 
         Settings.samuria = false;
         Settings.target = 5;
+    }
+    
+    public void SpaceRider()
+    {
+        Settings.none = false;
+        Settings.taco = false;
+        Settings.recksFrog = false;
+        Settings.bear = false;
+        Settings.turtle = false;
+        Settings.gac = false;
+        Settings.dad = false;
+        Settings.spaceRider = true;
+        Settings.among = false; 
+        Settings.samuria = false;
+        Settings.target = 8;
     }
 
     public void Among()
@@ -651,6 +767,7 @@ public class CharacterSelector : MonoBehaviour
         Settings.turtle = false;
         Settings.gac = false;
         Settings.dad = false;
+        Settings.spaceRider = false;
         Settings.among = true;
         Settings.samuria = false;
         Settings.target = 2;
@@ -665,6 +782,7 @@ public class CharacterSelector : MonoBehaviour
         Settings.turtle = false;
         Settings.gac = false;
         Settings.dad = false;
+        Settings.spaceRider = false;
         Settings.among = false;
         Settings.samuria = true;
         Settings.target = 1;

@@ -92,6 +92,7 @@ public class Settings : MonoBehaviour
     public static bool bear;
     public static bool gac;
     public static bool dad;
+    public static bool spaceRider;
     public static bool frog;
     public static bool recksFrog;
     public static bool turtle;
@@ -361,29 +362,6 @@ public class Settings : MonoBehaviour
                 StartCoroutine("AlternateSpace");
             }
         }
-        /*
-        //Among/Bear/GAC/Dad
-        if (among == false && bear == false && gac == false && dad == false)
-        {
-            target = 1;
-        }
-        else if (among == true && bear == false && gac == false && dad == false)
-        {
-            target = 2;
-        }
-        else if (among == false && bear == true && gac == false && dad == false)
-        {
-            target = 3;
-        }
-        else if (among == false && bear == false && gac == true && dad == false)
-        {
-            target = 4;
-        }
-        else if (among == false && bear == false && gac == false && dad == true)
-        {
-            target = 5;
-        }*/
-
 
 
         //Game Level

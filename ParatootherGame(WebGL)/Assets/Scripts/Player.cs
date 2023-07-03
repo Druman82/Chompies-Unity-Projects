@@ -68,6 +68,8 @@ public class Player : MonoBehaviour
     [SerializeField] public Transform dadPlayer;
     [SerializeField] public Transform plaguePlayer;
     [SerializeField] public Transform tacoPlayer;
+    [SerializeField] public Transform spaceRiderPlayer;
+
 
     public float gravity;
     private CharacterController characterController;
@@ -226,6 +228,7 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(false);
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
+            spaceRiderPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
             tacoPlayer.gameObject.SetActive(false);
         }
@@ -241,6 +244,7 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(false);
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
+            spaceRiderPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
             tacoPlayer.gameObject.SetActive(false);
         }
@@ -252,6 +256,7 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(false);
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
+            spaceRiderPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
             tacoPlayer.gameObject.SetActive(false);
         }
@@ -262,6 +267,7 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(false);
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
+            spaceRiderPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
             tacoPlayer.gameObject.SetActive(false);
         }
@@ -272,6 +278,7 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(true);
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
+            spaceRiderPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
             tacoPlayer.gameObject.SetActive(false);
         }
@@ -282,6 +289,7 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(false);
             gacPlayer.gameObject.SetActive(true);
             dadPlayer.gameObject.SetActive(false);
+            spaceRiderPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
             tacoPlayer.gameObject.SetActive(false);
         }
@@ -292,6 +300,7 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(false);
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(true);
+            spaceRiderPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
             tacoPlayer.gameObject.SetActive(false);
         }
@@ -302,6 +311,7 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(false);
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
+            spaceRiderPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(true);
             tacoPlayer.gameObject.SetActive(false);
         }
@@ -312,8 +322,20 @@ public class Player : MonoBehaviour
             bearPlayer.gameObject.SetActive(false);
             gacPlayer.gameObject.SetActive(false);
             dadPlayer.gameObject.SetActive(false);
+            spaceRiderPlayer.gameObject.SetActive(false);
             plaguePlayer.gameObject.SetActive(false);
             tacoPlayer.gameObject.SetActive(true);
+        }
+        else if (Settings.bear == false && Settings.among == false && Settings.none == false && Settings.gac == false && Settings.dad == false && Settings.recksFrog == false && Settings.taco == false && Settings.spaceRider == true)
+        {
+            player.gameObject.SetActive(false);
+            amongPlayer.gameObject.SetActive(false);
+            bearPlayer.gameObject.SetActive(false);
+            gacPlayer.gameObject.SetActive(false);
+            dadPlayer.gameObject.SetActive(false);
+            spaceRiderPlayer.gameObject.SetActive(true);
+            plaguePlayer.gameObject.SetActive(false);
+            tacoPlayer.gameObject.SetActive(false);
         }
 
         characterController = GetComponent<CharacterController>();
@@ -1231,7 +1253,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 25)
         {
             other.gameObject.SetActive(false);
-            if (Settings.none == true || Settings.bear == true || Settings.gac == true || Settings.dad == true || Settings.recksFrog == true)
+            if (Settings.none == true || Settings.bear == true || Settings.gac == true || Settings.dad == true || Settings.recksFrog == true || Settings.spaceRider == true)
             {
                 turtleShell.gameObject.SetActive(true);
                 mask.gameObject.SetActive(false);
@@ -1268,7 +1290,7 @@ public class Player : MonoBehaviour
             if (Settings.turtleTog == false && CharacterSelector.turtleGet == null)
             {
                 other.gameObject.SetActive(false);
-                if (Settings.none == true || Settings.bear == true || Settings.gac == true || Settings.dad == true || Settings.recksFrog == true)
+                if (Settings.none == true || Settings.bear == true || Settings.gac == true || Settings.dad == true || Settings.recksFrog == true || Settings.spaceRider == true)
                 {
                     turtleShell.gameObject.SetActive(true);
                     mask.gameObject.SetActive(false);
@@ -1291,7 +1313,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                if (Settings.none == true || Settings.bear == true || Settings.gac == true || Settings.dad == true || Settings.recksFrog == true)
+                if (Settings.none == true || Settings.bear == true || Settings.gac == true || Settings.dad == true || Settings.recksFrog == true || Settings.spaceRider == true)
                 {
                     turtleShell.gameObject.SetActive(true);
                     mask.gameObject.SetActive(false);
@@ -1485,6 +1507,7 @@ public class Player : MonoBehaviour
         //Killbox collision
         if (other.gameObject.tag == "killbox")
         {
+            Debug.Log("killed");
             if (Settings.recks == true)
             {
                 beeSound.Stop();

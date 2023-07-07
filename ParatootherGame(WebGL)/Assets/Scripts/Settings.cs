@@ -28,6 +28,7 @@ public class Settings : MonoBehaviour
     public static bool gamingApeClubLeaderboard = false;
     public static bool hikeshiLeaderboard = false;
     public static bool spaceRidersLeaderboard = false;
+    public static bool heroGalaxyLeaderboard = false;
     public static bool tacoTribeLeaderboard = false;
     public static bool thePlagueLeaderboard = false;
     public static bool teamLeaderboard = false;
@@ -93,6 +94,7 @@ public class Settings : MonoBehaviour
     public static bool gac;
     public static bool dad;
     public static bool spaceRider;
+    public static bool heroGalaxy;
     public static bool frog;
     public static bool recksFrog;
     public static bool turtle;

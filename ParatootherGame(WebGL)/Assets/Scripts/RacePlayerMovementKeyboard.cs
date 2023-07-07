@@ -1623,64 +1623,6 @@ public class RacePlayerMovementKeyboard : MonoBehaviour
             startingLine = false;
             currentTime = 0;
             timeText.text = ("0");
-            if (Settings.recks == true)
-            {
-                beeSound.Stop();
-            }
-            if (Settings.tokenNum >= 1)
-            {
-                Settings.slotBG = true;
-                SceneManager.LoadScene(slotMachine);
-                Cursor.visible = true;
-            }
-            else
-            {
-                if (Settings.soundFXBool == true)
-                {
-                    deathSound.Play();
-                }
-                theGameManager.RestartGame();
-
-                if (Settings.apeGang == true)
-                {
-                    playfabManager.SendApeGangLeaderboard(Settings.points);
-                }
-                if (Settings.brawlerBears == true)
-                {
-                    playfabManager.SendBrawlerBearsLeaderboard(Settings.points);
-                }
-                if (Settings.cryptoDads == true)
-                {
-                    playfabManager.SendCryptoDadsLeaderboard(Settings.points);
-                }
-                if (Settings.gamingApeClub == true)
-                {
-                    playfabManager.SendGamingApeClubLeaderboard(Settings.points);
-                }
-                if (Settings.hikeshi == true)
-                {
-                    playfabManager.SendHikeshiLeaderboard(Settings.points);
-                }
-                if (Settings.spaceRiders == true)
-                {
-                    playfabManager.SendSpaceRidersLeaderboard(Settings.points);
-                }
-                if (Settings.tacoTribe == true)
-                {
-                    playfabManager.SendTacoTribeLeaderboard(Settings.points);
-                }
-                if (Settings.thePlague == true)
-                {
-                    playfabManager.SendThePlagueLeaderboard(Settings.points);
-                }
-                else if (Settings.apeGang == false && Settings.brawlerBears == false && Settings.cryptoDads == false && Settings.gamingApeClub == false && Settings.spaceRiders == false && Settings.tacoTribe == false && Settings.thePlague == false)
-                {
-                    playfabManager.SendLeaderboard(Settings.points);
-                }
-                playfabManager.SaveTotalPoints();
-                playfabManager.SaveCoins();
-                playfabManager.SaveParachute();
-            }
         }
     }
     /*

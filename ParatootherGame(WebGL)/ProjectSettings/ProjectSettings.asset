@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.13.2
+  bundleVersion: 1.14.2
   preloadedAssets:
   - {fileID: 0}
   - {fileID: 0}
@@ -168,7 +168,7 @@ PlayerSettings:
     iPhone: 17
     tvOS: 0
   overrideDefaultApplicationIdentifier: 0
-  AndroidBundleVersionCode: 41
+  AndroidBundleVersionCode: 43
   AndroidMinSdkVersion: 22
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1

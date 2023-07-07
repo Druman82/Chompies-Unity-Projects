@@ -31626,6 +31626,7 @@ MonoBehaviour:
   target5: {fileID: 1429360638570737070}
   target6: {fileID: 1429360638570737070}
   target7: {fileID: 1429360638570737070}
+  target8: {fileID: 0}
 --- !u!65 &672896046
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36423,6 +36424,7 @@ MonoBehaviour:
   target5: {fileID: 1429360638570737070}
   target6: {fileID: 1429360638570737070}
   target7: {fileID: 1429360638570737070}
+  target8: {fileID: 1429360638570737070}
   offset: {x: 0, y: 0, z: -8}
 --- !u!114 &963194230
 MonoBehaviour:
@@ -51453,6 +51455,7 @@ MonoBehaviour:
   dadPlayer: {fileID: 1773797312168949531}
   plaguePlayer: {fileID: 1773797312168949531}
   tacoPlayer: {fileID: 1773797312168949531}
+  spaceRiderPlayer: {fileID: 1773797312168949531}
   theDeathScreen: {fileID: 501178314}
   gameLevel: GameLevel
   spaceLevel: Space
@@ -66487,6 +66490,7 @@ MonoBehaviour:
   dadPlayer: {fileID: 1429360638570737070}
   plaguePlayer: {fileID: 1429360638570737070}
   tacoPlayer: {fileID: 0}
+  spaceRiderPlayer: {fileID: 0}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
   isGrounded: 0

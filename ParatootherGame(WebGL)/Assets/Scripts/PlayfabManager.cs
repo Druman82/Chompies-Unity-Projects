@@ -149,6 +149,10 @@ public class PlayfabManager : MonoBehaviour
         {
             GetSpaceRidersLeaderboard();
         }
+        if (Settings.heroGalaxyLeaderboard == true)
+        {
+            GetHeroGalaxyLeaderboard();
+        }
         if (Settings.tacoTribeLeaderboard == true)
         {
             GetTacoTribeLeaderboard();
@@ -485,6 +489,21 @@ public class PlayfabManager : MonoBehaviour
         };
         PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
     }
+    public void SendHeroGalaxyLeaderboard(int score)
+    {
+        var request = new UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<StatisticUpdate>
+            {
+                new StatisticUpdate
+                {
+                    StatisticName = "HeroGalaxy",
+                    Value = score
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
+    }
 
     public void SendApeGangLeaderboard(int score)
     {
@@ -690,6 +709,17 @@ public class PlayfabManager : MonoBehaviour
         GetTitleData();
         //GetUserData();
     }
+    public void GetHeroGalaxyLeaderboard()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "HeroGalaxy",
+            StartPosition = 0,
+            MaxResultsCount = 100
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
+        GetTitleData();
+    }
     public void GetApeGangLeaderboard()
     {
         var request = new GetLeaderboardRequest
@@ -825,7 +855,7 @@ public class PlayfabManager : MonoBehaviour
         PlayFabClientAPI.GetLeaderboard(request, OnTeam5LeaderboardGetAverage, OnError);
     }
 
-    //Paratoother Leaderboard
+    //Paratoother Leaderboard Average
     public void GetChompiesLeaderboardAverage()
     {
         var request = new GetLeaderboardRequest
@@ -986,7 +1016,7 @@ public class PlayfabManager : MonoBehaviour
         leaderboardList.Add(team5AverageNumber / 100);
     }
 
-    //Paratoother Leaderboard
+    //Paratoother Leaderboard Get Average
     void OnChompiesLeaderboardGetAverage(GetLeaderboardResult result)
     {
         foreach (var item in result.Leaderboard)
@@ -1198,6 +1228,17 @@ public class PlayfabManager : MonoBehaviour
             texts[2].text = item.StatValue.ToString();
 
             //Debug.Log(item.Position + " " + item.PlayFabId + " item.StatValue");
+        }
+    }
+    void OnHeroGalaxyLeaderboardGet(GetLeaderboardResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            GameObject newGo = Instantiate(rowPrefab, rowsParent);
+            Text[] texts = newGo.GetComponentsInChildren<Text>();
+            texts[0].text = (item.Position + 1).ToString();
+            texts[1].text = item.DisplayName;
+            texts[2].text = item.StatValue.ToString();
         }
     }
     void OnApeGangLeaderboardGet(GetLeaderboardResult result)

@@ -10,6 +10,9 @@ public class RaceCameraFollow : MonoBehaviour
     [SerializeField] private Transform target4 = null;
     [SerializeField] private Transform target5 = null;
     [SerializeField] private Transform target6 = null;
+    [SerializeField] private Transform target7 = null;
+    [SerializeField] private Transform target8 = null;
+    [SerializeField] private Transform target9 = null;
     private Transform target;
     public Vector3 offset;
     public static bool jetpack;
@@ -43,6 +46,18 @@ public class RaceCameraFollow : MonoBehaviour
         else if (Settings.target == 6)
         {
             target = target6;
+        }        
+        else if (Settings.target == 7)
+        {
+            target = target7;
+        }        
+        else if (Settings.target == 8)
+        {
+            target = target8;
+        }        
+        else if (Settings.target == 9)
+        {
+            target = target9;
         }
         offset = transform.position - target.position;
     }

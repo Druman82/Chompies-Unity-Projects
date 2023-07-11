@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public string easyLevel;
     public string recksLevel;
     public string leaderboard;
+    public string heroGalaxyLeaderboard;
     public string apeGangLeaderboard;
     public string brawlerBearsLeaderboard;
     public string cryptoDadsLeaderboard;
@@ -269,6 +270,10 @@ public class MainMenu : MonoBehaviour
     {
         StartCoroutine("Leaderboards");
     }
+    public void HeroGalaxyLeaderboard()
+    {
+        StartCoroutine("HeroGalaxyLeaderboards");
+    }
     public void ApeGangLeaderboard()
     {
         StartCoroutine("ApeGangLeaderboards");
@@ -436,6 +441,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;
@@ -458,6 +464,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;
@@ -479,6 +486,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = true;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;
@@ -500,6 +508,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = true;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;
@@ -521,6 +530,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = true;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;
@@ -531,6 +541,30 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(gamingApeClubLeaderboard);
     }
+
+    public IEnumerator HeroGalaxyLeaderboards()
+    {
+        Settings.team1Leaderboard = false;
+        Settings.team2Leaderboard = false;
+        Settings.team3Leaderboard = false;
+        Settings.team4Leaderboard = false;
+        Settings.team5Leaderboard = false;
+        Settings.apeGangLeaderboard = false;
+        Settings.brawlerBearsLeaderboard = false;
+        Settings.cryptoDadsLeaderboard = false;
+        Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = true;
+        Settings.hikeshiLeaderboard = false;
+        Settings.spaceRidersLeaderboard = false;
+        Settings.tacoTribeLeaderboard = false;
+        Settings.thePlagueLeaderboard = false;
+        Settings.teamLeaderboard = false;
+        Settings.raceLeaderboard = false;
+        Settings.raceTeamLeaderboard = false;
+        yield return new WaitForSeconds(0.75f);
+        SceneManager.LoadScene(heroGalaxyLeaderboard);
+    }
+
     public IEnumerator HikeshiLeaderboards()
     {
         Settings.team1Leaderboard = false;
@@ -542,6 +576,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = true;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;
@@ -563,6 +598,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = true;
         Settings.tacoTribeLeaderboard = false;
@@ -584,6 +620,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = true;
@@ -605,6 +642,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;
@@ -626,6 +664,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;
@@ -647,6 +686,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;
@@ -668,6 +708,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;
@@ -689,6 +730,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;
@@ -710,6 +752,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;
@@ -731,6 +774,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;
@@ -752,6 +796,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;
@@ -773,6 +818,7 @@ public class MainMenu : MonoBehaviour
         Settings.brawlerBearsLeaderboard = false;
         Settings.cryptoDadsLeaderboard = false;
         Settings.gamingApeClubLeaderboard = false;
+        Settings.heroGalaxyLeaderboard = false;
         Settings.hikeshiLeaderboard = false;
         Settings.spaceRidersLeaderboard = false;
         Settings.tacoTribeLeaderboard = false;

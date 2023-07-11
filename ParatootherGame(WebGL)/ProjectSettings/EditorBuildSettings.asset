@@ -104,5 +104,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Leaderboards/ThePlagueLeaderboard.unity
     guid: db88582d59bdb50469003045f03b9ec3
+  - enabled: 1
+    path: Assets/Scenes/Leaderboards/HeroGalaxyLeaderboard.unity
+    guid: df5c6a5c65e5d3b40a8e2086d9c0f5bb
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 04b5c44f2c1a2404d8504c6444ef61e4, type: 2}

@@ -1575,6 +1575,7 @@ public class Player : MonoBehaviour
                 if (Settings.heroGalaxy == true)
                 {
                     playfabManager.SendHeroGalaxyLeaderboard(Settings.points);
+                    playfabManager.SendLeaderboard(Settings.points);
                 }
                 if (Settings.tacoTribe == true)
                 {
@@ -1586,7 +1587,6 @@ public class Player : MonoBehaviour
                 }   
                 else if (Settings.apeGang == false && Settings.brawlerBears == false && Settings.cryptoDads == false && Settings.gamingApeClub == false && Settings.heroGalaxy == false && Settings.spaceRiders == false && Settings.tacoTribe == false && Settings.thePlague == false)
                 {
-                    playfabManager.SendLeaderboard(Settings.points);
                 }
                 playfabManager.SaveTotalPoints();
                 playfabManager.SaveCoins();

@@ -205,7 +205,7 @@ public class PlayfabManager : MonoBehaviour
             GetTeam5LeaderboardAverage();
         }
 
-        else if (Settings.apeGangLeaderboard == false && Settings.brawlerBearsLeaderboard == false && Settings.cryptoDadsLeaderboard == false && Settings.gamingApeClubLeaderboard == false && Settings.hikeshiLeaderboard == false && Settings.spaceRidersLeaderboard == false && Settings.tacoTribeLeaderboard == false && Settings.thePlagueLeaderboard == false && Settings.teamLeaderboard == false && Settings.raceLeaderboard == false && Settings.raceTeamLeaderboard == false && Settings.team1Leaderboard == false && Settings.team2Leaderboard == false && Settings.team3Leaderboard == false && Settings.team4Leaderboard == false && Settings.team5Leaderboard == false)
+        else if (Settings.apeGangLeaderboard == false && Settings.brawlerBearsLeaderboard == false && Settings.cryptoDadsLeaderboard == false && Settings.gamingApeClubLeaderboard == false && Settings.heroGalaxyLeaderboard == false && Settings.hikeshiLeaderboard == false && Settings.spaceRidersLeaderboard == false && Settings.tacoTribeLeaderboard == false && Settings.thePlagueLeaderboard == false && Settings.teamLeaderboard == false && Settings.raceLeaderboard == false && Settings.raceTeamLeaderboard == false && Settings.team1Leaderboard == false && Settings.team2Leaderboard == false && Settings.team3Leaderboard == false && Settings.team4Leaderboard == false && Settings.team5Leaderboard == false)
         {
             GetLeaderboard();
         }

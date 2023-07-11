@@ -5390,9 +5390,9 @@ GameObject:
   - component: {fileID: 4207867188409590903}
   - component: {fileID: 7758550045136012813}
   - component: {fileID: 2904538477885997828}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5514,7 +5514,7 @@ GameObject:
   - component: {fileID: 1331057246125721418}
   - component: {fileID: 2335860317327243852}
   - component: {fileID: 2846231879361652063}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ToothInsert
   m_TagString: Untagged
   m_Icon: {fileID: 0}

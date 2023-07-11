@@ -321,6 +321,10 @@ public class CharacterSelector : MonoBehaviour
 
         else if (Settings.turtle == true)
         {
+            taco.SetActive(false);
+            tacoDeselected.SetActive(true);
+            tacoText.SetActive(false);
+            tacoTextDeselected.SetActive(true);
             plague.SetActive(false);
             plagueDeselected.SetActive(true);
             plagueText.SetActive(false);

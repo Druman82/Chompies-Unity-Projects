@@ -80,6 +80,7 @@ public class DeathMenu : MonoBehaviour
         Cursor.visible = false;
         pauseButton.SetActive(true);
         Time.timeScale = 1f;
+        pauseMenu.SetActive(false);
 
         FindObjectOfType<GameManager>().Reset();
     }

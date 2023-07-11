@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -7551964380084998518, guid: fae117768a1c5a5429497a05ed2948fb, type: 3}
+  m_Motion: {fileID: 7384292071842076963, guid: cb68e63f94f583d4d9a41cf6d8f0d473, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -148,7 +148,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 5917537482288442099, guid: fae117768a1c5a5429497a05ed2948fb, type: 3}
+    m_Motion: {fileID: -8021987208193217486, guid: cb68e63f94f583d4d9a41cf6d8f0d473, type: 3}
     m_Threshold: -2
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -156,7 +156,7 @@ BlendTree:
     m_DirectBlendParameter: Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 5539831331247536789, guid: fae117768a1c5a5429497a05ed2948fb, type: 3}
+    m_Motion: {fileID: -3183003503935442029, guid: cb68e63f94f583d4d9a41cf6d8f0d473, type: 3}
     m_Threshold: 2
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -204,7 +204,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HeroGalaxyAnimator
+  m_Name: SpaceRiderIdelAnimator 1
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Speed
@@ -276,7 +276,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Run_001
-  m_Speed: 1.2
+  m_Speed: 1.7
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8907733487538257403}
@@ -289,7 +289,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -7551964380084998518, guid: fae117768a1c5a5429497a05ed2948fb, type: 3}
+  m_Motion: {fileID: 8150234184457150021, guid: cb68e63f94f583d4d9a41cf6d8f0d473, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -303,7 +303,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: JumpAndFallBlend Tree
-  m_Speed: 1.2
+  m_Speed: 1.7
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1974539799503755573}
